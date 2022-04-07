@@ -1,0 +1,52 @@
+/* обнуление */
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+}
+ul,
+ol,
+li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+
+body {
+	overflow-x:hidden;
+	display: flex;
+	align-items: center;
+    justify-content: center;
+	line-height: 1;
+	font-size: 16px;
+	color: rgb(0, 0, 0);
+	background-color:rgb(43, 0, 255);
+	font-weight: 500;
+	font-family: Advent Pro;
+	height: 100vh;
+} 
+
+/* Arial */
+@font-face {
+	font-family: 'Arial';
+	font-style: regular;
+	font-weight: 400;
+	src: url('/shelter/assets/fonts/arialmt.ttf') format('ttf'),
+		
+}
