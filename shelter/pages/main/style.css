@@ -47,6 +47,12 @@ body {
 	font-family: 'Arial';
 	font-style: regular;
 	font-weight: 400;
-	src: url('/shelter/assets/fonts/arialmt.ttf') format('ttf'),
-		
+	src: url('/shelter/assets/fonts/arialmt.ttf') format('ttf');	
+}
+/* Arial */
+@font-face {
+	font-family: 'Arial';
+	font-style: regular;
+	font-weight: 400;
+	src: url('/shelter/assets/fonts/arialmt.ttf') format('ttf');	
 }
