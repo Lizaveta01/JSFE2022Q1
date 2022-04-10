@@ -83,7 +83,6 @@ body {
     justify-content: center;
 	font-size: 15px;
 	color: var(--color-dark-3xl);
-	/* background: url(../../assets/img/background.jpg); */
 	background-color: var(--color-light-xl);
 	font-weight: 400;
 	font-family: Arial, Helvetica, sans-serif;
@@ -218,7 +217,7 @@ body {
 	height: 52px;
 	cursor: pointer;
 }
-.not-only__button:hover:active{
+.not-only__button:hover{
 	background-color:var(--color-primary-light);
 }
 
@@ -330,6 +329,13 @@ body {
 	background-color: var(--color-light-s);
 	height: 435px;
 }
+
+.content-slider__card:hover > .card__button {
+	background-color:var(--color-primary-light);
+	border:none;
+	cursor: pointer;
+}
+
 .card-title {
 	color:var(--color-dark-l);
 	font-family: 'Georgia';
@@ -351,7 +357,7 @@ body {
 	cursor: pointer;
 	margin-bottom: 30px;
 }
-.card__button:hover, .our-friends__button:hover{
+.our-friends__button:hover{
 	background-color:var(--color-primary-light);
 	border:none;
 }
@@ -436,6 +442,7 @@ body {
 	
 }
 .donation-content__title {
+	padding-top: 2px;
 	color:var(--color-dark-l);
 	font-family: 'Georgia';
 	font-size: 35px;
@@ -460,6 +467,7 @@ body {
 	cursor: pointer;
 }
 .credit-card__icon {
+	margin-left: 8px;
 	background-image: url(../../assets/icons/credit-card.svg);
 	width: 30px;
 	height: 23px;
