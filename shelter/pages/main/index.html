@@ -5,51 +5,56 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../../assets/img/pets-jennifer.ico">
-	<link rel="stylesheet" href="/style.css">
+	<link rel="stylesheet" href="/shelter/pages/main/style.css">
 	<title>Main page</title>
 </head>
 <body>
 	<div class="wrapper">
-		<header class="header">
-			<div class="header__logo">
-				<p class="logo__title">Cozy House</p>
-				<p class="logo__subtitle">Shelter for pets in Boston</p>
+		<div class="start-page">
+			<header class="header">
+				<div class="header__logo">
+					<p class="logo__title">Cozy House</p>
+					<p class="logo__subtitle">Shelter for pets in Boston</p>
+				</div>
+				<nav class="header__nav">
+					<ul class="header__list">
+						<li class="header__item"><a href="#about" class="header__link"></a>About the shelter</li>
+						<li class="header__item"><a href="#pets" class="header__link"></a>Our pets</li>
+						<li class="header__item"><a href="#help" class="header__link"></a>Help the shelter</li>
+						<li class="header__item"><a href="#contacts" class="header__link"></a>Contacts</li>
+					</ul>
+				</nav>
+			</header>
+	
+			<div class="not-only">
+				<div class="not-only__content">
+					<h2 class="not-only__title">Not only people need a house</h2>
+					<p class="not-only__subtitle">We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or she will love you more than anybody else in the world, you will see!</p>
+					<button class="not-only__button">Make a friend</button>
+				</div>
+				<img src="../../assets/img/start-screen-puppy.png" alt="dog">	
 			</div>
-			<nav class="header__nav">
-				<ul class="header__list">
-					<li class="header__item"><a href="#" class="header__link"></a>About the shelter</li>
-					<li class="header__item"><a href="#" class="header__link"></a>Our pets</li>
-					<li class="header__item"><a href="#" class="header__link"></a>Help the shelter</li>
-					<li class="header__item"><a href="#contacts" class="header__link"></a>Contacts</li>
-				</ul>
-			</nav>
-		</header>
 
-		<div class="not-only">
-			<div class="not-only__content">
-				<h2 class="not-only__title">Not only people need a house</h2>
-				<p class="not-only__subtitle">We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or she will love you more than anybody else in the world, you will see!</p>
-				<button class="not-only__button">Make a friend</button>
-			</div>
-			<img src="../../assets/img/start-screen-puppy.png" alt="dog">	
 		</div>
+		
 
-		<div class="about">
+		<div class="about" id="about">
 			<div class="about-content">
+				<img class='about-content__photo' src="../../assets/img/about-pets.png" alt="pets">
 				<div class="about-content__content">
 					<h3 class="content__title">About the shelter “Cozy House”</h3>
 					<p class="content__subtitle">Currently we have 121 dogs and 342 cats on our hands and statistics show that only 20% of them will find a family. The others will continue to live with us and will be waiting for a lucky chance to become dearly loved.</p>
 					<p class="content__subtitle">We feed our wards with the best food and make sure that they do not get sick, feel comfortable (including psychologically) and well. We are supported by 87 volunteers and 28 employees of various skill levels. About 12% of the animals are taken by the shelter staff. Taking care of the animals, they become attached to the pets and would hardly ever leave them alone.</p>
 				</div>
-				<img src="../../assets/img/about-pets.png" alt="pets">
+				
 			</div>
 		</div>
 
-		<div class="our-friends">
+		<div class="our-friends" id="pets">
 			<div class="our-friends__content">
-				<h3 class="content__title">Our friends who are looking for a house</h3>
+				<h3 class="our-friends__content-title">Our friends who are looking for a house</h3>
 				<div class="our-friends__content-slider">
-					<button class="button-arrow"></button>
+					<button class="button-arrow-left"></button>
 					<div class="content-slider__card">
 						<img src="../../assets/img/pets-katrine.png" alt="cat">
 						<p class="card-title">Katrine</p>
@@ -65,13 +70,13 @@
 						<p class="card-title">Katrine</p>
 						<button class="card__button">Learn more</button>
 					</div>
-					<button class="button-arrow"></button>
+					<button class="button-arrow-right"></button>
 				</div>
 				<button class="our-friends__button">Get to know the rest</button>
 			</div>
 		</div>
 
-		<div class="help">
+		<div class="help" id="help" >
 			<div class="help__content">
 				<h3 class="help__title">How you can help our shelter</h3>
 				<div class="help__list">
@@ -138,7 +143,7 @@
 				
 			</div>
 		</div>
-		<footer class="footer">
+		<footer class="footer" id="contacts">
 			<div class="footer-content">
 				<div class="footer-content__contact">
 					<div class="footer__title">For questions and suggestions</div>
@@ -164,7 +169,7 @@
 					</div>
 				</div>
 
-				<img src="" alt="">
+				<img src="" alt=""> -->
 			</div>
 		</footer>
 
