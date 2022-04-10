@@ -279,7 +279,7 @@ body {
 	font-size: 35px;
 	line-height: 130%;
 	letter-spacing: 0.06em;
-	width: 30%;
+	width: 34%;
 	text-align:center;
 }
 .our-friends__content-slider {
@@ -328,6 +328,7 @@ body {
 	align-items:center;
 	background-color: var(--color-light-s);
 	height: 435px;
+	cursor: pointer;
 }
 
 .content-slider__card:hover > .card__button {
