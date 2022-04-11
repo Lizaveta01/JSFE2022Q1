@@ -124,6 +124,7 @@ body {
 	font-weight: 400;
 	font-size: 13px;
 	letter-spacing: 0.1em;
+	text-align: center;
 }
 .header__nav {
 	display: flex;
@@ -309,7 +310,7 @@ body {
 	gap: 40px;
 	width: 24%;
 	padding-top: 16px;
-	padding-bottom: 56px;
+	padding-bottom: 60px;
 }
 .footer__title {
 	color:var(--color-light-xl);
@@ -336,9 +337,9 @@ body {
 	display: flex;
 	flex-direction: column;
 	width: 26%;
-	gap: 32px;
+	gap: 33px;
 	padding-top: 16px;
-	padding-bottom: 56px;
+	padding-bottom: 60px;
 }
 .location-1 {
 	padding-top: 2px;

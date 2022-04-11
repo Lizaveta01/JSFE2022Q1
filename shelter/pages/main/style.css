@@ -129,6 +129,7 @@ body {
 	font-weight: 400;
 	font-size: 13px;
 	letter-spacing: 0.1em;
+	text-align: center;
 }
 .header__nav {
 	display: flex;
@@ -448,6 +449,7 @@ body {
 	align-items:center;
 }
 .donation-content__content {
+	padding-left: 2px;
 	display: flex;
 	gap: 20px;
 	flex-direction: column;
@@ -476,11 +478,11 @@ body {
 	height: 43px;
 	width: 91%;
 	align-items:center;
-	justify-content: space-around;
+	gap: 15px;
 	cursor: pointer;
 }
 .credit-card__icon {
-	margin-left: 8px;
+	margin-left: 15px;
 	background-image: url(../../assets/icons/credit-card.svg);
 	width: 30px;
 	height: 23px;
@@ -531,6 +533,7 @@ body {
 .contact-mail {
 	display: flex;
 	gap: 20px;
+	align-items: center;
 }
 .contact-mail__icon {
 	
@@ -546,9 +549,9 @@ body {
 	display: flex;
 	flex-direction: column;
 	width: 26%;
-	gap: 32px;
+	gap: 33px;
 	padding-top: 16px;
-	padding-bottom: 56px;
+	padding-bottom: 60px;
 }
 .location-1 {
 	padding-top: 2px;
