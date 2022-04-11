@@ -144,6 +144,18 @@ body {
 	position: relative;
 	transition: 0.3s;
 	cursor: pointer;
+	color: var(--color-primary);
+}
+
+.header__link-active{
+	border-bottom: solid var(--color-primary);
+	padding-bottom: 5px;
+	color: var(--color-light-s);
+	font-family: 'Arial';
+	font-size: 15px;
+	line-height: 160%;
+	letter-spacing: 0px; 
+	transition: 0.3s;
 }
 .header__item:not(:last-child){
 	margin-right: 35px;
