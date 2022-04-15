@@ -5,28 +5,30 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" href="../../assets/icons/Logo.ico" type="image/x-icon">>
-	<link rel="stylesheet" href="../main/style.css">
+	<link rel="stylesheet" href="style.css">
 	<title>Cozy House</title>
 </head>
 <body>
-	<div class="wrapper">
+
 		<header class="header">
-			<div class="header__logo"><a class="header__logo" href="../main/index.html" target="_blank">
-				<h1 class="logo__title">Cozy House</h1>
-				<p class="logo__subtitle">Shelter for pets in Boston</p></a>
+			<div class="header-container container">
+				<div class="header__logo"><a class="header__logo" href="../main/index.html" target="_blank">
+					<h1 class="logo__title">Cozy House</h1>
+					<p class="logo__subtitle">Shelter for pets in Boston</p></a>
+				</div>
+				<nav class="header__nav">
+					<ul class="header__list">
+						<li class="header__item"><a href="../main/index.html" class="header__link">About the shelter</a></li>
+						<li class="header__item"><a href="#pets" class="header__link-active" target="_blank">Our pets</a></li>
+						<li class="header__item"><a href="../main/index.html#help" class="header__link">Help the shelter</a></li>
+						<li class="header__item"><a href="#contacts" class="header__link">Contacts</a></li>
+					</ul>
+				</nav>
 			</div>
-			<nav class="header__nav">
-				<ul class="header__list">
-					<li class="header__item"><a href="../main/index.html" class="header__link">About the shelter</a></li>
-					<li class="header__item"><a href="#pets" class="header__link-active" target="_blank">Our pets</a></li>
-					<li class="header__item"><a href="../main/index.html#help" class="header__link">Help the shelter</a></li>
-					<li class="header__item"><a href="#contacts" class="header__link">Contacts</a></li>
-				</ul>
-			</nav>
 		</header>
 
 		<div class="our-friends" id="pets">
-			<div class="our-friends__content">
+			<div class="our-friends__content container">
 				<h3 class="our-friends__content-title">Our friends who <br> are  looking for a house</h3>
 				<div class="content-slider__cards">
 						<div class="content-slider__card">
@@ -73,7 +75,7 @@
 				<div class="content-slider__pagination">
 						<button type="button" class="button-arrow back disabled"> << </button>
 						<button class="button-arrow back disabled"> < </button>
-						<button class="button-arrow num"> 1 </button>
+						<button class="button-arrow num-active"> 1 </button>
 						<button class="button-arrow" > > </button>
 						<button class="button-arrow"> >> </button>
 				</div>
@@ -81,11 +83,11 @@
 		</div>
 		
 		<footer class="footer" id="contacts">
-			<div class="footer-content">
+			<div class="footer-content container">
 				<div class="footer-content__contact">
 					<div class="footer__title">For questions and suggestions</div>
 					<div class="contact-mail">
-					<a class="contact-mail link" href="https://mail.yandex.co.il/" target="_blank">
+					<a class="contact-mail link" href="mailto:email@shelter.com" target="_blank">
 						<div class="contact-mail__icon"><img src="../../assets/icons/icon-email.svg" alt="mail"></div>
 						<p class="footer-information">email@shelter.com</p> 
 					</a>
@@ -117,7 +119,6 @@
 				<img src="../../assets/img/footer-puppy.png" alt="dog">
 			</div>
 		</footer>
-	</div>
 
 	<script src="script.js"></script>
 </body>
