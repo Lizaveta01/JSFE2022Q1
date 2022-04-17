@@ -17,12 +17,17 @@
 				</h1>
 				<p class="header__subtitle">Shelter for pets in Boston</p>
 			</div>
+			<div class="header-burger">
+				<div class="line line1"></div>
+				<div class="line line2"></div>
+				<div class="line line3"></div>
+			</div>
 			<nav class="header__nav">
 				<ul class="header__list">
-					<li class="header__item"><a href="#about" class="header__link-active">About the shelter</a></li>
-					<li class="header__item"><a href="../pets/index.html" class="header__link" target="_blank">Our pets</a></li>
-					<li class="header__item"><a href="#help" class="header__link">Help the shelter</a></li>
-					<li class="header__item"><a href="#contacts" class="header__link">Contacts</a></li>
+					<li class="header__item" id="about"><a href="#about" class="header__link-active">About the shelter</a></li>
+					<li class="header__item" id="pets_nav"><a href="../pets/index.html" class="header__link" target="_blank">Our pets</a></li>
+					<li class="header__item" id="help_nav"><a href="#help" class="header__link">Help the shelter</a></li>
+					<li class="header__item" id="contacts"><a href="#contacts" class="header__link">Contacts</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -32,12 +37,12 @@
 		<section class="not-only">
 			<div class="not-only-container container">
 				<div class="not-only__content">
-					<h2 class="not-only__title">Not only people need a house</h2>
+					<h2 class="not-only__title">Not only people <br> need a house</h2>
 					<p class="not-only__subtitle">We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or she will love you more than anybody else in the world, you will see!</p>
 					 <a class="not-only__link button-link"href="#pets"><button class="not-only__button">Make a friend</button></a>
 				</div>
 				<div class="not-only__image">
-					<img src="../../assets/img/start-screen-puppy.png" alt="dog">
+					<img class="not-only__img" src="../../assets/img/start-screen-puppy.png" alt="dog">
 				</div>	
 			</div>
 		</section>
@@ -63,21 +68,21 @@
 				<div class="our-friends__content-slider">
 					<button class="button-arrow-left"></button>
 					<div class="content-slider__cards">
-						<div class="content-slider__card">
+						<div class="content-slider__card" id="card-1">
 							<div class="card-image">
 								<img src="../../assets/img/pets-katrine.png" alt="cat">
 							</div>
 							<p class="card-title">Katrine</p>
 							<button class="card__button">Learn more</button>
 						</div>
-						<div class="content-slider__card">
+						<div class="content-slider__card" id="card-2">
 							<div class="card-image">
 								<img src="../../assets/img/pets-jennifer.png" alt="dog">
 							</div>
 							<p class="card-title">Jennifer</p>
 							<button class="card__button">Learn more</button>
 						</div>
-						<div class="content-slider__card">
+						<div class="content-slider__card" id="card-3">
 							<div class="card-image">
 								<img src="../../assets/img/pets-woody.png" alt="dog">
 							</div>
@@ -96,49 +101,47 @@
 				<h3 class="help__title">How you can help our shelter</h3>
 				<div class="help__list">
 					<div class="help__list-item">
-						<div class="help__list-image">
-							<img src="../../assets/icons/icon-pet-food.svg" alt="pet food">
-						</div>
+							<img class="help__img" src="../../assets/icons/icon-pet-food.svg" alt="pet food">
 						<p class="list-item__text">Pet food</p>
 					</div>
 
 					<div class="help__list-item">
-						<img src="../../assets/icons/icon-transportation.svg" alt="transportation">
+						<img class="help__img" src="../../assets/icons/icon-transportation.svg" alt="transportation">
 						<p class="list-item__text">Transportation</p>
 					</div>
 
 					<div class="help__list-item">
-						<img src="../../assets/icons/icon-toys.svg" alt="toys">
+						<img class="help__img" src="../../assets/icons/icon-toys.svg" alt="toys">
 						<p class="list-item__text">Toys</p>
 					</div>
 
 					<div class="help__list-item">
-						<img src="../../assets/icons/icon-bowls-and-cups.svg" alt="bowls and cups">
+						<img class="help__img" src="../../assets/icons/icon-bowls-and-cups.svg" alt="bowls and cups">
 						<p class="list-item__text">Bowls and cups</p>
 					</div>
 
 					<div class="help__list-item">
-						<img src="../../assets/icons/icon-shampoos.svg" alt="shampos">
+						<img class="help__img" src="../../assets/icons/icon-shampoos.svg" alt="shampos">
 						<p class="list-item__text">Shampos</p>
 					</div>
 
 					<div class="help__list-item">
-						<img src="../../assets/icons/icon-vitamins.svg" alt="vitamins">
+						<img class="help__img" src="../../assets/icons/icon-vitamins.svg" alt="vitamins">
 						<p class="list-item__text">Vitamins</p>
 					</div>
 
 					<div class="help__list-item">
-						<img src="../../assets/icons/icon-medicines.svg" alt="medicines">
+						<img class="help__img" src="../../assets/icons/icon-medicines.svg" alt="medicines">
 						<p class="list-item__text">Medicines</p>
 					</div>
 
 					<div class="help__list-item">
-						<img src="../../assets/icons/icon-collars-leashes.svg" alt="collars / leashes">
+						<img class="help__img" src="../../assets/icons/icon-collars-leashes.svg" alt="collars / leashes">
 						<p class="list-item__text">Collars / leashes</p>
 					</div>
 
 					<div class="help__list-item">
-						<img src="../../assets/icons/icon-sleeping-area.svg" alt="sleeping areas">
+						<img class="help__img" src="../../assets/icons/icon-sleeping-area.svg" alt="sleeping areas">
 						<p class="list-item__text">Sleeping areas</p>
 					</div>
 				</div>
@@ -148,7 +151,7 @@
 		<section class="donation">
 			<div class="donation-content container">
 				<div class="donation-content-image">
-					<img src="../../assets/img/donation-dog.png" alt="dog">
+					<img class="donation-content__img" src="../../assets/img/donation-dog.png" alt="dog">
 				</div>
 				
 				<div class="donation-content__content">
@@ -166,44 +169,47 @@
 
 	<footer class="footer" id="contacts">
 		<div class="footer-content container">
-			<div class="footer-content__contact">
-				<div class="footer__title">For questions and suggestions</div>
-				<div class="contact-mail">
-					<a class="contact-mail link" href="mailto:email@shelter.com">
-						<div class="contact-mail__icon">
-							<img src="../../assets/icons/icon-email.svg" alt="mail">
-						</div>
-						<p class="footer-information">email@shelter.com</p> 
-					</a>
-				</div>
-				<div class="contact-mail">
-					<a class="contact-mail link" href="tel:+136745677554">
-						<div class="contact-mail__icon">
-							<img src="../../assets/icons/icon-phone.svg" alt="">
-						</div>
-						<p class="footer-information">+13 674 567 75 54</p>
-					</a>
-				</div>
-			</div>	
-			<div class="footer-content__location">
-				<div class="footer__title">We are waiting for your visit</div>
-				<div class="location-1">
-					<a class="contact-mail link" href="https://goo.gl/maps/Dhr44XAfDhik5FXy5" target="_blank">
-						<div class="location-1__icon">
-							<img src="../../assets/icons/icon-marker.svg" alt="">
-						</div>
-						<p class="footer-information">1 Central Street, Boston (entrance from the store)</p>
-					</a>
-				</div>
-				<div class="location-2">
-					<a class="contact-mail link" href="https://goo.gl/maps/8A4GAwXC6RgH8KabA" target="_blank">
-						<div class="location-2__icon">
-							<img src="../../assets/icons/icon-marker.svg" alt="">
-						</div>
-						<p class="footer-information">18 South Park, London</p>
-					</a>
+			<div class="footer-content__content">
+				<div class="footer-content__contact">
+					<div class="footer__title">For questions and suggestions</div>
+					<div class="contact-mail">
+						<a class="contact-mail link" href="mailto:email@shelter.com">
+							<div class="contact-mail__icon">
+								<img src="../../assets/icons/icon-email.svg" alt="mail">
+							</div>
+							<p class="footer-information">email@shelter.com</p> 
+						</a>
+					</div>
+					<div class="contact-mail">
+						<a class="contact-mail link" href="tel:+136745677554">
+							<div class="contact-mail__icon">
+								<img src="../../assets/icons/icon-phone.svg" alt="">
+							</div>
+							<p class="footer-information">+13 674 567 75 54</p>
+						</a>
+					</div>
+				</div>	
+				<div class="footer-content__location">
+					<div class="footer__title">We are waiting for your visit</div>
+					<div class="location-1">
+						<a class="contact-mail link" href="https://goo.gl/maps/Dhr44XAfDhik5FXy5" target="_blank">
+							<div class="location-1__icon">
+								<img src="../../assets/icons/icon-marker.svg" alt="">
+							</div>
+							<p class="footer-information">1 Central Street, Boston (entrance from the store)</p>
+						</a>
+					</div>
+					<div class="location-2">
+						<a class="contact-mail link" href="https://goo.gl/maps/8A4GAwXC6RgH8KabA" target="_blank">
+							<div class="location-2__icon">
+								<img src="../../assets/icons/icon-marker.svg" alt="">
+							</div>
+							<p class="footer-information">18 South Park, London</p>
+						</a>
+					</div>
 				</div>
 			</div>
+
 			<div class="footer-content-image">
 				<img src="../../assets/img/footer-puppy.png" alt="dog">
 			</div>
