@@ -697,7 +697,7 @@ body {
 
 }
 /*--------------ADAPTIVE----------------*/
-@media screen and (min-width: 768px) and (max-width:960px) {
+@media screen and (min-width: 733px) and (max-width:960px) {
 
 /* ----HEADER------------------------------ */
 
@@ -846,7 +846,7 @@ body {
 	}
 }
 
-@media screen and (min-width: 200px) and (max-width:767px) {
+@media screen and (min-width: 200px) and (max-width:733px) {
 /* ----HEADER------------------------------ */
 .container{
 	width: 100vw;
@@ -858,11 +858,11 @@ body {
 .header-container{
 	display: flex;
 	align-items:center;
-	justify-content: left;
+	justify-content: space-between;
 }
 .header-burger{
 	display: flex;
-	margin-left: 43px;
+	padding-right: 43px;
 }
 .header__link-active{
 	display: none;

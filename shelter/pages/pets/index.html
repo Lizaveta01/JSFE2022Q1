@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" href="../../assets/icons/Logo.ico" type="image/x-icon">>
+	<link rel="icon" href="../../assets/icons/Logo.ico" type="image/x-icon">
 	<link rel="stylesheet" href="style.css">
 	<title>Cozy House</title>
 </head>
@@ -12,16 +12,23 @@
 
 		<header class="header">
 			<div class="header-container container">
-				<div class="header__logo"><a class="header__logo" href="../main/index.html" target="_blank">
-					<h1 class="logo__title">Cozy House</h1>
-					<p class="logo__subtitle">Shelter for pets in Boston</p></a>
+				<div class="header__logo">
+					<h1 class="logo__title">
+						<a class="header-link">Cozy House</a>
+					</h1>
+					<p class="logo__subtitle">Shelter for pets in Boston</p>
+				</div>
+				<div class="header-burger">
+					<div class="line line1"></div>
+					<div class="line line2"></div>
+					<div class="line line3"></div>
 				</div>
 				<nav class="header__nav">
 					<ul class="header__list">
-						<li class="header__item"><a href="../main/index.html" class="header__link">About the shelter</a></li>
-						<li class="header__item"><a href="#pets" class="header__link-active" target="_blank">Our pets</a></li>
-						<li class="header__item"><a href="../main/index.html#help" class="header__link">Help the shelter</a></li>
-						<li class="header__item"><a href="#contacts" class="header__link">Contacts</a></li>
+						<li class="header__item" id="item-1"><a href="../main/index.html" class="header__link">About the shelter</a></li>
+						<li class="header__item" id="item-2"><a href="#pets" class="header__link-active" target="_blank">Our pets</a></li>
+						<li class="header__item" id="item-3"><a href="../main/index.html#help" class="header__link">Help the shelter</a></li>
+						<li class="header__item" id="item-4"><a href="#contacts" class="header__link">Contacts</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -31,42 +38,42 @@
 			<div class="our-friends__content container">
 				<h3 class="our-friends__content-title">Our friends who <br> are  looking for a house</h3>
 				<div class="content-slider__cards">
-						<div class="content-slider__card">
+						<div class="content-slider__card" id="card-1">
 							<img src="../../assets/img/pets-katrine.png" alt="cat">
 							<p class="card-title">Katrine</p>
 							<button class="card__button">Learn more</button>
 						</div>
-						<div class="content-slider__card">
+						<div class="content-slider__card" id="card-2">
 							<img src="../../assets/img/pets-jennifer.png" alt="dog">
 							<p class="card-title">Jennifer</p>
 							<button class="card__button">Learn more</button>
 						</div>
-						<div class="content-slider__card">
+						<div class="content-slider__card" id="card-3">
 							<img src="../../assets/img/pets-woody.png" alt="dog">
 							<p class="card-title">Woody</p>
 							<button class="card__button">Learn more</button>
 						</div>
-						<div class="content-slider__card">
+						<div class="content-slider__card" id="card-4">
 							<img src="../../assets/img/pets-sophia.png" alt="dog">
 							<p class="card-title">Sophia</p>
 							<button class="card__button">Learn more</button>
 						</div>
-						<div class="content-slider__card">
+						<div class="content-slider__card" id="card-5">
 							<img src="../../assets/img/pets-timmy.png" alt="dog">
 							<p class="card-title">Timmy</p>
 							<button class="card__button">Learn more</button>
 						</div>
-						<div class="content-slider__card">
+						<div class="content-slider__card" id="card-6">
 							<img src="../../assets/img/pets-charly.png" alt="dog">
 							<p class="card-title">Charly</p>
 							<button class="card__button">Learn more</button>
 						</div>
-						<div class="content-slider__card">
+						<div class="content-slider__card" id="card-7">
 							<img src="../../assets/img/pets-scarlet.png" alt="dog">
 							<p class="card-title">Scarlet</p>
 							<button class="card__button">Learn more</button>
 						</div>
-						<div class="content-slider__card">
+						<div class="content-slider__card" id="card-8">
 							<img src="../../assets/img/pets-freddie.png" alt="dog">
 							<p class="card-title">Freddie</p>
 							<button class="card__button">Learn more</button>
@@ -84,39 +91,50 @@
 		
 		<footer class="footer" id="contacts">
 			<div class="footer-content container">
-				<div class="footer-content__contact">
-					<div class="footer__title">For questions and suggestions</div>
-					<div class="contact-mail">
-					<a class="contact-mail link" href="mailto:email@shelter.com" target="_blank">
-						<div class="contact-mail__icon"><img src="../../assets/icons/icon-email.svg" alt="mail"></div>
-						<p class="footer-information">email@shelter.com</p> 
-					</a>
-					</div>
-					<div class="contact-mail">
-						<a class="contact-mail link" href="tel:+136745677554" target="_blank">
-						<div class="contact-mail__icon"><img src="../../assets/icons/icon-phone.svg" alt=""></div>
-						<p class="footer-information">+13 674 567 75 54</p>
-						</a>
+				<div class="footer-content__content">
+					<div class="footer-content__contact">
+						<div class="footer__title">For questions and suggestions</div>
+						<div class="contact-mail">
+							<a class="contact-mail link" href="mailto:email@shelter.com">
+								<div class="contact-mail__icon">
+									<img src="../../assets/icons/icon-email.svg" alt="mail">
+								</div>
+								<p class="footer-information">email@shelter.com</p> 
+							</a>
+						</div>
+						<div class="contact-mail">
+							<a class="contact-mail link" href="tel:+136745677554">
+								<div class="contact-mail__icon">
+									<img src="../../assets/icons/icon-phone.svg" alt="">
+								</div>
+								<p class="footer-information">+13 674 567 75 54</p>
+							</a>
+						</div>
+					</div>	
+					<div class="footer-content__location">
+						<div class="footer__title">We are waiting for your visit</div>
+						<div class="location-1">
+							<a class="contact-mail link" href="https://goo.gl/maps/Dhr44XAfDhik5FXy5" target="_blank">
+								<div class="location-1__icon">
+									<img src="../../assets/icons/icon-marker.svg" alt="">
+								</div>
+								<p class="footer-information">1 Central Street, Boston (entrance from the store)</p>
+							</a>
+						</div>
+						<div class="location-2">
+							<a class="contact-mail link" href="https://goo.gl/maps/8A4GAwXC6RgH8KabA" target="_blank">
+								<div class="location-2__icon">
+									<img src="../../assets/icons/icon-marker.svg" alt="">
+								</div>
+								<p class="footer-information">18 South Park, London</p>
+							</a>
+						</div>
 					</div>
 				</div>
-
-				<div class="footer-content__location">
-					<div class="footer__title">We are waiting for your visit</div>
-					<div class="location-1">
-						<a class="contact-mail link" href="https://goo.gl/maps/Dhr44XAfDhik5FXy5" target="_blank">
-						<div class="location-1__icon"><img src="../../assets/icons/icon-marker.svg" alt=""></div>
-						<p class="footer-information">1 Central Street, Boston (entrance from the store)</p>
-						</a>
-					</div>
-					<div class="location-2">
-						<a class="contact-mail link" href="https://goo.gl/maps/8A4GAwXC6RgH8KabA" target="_blank">
-						<div class="location-2__icon"><img src="../../assets/icons/icon-marker.svg" alt=""></div>
-						<p class="footer-information">18 South Park, London</p>
-						</a>
-					</div>
+	
+				<div class="footer-content-image">
+					<img class="footer-img" src="../../assets/img/footer-puppy.png" alt="dog">
 				</div>
-
-				<img src="../../assets/img/footer-puppy.png" alt="dog">
 			</div>
 		</footer>
 
