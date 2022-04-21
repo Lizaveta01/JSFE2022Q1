@@ -447,7 +447,7 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	width: 85%;
+	width: 1026;
 	align-items:center;
 	gap: 50px 120px
 }
@@ -606,7 +606,7 @@ body {
 .location-2__icon {
 }
 
-@media screen and (min-width:1160px) and (max-width: 1279px){
+/*@media screen and (min-width:1160px) and (max-width: 1279px){
 	.container{
 		width: 100%;
 		padding: 0px 40px;
@@ -627,8 +627,8 @@ body {
 	.footer-content__content{
 		gap: 100px;
 	}
-}
-@media screen and (min-width: 960px) and (max-width:1160px) {
+}*/
+/* @media screen and (min-width: 960px) and (max-width:1160px) {
 
 	.container{
 		width: 100%;
@@ -636,7 +636,7 @@ body {
 	}
 	
 	/* ----OUR FRIENDS------------------------------ */	
-	.our-friends {
+	/*.our-friends {
 	}
 	.our-friends__content {
 		flex-direction: column;
@@ -655,9 +655,9 @@ body {
 	
 	#card-3{
 		display: none;
-	}
+	}*/
 	/* ----FOOTER------------------------------ */
-	.footer{
+	/*.footer{
 		padding-top: 30px;
 	}
 	.footer-content__content{
@@ -681,12 +681,10 @@ body {
 		margin-right: 60px;
 	}
 
-}
+} */
 /*--------------ADAPTIVE----------------*/
-@media screen and (min-width: 733px) and (max-width:960px) {
-
+@media screen and (min-width: 767px) and (max-width:1279px) {
 /* ----HEADER------------------------------ */
-
 	.header {
 		padding: 30px 0 60px 0;
 	}
@@ -695,24 +693,12 @@ body {
 		justify-content: space-between;
 		/* gap: 230px */
 	}
-	.header__link-active{
-		display: none;
-	}
-	.header__list{
-		gap: 0;
-	}
-	.header__nav{
-		width: 294px;
-	}
 	.not-only-container {
 		display: flex;
 		justify-content: left;
 		gap: 100px;
 		flex-direction: column;
 		align-items:center;
-	}
-	#pets_nav, #help_nav {
-		padding-right: 35px;
 	}
 	.not-only__content{
 		margin-top: 0px;
@@ -721,8 +707,13 @@ body {
 		align-self: center;
 	}
 	.not-only__image{
-		width: 80%;
-    align-self: end;
+		margin-left: 139px;
+		width: 569px;
+		height: 591px;
+	}
+	.not-only__img{
+		width: 100%;
+		
 	}
 	/* ----ABOUT------------------------------ */
 	.about-content {
@@ -733,12 +724,10 @@ body {
 		align-items: center;
 	}
 	.about-content__content {
-		
 		order: 1;
 	}
 	.about-content-image{
 		order: 2;
-		
 	}
 	.content__title {
 		padding-top: 0px;
@@ -746,19 +735,17 @@ body {
 	.about-content-image > img {
 		width: 100%;
 		max-width: 300px;
-	
 	}
 
 /* ----HELP------------------------------ */
 	.help__content {
 		padding: 0px 39px;
-		
 	}
 	.help__title{
 		width: 45%;
 	}
 	.help__list{
-		gap: 55px 60px;
+		gap: 54px 60px;
 		justify-content:center;
 		align-items: center;
 		width: 100%;
@@ -782,7 +769,6 @@ body {
 	.donation-content__title {
 		padding-top: 0px;
 	}
-
 	.container{
 		width: 100%;
 		padding: 0 30px;
@@ -805,13 +791,12 @@ body {
 	.content-slider__cards {
 		gap: 40px;
 	}
-	
 	#card-3{
 		display: none;
 	}
 	/* ----FOOTER------------------------------ */
 	.footer{
-		padding-top: 30px;
+		padding-top: 27px;
 	}
 	.footer-content__content{
 		display: flex;
@@ -823,7 +808,6 @@ body {
 		gap:65px;
 	}
 	.footer-content__contact {
-
 		padding-top: 0px;
 	}
 	.footer-content__location {
@@ -832,7 +816,7 @@ body {
 	}
 }
 
-@media screen and (min-width: 200px) and (max-width:733px) {
+@media screen and (min-width: 100px) and (max-width:767px) {
 /* ----HEADER------------------------------ */
 .container{
 	width: 100%;
@@ -888,8 +872,13 @@ body {
 	align-self: center;
 }
 .not-only__image{
-	width: 87%;
-	align-self: end;
+	margin-left: 40px;
+	width: 260px;
+	height: 272px;
+}
+.not-only__img{
+	width: 100%;
+	
 }
 /* ----ABOUT------------------------------ */
 .about{
@@ -909,11 +898,11 @@ body {
 	gap: 22px;
 }
 .about-content-image{
-	width: 87%;
 	order: 2;	
 }
 .about-content__photo{
-	width: 100%;
+	width: 260px;
+	height: 354px;
 }
 .content__title {
 	font-size: 25px;
@@ -945,7 +934,7 @@ width: 38%;
 }
 .help__list{
 	gap: 30px;
-	justify-content:left;
+	justify-content:center;
 	padding: 0px 5px;
 	align-items: center;
 	width: 100%;
@@ -972,11 +961,12 @@ width: 38%;
 	margin: 0;
 }
 .donation-content-image {
-	width: 86%;
+	
 	order:2;
 }
 .donation-content__img{
-	width: 100%;
+	width: 260px;
+	height: 135px;
 }
 .donation-content__content {
 	width: 280px;
@@ -1027,6 +1017,7 @@ font-size: 15px;
 	width: 100%;
 }
 .our-friends__content-slider {
+	width: 270px;
 	flex-wrap: wrap;
 	float: left;
 	justify-content: center;
@@ -1085,10 +1076,11 @@ font-size: 15px;
 	align-self:baseline;
 }
 .footer-content-image{
-	width: 87%;
+	
 }
 .footer-img{
-	width: 100%;
+	width: 260px;
+	height: 266px;
 }
 
 }
