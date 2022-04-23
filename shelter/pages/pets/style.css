@@ -360,7 +360,7 @@ body {
 	flex-direction: column;
 	gap: 40px;
 	width: 279px;
-	padding-top: 16px;
+	padding-top: 16 gupx;
 }
 .footer__title {
 	color:var(--color-light-xl);
