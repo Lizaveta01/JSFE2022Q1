@@ -396,9 +396,22 @@ body {
 	overflow: hidden;
 	position: relative;
 }
+@media screen and (min-width: 767px) and (max-width:1279px){
+	.carousel-wrapper{
+		width: 580px;
+	}
+}
+@media screen and (max-width: 767px) {
+	.carousel-wrapper{
+		order:1;
+		width: 270px;
+	}
+	#btn-left {
+		order: 2;
+	}	
+}
 .content-slider__cards{
 	position: relative;
-	left: -1080px;
 	display: flex;
 	gap: 90px;	
 }
