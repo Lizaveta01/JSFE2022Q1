@@ -29,9 +29,10 @@ const BTN_RIGHT = document.querySelector('#btn-right');
 
 
 function createNewCard () {
-  let i = Math.floor(Math.random() * 8);
-
-  console.log(i);
+  // let i = Math.floor(Math.random() * 8);
+  let i;
+ 
+  i = 4;
   sliderCards.innerHTML += `<div class="content-slider__card" id="card-${i}">
   <div class="card-image">
     <img src=${pets[i].img} alt="dog">
@@ -40,7 +41,7 @@ function createNewCard () {
   <button class="card__button">Learn more</button>
   </div>
   `
-  i = Math.floor(Math.random() * 8);
+  i = 0;
   sliderCards.innerHTML += `<div class="content-slider__card" id="card-${i}">
   <div class="card-image">
     <img src=${pets[i].img} alt="dog">
@@ -49,7 +50,52 @@ function createNewCard () {
   <button class="card__button">Learn more</button>
   </div>
   `
-  i = Math.floor(Math.random() * 8);
+  i = 1;
+  sliderCards.innerHTML += `<div class="content-slider__card" id="card-${i}">
+  <div class="card-image">
+    <img src=${pets[i].img} alt="dog">
+  </div>
+  <p class="card-title">${pets[i].name}</p>
+  <button class="card__button">Learn more</button>
+  </div>
+  `
+  i = 3;
+  sliderCards.innerHTML += `<div class="content-slider__card" id="card-${i}">
+  <div class="card-image">
+    <img src=${pets[i].img} alt="dog">
+  </div>
+  <p class="card-title">${pets[i].name}</p>
+  <button class="card__button">Learn more</button>
+  </div>
+  `
+  i = 5;
+  sliderCards.innerHTML += `<div class="content-slider__card" id="card-${i}">
+  <div class="card-image">
+    <img src=${pets[i].img} alt="dog">
+  </div>
+  <p class="card-title">${pets[i].name}</p>
+  <button class="card__button">Learn more</button>
+  </div>
+  `
+  i = 2;
+  sliderCards.innerHTML += `<div class="content-slider__card" id="card-${i}">
+  <div class="card-image">
+    <img src=${pets[i].img} alt="dog">
+  </div>
+  <p class="card-title">${pets[i].name}</p>
+  <button class="card__button">Learn more</button>
+  </div>
+  `
+  i = 6;
+  sliderCards.innerHTML += `<div class="content-slider__card" id="card-${i}">
+  <div class="card-image">
+    <img src=${pets[i].img} alt="dog">
+  </div>
+  <p class="card-title">${pets[i].name}</p>
+  <button class="card__button">Learn more</button>
+  </div>
+  `
+  i = 7;
   sliderCards.innerHTML += `<div class="content-slider__card" id="card-${i}">
   <div class="card-image">
     <img src=${pets[i].img} alt="dog">
@@ -70,7 +116,6 @@ async function getPets() {
   }
   pets = await getData();
   createNewCard();
-  // console.log(pets[1].img);
 }
 document.addEventListener('DOMContentLoaded', getPets);
 //---------------------------------------------------------------------//
@@ -81,12 +126,13 @@ let index = 0;
 function Scroll(increase) {
   let elementWidth = document.querySelector('.carousel-wrapper').clientWidth;
   console.log(elementWidth);
+  
   let elementGap = elementWidth > 900 ? 90 : elementWidth > 500 ? 40 : 40;
   index = index + increase;
   getPets();
     if (index === -1) {
       sliderCards.style.transition = 'none';
-      index = elementWidth > 900 ? 12 : elementWidth > 500 ? 11 : 15;
+      index = elementWidth > 900 ? 3 : elementWidth > 500 ? 11 : 15;
       sliderCards.style.transform = `translateX(${-(elementWidth + elementGap) * index}px)`
       Scroll(-1);
     }
@@ -134,5 +180,10 @@ BTN_RIGHT.addEventListener('click', e => Scroll(1));
 //   BTN_RIGHT.addEventListener('click', moveRight);
 // })
 
+const BTN_CARD = document.querySelectorAll('.card__button');
+BTN_LEFT.addEventListener('click', seeInfo);
+  
+function seeInfo() {
 
-//реализация POPUP
+}
+background.classList.toggle('visible');
