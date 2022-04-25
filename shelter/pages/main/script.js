@@ -25,7 +25,6 @@ document.querySelector('.header__list').addEventListener("click",function(e) {
 
 //______________________________________________//
 
-
 document.addEventListener('DOMContentLoaded', async () => {
 const sliderCards = document.querySelector('.content-slider__cards');
 const BTN_LEFT = document.querySelector('#btn-left');
@@ -105,12 +104,7 @@ getPets().then(() => {
         </div>`
   })
 
-  //находим все карточки
-  cards = document.querySelectorAll('.content-slider__card');
-  //запускаем функцию popup при челчке на карту
-  cards.forEach((card, index) => {
-      card.addEventListener('click', e => popUpCard(index, scroll_pets))
-  })
+ 
 
   //Scroll on main page
   let index = 1;
@@ -128,24 +122,7 @@ getPets().then(() => {
   function Scroll(increase) {
       index = index + increase;
 
-      // if (index === -1) {
-      //         sliderCards.style.transition = 'none';
-      //         index = elementWidth > 900 ? 12 : elementWidth > 500 ? 11 : 15;
-      //         sliderCards.style.transform = `translateX(${-(elementWidth + elementGap) * index}px)`
-      //         Scroll(-1);
-      //       }
-      //       else if (index === (elementWidth > 900 ? 13 : elementWidth > 500 ? 12 : 16)) {
-      //         sliderCards.style.transform = `translateX(${-(elementWidth + elementGap) * index}px)`
-      //         sliderCards.style.transition = 'none';
-      //         index = 0;
-      //         sliderCards.style.transform = `translateX(${-(elementWidth + elementGap) * index}px)`
-      //         Scroll(1);
-      //       }
-      //       else
-      //       sliderCards.style.transform = `translateX(${-(elementWidth + elementGap) * index}px)`
-      //       sliderCards.style.transition = 'transform 0.5s ease';
-
-      scrollWindow.style.transform = `translateX(${-(elementWidth + elementGap) * index}px)`;
+       scrollWindow.style.transform = `translateX(${-(elementWidth + elementGap) * index}px)`;
       setTimeout(() => {
           scrollWindow.style.transition = 'none';
           index = 1;
@@ -153,7 +130,7 @@ getPets().then(() => {
           scrollInnerHtmlReplacement(scroll_pets, pets, increase, elementWidth);
           scrollWindow.style.transform = `translateX(${-(elementWidth + elementGap) * index}px)`;
   
-          cards = document.querySelectorAll('.card');
+          cards = document.querySelectorAll('.content-slider__card');
           cards.forEach((card, index) => {
               card.addEventListener('click', e => popUpCard(index, scroll_pets))
           })
@@ -238,52 +215,74 @@ function shuffleArray(arr) {
 }
 
 //________________popup________________________________
+
+ //находим все карточки
+ cards = document.querySelectorAll('.content-slider__card');
+ //запускаем функцию popup 
+ cards.forEach((card, index) => {
+    card.addEventListener('click', e => popUpCard(index, scroll_pets))
+ })
+
+
 function popUpCard(index, pets_arr) {
   {
       modalWindow.innerHTML = `
-  <div class="image">
-                  <img src="../../assets/img/pets/${pets_arr[index].name}.png" alt="pet ${pets_arr[index].name}">
-              </div>
-              <div class="content">
-                  <div class="header">
-
-                      <h3 class='name'>${pets_arr[index].name}</h3>
-                      <h4 class='breed'>${pets_arr[index].type} - ${pets_arr[index].breed}</h4>
-                  </div>
-                  <p>${pets_arr[index].description}</p>
-
-                  <ul class="optional_info">
-                      <li><span>Age: </span>${pets_arr[index].age}</li>
-                      <li><span>Inoculations: </span>${pets_arr[index].inoculations}</li>
-                      <li><span>Diseases: </span>${pets_arr[index].diseases}</li>
-                      <li><span>Parasites: </span>${pets_arr[index].parasites}</li>
-                  </ul>  
-                  
-              </div>
-              <button class="close arrow">&times;</button>   
+      <div class="modal-window__content">
+      <div class="button-arrow" id="btn-close"></div>
+        <div class="modal__image">
+          <img class="modal__img" src=${pets_arr[index].img} alt="${pets_arr[index].name}">
+        </div>	
+        <div class="text-wrapper">
+          <h3 class="content-text " id="name"> ${pets_arr[index].name}</h3>
+          <h4 class="content-text" id="subname">${pets_arr[index].type} - ${pets_arr[index].breed}</h4>
+          <p class="content-text"  id="info-pet"> ${pets_arr[index].description}</p>
+          <ul class="list-info">
+            <li class="list-item">
+              <button class="dot"></button>
+              <p class="parametr"><strong>Age: </strong>${pets_arr[index].age}</p>
+            </li>
+            <li class="list-item">
+              <button class="dot"></button>
+              <p class="parametr"><strong>Inoculations: </strong>${pets_arr[index].inoculations}</p>
+            </li>
+            <li class="list-item">
+              <button class="dot"></button>
+              <p class="parametr"><strong>Diseases: </strong>${pets_arr[index].diseases}</p>
+            </li>
+            <li class="list-item">
+              <button class="dot"></button>
+              <p class="parametr"><strong>Parasites: </strong>${pets_arr[index].parasites}</p>
+            </li>
+          </ul>
+          </div>
+      </div>
   `;
-      document.querySelector('.popUp').classList.add('_active');
-      document.body.classList.add('scroll_lock');
+      modalWindow.classList.add('active');
+      document.body.classList.add('block');
+      background.classList.add('visible');
 
-      const closeBtn = document.querySelector('.close');
-      document.querySelector('.glass').addEventListener('click', e => {
+
+      const closeBtn = document.getElementById('btn-close');
+
+      background.addEventListener('click', e => {
           closeBtn.click();
       });
-      document.querySelector('.glass').addEventListener('mouseenter', e => {
-          closeBtn.classList.toggle('close_hover');
-      })
-      document.querySelector('.glass').addEventListener('mouseout', e => {
-          closeBtn.classList.toggle('close_hover');
-      })
+      // background.addEventListener('mouseenter', e => {
+      //     closeBtn.classList.toggle('close_hover');
+      // })
+      // background.addEventListener('mouseout', e => {
+      //     closeBtn.classList.toggle('close_hover');
+      // })
       closeBtn.addEventListener('click', e => {
-          document.querySelector('.popUp').style.opacity = 0;
+          modalWindow.style.opacity = 0;
           setTimeout(() => {
-              document.querySelector('.popUp').style.opacity = '';
-
-              document.querySelector('.popUp').classList.remove('_active');
-              document.body.classList.remove('scroll_lock');
+              modalWindow.style.opacity = '';
+              modalWindow.classList.remove('active');
+              document.body.classList.remove('block');
+              background.classList.remove('visible');
           }, 300);
       });
+      console.log("++")
   }
 }
 
