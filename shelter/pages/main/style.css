@@ -121,6 +121,7 @@ body {
 
 
 .modal-window {
+	display: none;
 	width: 953px;
 	height: 555px;
 	position: absolute;
@@ -131,7 +132,9 @@ body {
 	overflow: auto;
 	margin: auto;
 	z-index: 12;
-
+}
+..modal-window.visible{
+	display: ;
 }
 #btn-close {
 	background-image: url(../../assets/icons/close.svg);
@@ -484,12 +487,6 @@ line-height: 130%;
 	position: relative;
 	display: flex;
 	gap: 90px;	
-	left: -2160px;
-}
-@media screen and (min-width: 767px) and (max-width:1279px){
-	.content-slider__cards{
-		left:-3100px;
-	}
 }
 
 /*---------ANIMATION--------*/
@@ -522,6 +519,7 @@ line-height: 130%;
 	cursor: pointer;
 	border-radius: 9px;
 	transition: 0.8s;
+	transform: translateX(0);
 }
 
 .content-slider__card:hover > .card__button {
