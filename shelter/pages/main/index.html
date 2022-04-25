@@ -8,7 +8,9 @@
 	<link rel="stylesheet" href="./style.css">
 	<title>Cozy House</title>
 </head>
-<body>
+<body class="scroll">
+	<div class="modal-window">
+	</div>
 	<header class="header">
 		<div class="header-container container">
 			<div class="header__logo">
@@ -66,31 +68,61 @@
 			<div class="our-friends__content container">
 				<h3 class="our-friends__content-title">Our friends who <br> are looking for a house</h3>
 				<div class="our-friends__content-slider">
-					<button class="button-arrow-left"></button>
-					<div class="content-slider__cards">
-						<div class="content-slider__card" id="card-1">
-							<div class="card-image">
-								<img src="../../assets/img/pets-katrine.png" alt="cat">
+					<button class="button-arrow" id="btn-left"></button>
+					<button class="button-arrow" id="btn-right"></button>
+					<div class="carousel-wrapper">
+						<div class="content-slider__cards">
+							<div class="content-slider__card" id="card-1">
+								<div class="card-image">
+									<img src="../../assets/img/pets-katrine.png" alt="cat">
+								</div>
+								<p class="card-title">Katrine</p>
+								<button class="card__button">Learn more</button>
 							</div>
-							<p class="card-title">Katrine</p>
-							<button class="card__button">Learn more</button>
-						</div>
-						<div class="content-slider__card" id="card-2">
-							<div class="card-image">
-								<img src="../../assets/img/pets-jennifer.png" alt="dog">
+							<div class="content-slider__card" id="card-2">
+								<div class="card-image">
+									<img src="../../assets/img/pets-jennifer.png" alt="dog">
+								</div>
+								<p class="card-title">Jennifer</p>
+								<button class="card__button">Learn more</button>
 							</div>
-							<p class="card-title">Jennifer</p>
-							<button class="card__button">Learn more</button>
-						</div>
-						<div class="content-slider__card" id="card-3">
-							<div class="card-image">
-								<img src="../../assets/img/pets-woody.png" alt="dog">
+							<div class="content-slider__card" id="card-3">
+								<div class="card-image">
+									<img src="../../assets/img/pets-woody.png" alt="dog">
+								</div>
+								<p class="card-title">Woody</p>
+								<button class="card__button">Learn more</button>
 							</div>
-							<p class="card-title">Woody</p>
-							<button class="card__button">Learn more</button>
+							<div class="content-slider__card" id="card-4">
+								<img src="../../assets/img/pets-sophia.png" alt="dog">
+								<p class="card-title">Sophia</p>
+								<button class="card__button">Learn more</button>
+							</div>
+							<div class="content-slider__card" id="card-5">
+								<img src="../../assets/img/pets-timmy.png" alt="dog">
+								<p class="card-title">Timmy</p>
+								<button class="card__button">Learn more</button>
+							</div>
+							<div class="content-slider__card" id="card-6">
+								<img src="../../assets/img/pets-charly.png" alt="dog">
+								<p class="card-title">Charly</p>
+								<button class="card__button">Learn more</button>
+							</div>
+							<div class="content-slider__card" id="card-7">
+								<img src="../../assets/img/pets-scarlet.png" alt="dog">
+								<p class="card-title">Scarlet</p>
+								<button class="card__button">Learn more</button>
+							</div>
+							<div class="content-slider__card" id="card-8">
+								<img src="../../assets/img/pets-freddie.png" alt="dog">
+								<p class="card-title">Freddie</p>
+								<button class="card__button">Learn more</button>
+							</div>
+							
 						</div>
 					</div>
-					<button class="button-arrow-right"></button>
+					
+					
 				</div>
 				<a href="../pets/index.html" class="our-friends__button"><button class="our-friends__button">Get to know the rest</button></a>
 			</div>
@@ -215,6 +247,7 @@
 			</div>
 		</div>
 	</footer>
-	<script src="script.js"></script>
+	<div class="background"></div>
+	<script src="./script.js"></script>
 </body>
 </html>

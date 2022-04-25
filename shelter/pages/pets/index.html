@@ -8,8 +8,9 @@
 	<link rel="stylesheet" href="./style.css">
 	<title>Cozy House</title>
 </head>
-<body>
-
+<body class="scroll">
+	<div class="modal-window">
+	</div>
 		<header class="header">
 			<div class="header-container container">
 				<div class="header__logo">
@@ -37,7 +38,7 @@
 		<div class="our-friends" id="pets">
 			<div class="our-friends__content container">
 				<h3 class="our-friends__content-title">Our friends who <br> are  looking for a house</h3>
-				<div class="content-slider__cards">
+					<div class="content-slider__cards">
 						<div class="content-slider__card" id="card-1">
 							<img src="../../assets/img/pets-katrine.png" alt="cat">
 							<p class="card-title">Katrine</p>
@@ -83,9 +84,11 @@
 						<button type="button" class="button-arrow back disabled"> << </button>
 						<button class="button-arrow back disabled"> < </button>
 						<button class="button-arrow num-active"> 1 </button>
-						<button class="button-arrow" > > </button>
+						<button class="button-arrow"  > > </button>
 						<button class="button-arrow"> >> </button>
 				</div>
+				</div>
+				
 			</div>
 		</div>
 		
@@ -137,7 +140,7 @@
 				</div>
 			</div>
 		</footer>
-
-	<script src="script.js"></script>
+		<div class="background"></div>
+	<script src="./script.js"></script>
 </body>
 </html>
