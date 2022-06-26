@@ -1,14 +1,19 @@
-class Loader {
-    public baseLink: string;
-    public options: {apiKey:string};
+enum ErrorTypes {
+    Error_404 = 404,
+    Error_401 = 401,
+}
 
-    constructor(baseLink: string, options: {apiKey:string}) {
+
+class Loader {
+    private baseLink: string;
+    private options: {[prop:string]: string};
+
+    constructor(baseLink: string, options: {[prop:string]: string}) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
-    getResp(
-        { endpoint, options = {} },
+    getResp({ endpoint, options}: {endpoint: string, options?: Record<string, string>},
         callback = () => {
             console.error('No callback for GET response');
         }
@@ -18,7 +23,7 @@ class Loader {
 
     errorHandler(res) {
         if (!res.ok) {
-            if (res.status === 401 || res.status === 404)
+            if (res.status === ErrorTypes.Error_401 || res.status === ErrorTypes.Error_404)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
             throw Error(res.statusText);
         }
