@@ -1,7 +1,17 @@
 import './sources.css';
 
+export interface ISources {
+    category: string,
+    country: string,
+    description: string,
+    id: string,
+    language: string,
+    name: string,
+    url: string
+}
 class Sources {
-    draw(data) {
+    draw(data: ISources []) {
+        
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
 

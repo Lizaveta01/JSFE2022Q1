@@ -3,6 +3,17 @@ enum ErrorTypes {
     Error_401 = 401,
 }
 
+interface IResponce {
+    body: ReadableStream,
+    bodyUsed: boolean,
+    headers: Headers,
+    ok: boolean,
+    redirected: false,
+    status: number,
+    statusText: string,
+    type: string,
+    url: string
+}
 
 class Loader {
     private baseLink: string;
@@ -21,7 +32,7 @@ class Loader {
         this.load('GET', endpoint, callback, options);
     }
 
-    errorHandler(res) {
+    errorHandler(res: IResponce) {
         if (!res.ok) {
             if (res.status === ErrorTypes.Error_401 || res.status === ErrorTypes.Error_404)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -31,7 +42,8 @@ class Loader {
         return res;
     }
 
-    makeUrl(options, endpoint) {
+    makeUrl(options, endpoint: string) {
+console.log(options)
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -42,7 +54,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method, endpoint, callback, options = {}) {
+    load(method, endpoint: string, callback, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
