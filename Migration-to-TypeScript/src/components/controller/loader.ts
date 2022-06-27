@@ -4,19 +4,6 @@ enum ErrorTypes {
     Error_404 = 404,
     Error_401 = 401,
 }
-
-interface IResponce {
-    body: ReadableStream,
-    bodyUsed: boolean,
-    headers: Headers,
-    ok: boolean,
-    redirected: false,
-    status: number,
-    statusText: string,
-    type: string,
-    url: string
-}
-
 class Loader {
     baseLink: string;
     options: Record<string, string>;
@@ -34,7 +21,7 @@ class Loader {
         this.load('GET', endpoint, callback, options);
     }
 
-    errorHandler(res: IResponce) {
+    errorHandler(res: Response) {
         if (!res.ok) {
             if (res.status === ErrorTypes.Error_401 || res.status === ErrorTypes.Error_404)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -55,11 +42,11 @@ class Loader {
         return url.slice(0, -1);
     }
     
-    load(method: string, endpoint: string, callback: (data: IAppSourceNews) => void , options = {}) {
+    load(method: string, endpoint: string, callback: (data: IAppSourceNews) => void , options?: Record<string, string>) {
     
-        fetch(this.makeUrl(options, endpoint), { method })
+        fetch(this.makeUrl(options, endpoint), { method }) 
             .then(this.errorHandler)
-            .then((res) => res.json())
+            .then((res) => res.json()) 
             .then((data) => callback(data))
             .catch((err) => console.error(err));
     }
