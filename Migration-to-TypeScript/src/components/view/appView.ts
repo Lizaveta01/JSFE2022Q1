@@ -3,17 +3,12 @@ import Sources from './sources/sources';
 import { ISources } from './sources/sources';
 import { INews } from './news/news';
 
-export interface IAppSource {
+export interface IAppSourceNews {
     status: string,
-    sources: ISources[]
+    sources?: ISources[],
+    totalResults?: number,
+    articles?: INews[]
 }
-
-export interface IAppNews {
-    status: string,
-    totalResults: number,
-    articles: INews[]
-}
-
 
 export class AppView {
     news: News;
@@ -24,12 +19,12 @@ export class AppView {
         this.sources = new Sources();
     }
 
-    drawNews(data: IAppNews) {
+    drawNews(data: IAppSourceNews) {
         const values = data?.articles ? data?.articles : [];
         this.news.draw(values);
     }
 
-    drawSources(data: IAppSource) {
+    drawSources(data: IAppSourceNews) {
         const values = data?.sources ? data?.sources : [];
         this.sources.draw(values);
     }

@@ -1,3 +1,5 @@
+import { IAppSourceNews } from '../view/appView';
+
 enum ErrorTypes {
     Error_404 = 404,
     Error_401 = 401,
@@ -16,16 +18,16 @@ interface IResponce {
 }
 
 class Loader {
-    private baseLink: string;
-    private options: {[prop:string]: string};
+    baseLink: string;
+    options: Record<string, string>;
 
-    constructor(baseLink: string, options: {[prop:string]: string}) {
+    constructor(baseLink: string, options: Record<string, string>) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
     getResp({ endpoint, options}: {endpoint: string, options?: Record<string, string>},
-        callback = () => {
+        callback: (data: IAppSourceNews) => void = () =>{
             console.error('No callback for GET response');
         }
     ) {
@@ -42,8 +44,7 @@ class Loader {
         return res;
     }
 
-    makeUrl(options, endpoint: string) {
-console.log(options)
+    makeUrl(options?: Record<string, string>, endpoint?: string) {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -53,8 +54,9 @@ console.log(options)
 
         return url.slice(0, -1);
     }
-
-    load(method, endpoint: string, callback, options = {}) {
+    
+    load(method: string, endpoint: string, callback: (data: IAppSourceNews) => void , options = {}) {
+    
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())

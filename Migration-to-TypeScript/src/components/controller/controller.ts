@@ -1,7 +1,13 @@
 import AppLoader from './appLoader';
+import { IAppSourceNews } from '../view/appView';
 
 class AppController extends AppLoader {
-    getSources(callback) {
+    
+    callback: (data: IAppSourceNews) => void = () =>{
+        console.error('No callback for GET response');
+    }
+
+    getSources(callback: (data: IAppSourceNews) => void) {
         super.getResp(
             {
                 endpoint: 'sources',
@@ -10,20 +16,21 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e, callback) {
-        let target = e.target;
-        const newsContainer = e.currentTarget;
+    getNews(e: MouseEvent, callback: (data: IAppSourceNews) => void) {
+
+        let target: Element | null | ParentNode = e.target instanceof Element ? e.target : null;
+        const newsContainer = e.currentTarget instanceof Element ? e.currentTarget : null;
 
         while (target !== newsContainer) {
-            if (target.classList.contains('source__item')) {
+            if (target instanceof Element && target.classList.contains('source__item')) {
                 const sourceId = target.getAttribute('data-source-id');
-                if (newsContainer.getAttribute('data-source') !== sourceId) {
-                    newsContainer.setAttribute('data-source', sourceId);
+                if (newsContainer instanceof Element && newsContainer.getAttribute('data-source') !== sourceId) {
+                    newsContainer.setAttribute('data-source', sourceId ? sourceId : '');
                     super.getResp(
                         {
                             endpoint: 'everything',
                             options: {
-                                sources: sourceId,
+                                sources: sourceId as string ,
                             },
                         },
                         callback
@@ -31,7 +38,7 @@ class AppController extends AppLoader {
                 }
                 return;
             }
-            target = target.parentNode;
+            target = target instanceof Element ? target.parentNode : null; ;
         }
     }
 }
