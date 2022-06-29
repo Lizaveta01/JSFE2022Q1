@@ -33,7 +33,7 @@ class AppController extends AppLoader {
                         {
                             endpoint: 'everything',
                             options: {
-                                sources: sourceId as string ,
+                                sources: sourceId as string,
                             },
                         },
                         callback
@@ -41,7 +41,7 @@ class AppController extends AppLoader {
                 }
                 return;
             }
-            target = target instanceof Element ? target.parentNode : null; ;
+            target = target instanceof Element ? target.parentNode : null;
         }
     }
 }

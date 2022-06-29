@@ -33,7 +33,6 @@ class Sources {
 }
         );
         
-        
         sources.append(fragment);
     }
 
