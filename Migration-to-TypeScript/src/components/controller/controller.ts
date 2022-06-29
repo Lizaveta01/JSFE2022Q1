@@ -2,25 +2,25 @@ import AppLoader from './appLoader';
 import { IAppSourceNews } from '../view/appView';
 
 class AppController extends AppLoader {
-    
-    callback: (data: IAppSourceNews) => void = () =>{
+    callback: (data: IAppSourceNews) => void = () => {
         console.error('No callback for GET response');
-    }
+    };
 
     getSources(callback: (data: IAppSourceNews) => void) {
         super.getResp(
-            { endpoint: 'sources',
-            options: {
-                'category': localStorage.getItem('category'),
-                'country': localStorage.getItem('country'),
-                'language': localStorage.getItem('language')
-            }},
+            {
+                endpoint: 'sources',
+                options: {
+                    category: localStorage.getItem('category'),
+                    country: localStorage.getItem('country'),
+                    language: localStorage.getItem('language'),
+                },
+            },
             callback
         );
     }
 
     getNews(e: MouseEvent, callback: (data: IAppSourceNews) => void) {
-
         let target: Element | null | ParentNode = e.target instanceof Element ? e.target : null;
         const newsContainer = e.currentTarget instanceof Element ? e.currentTarget : null;
 

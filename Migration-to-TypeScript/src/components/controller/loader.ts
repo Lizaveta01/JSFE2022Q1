@@ -1,5 +1,4 @@
 import { IAppSourceNews } from '../view/appView';
-
 enum ErrorTypes {
     Error_404 = 404,
     Error_401 = 401,
@@ -7,14 +6,14 @@ enum ErrorTypes {
 class Loader {
     baseLink: string;
     options: Record<string, string>;
-
     constructor(baseLink: string, options: Record<string, string>) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
-    getResp({ endpoint, options}: {endpoint: string, options?: Record<string, string | null>},
-        callback: (data: IAppSourceNews) => void = () =>{
+    getResp(
+        { endpoint, options }: { endpoint: string; options?: Record<string, string | null> },
+        callback: (data: IAppSourceNews) => void = () => {
             console.error('No callback for GET response');
         }
     ) {
@@ -34,20 +33,25 @@ class Loader {
     makeUrl(options?: Record<string, string | null>, endpoint?: string) {
         const urlOptions = { ...this.options, ...options };
         console.log(urlOptions);
-        let url = `${this.baseLink}${endpoint}?`;
+        let url = `${this.baseLink}${endpoint!}?`;
 
         Object.keys(urlOptions).forEach((key) => {
-            url += `${key}=${urlOptions[key]}&`;
+            url += `${key}=${urlOptions[key] || 'zero'}&`;
         });
 
         return url.slice(0, -1);
     }
-    
-    load(method: string, endpoint: string, callback: (data: IAppSourceNews) => void , options?: Record<string, string | null>) {
-        console.log(options)
-        fetch(this.makeUrl(options, endpoint), { method }) 
+
+    load(
+        method: string,
+        endpoint: string,
+        callback: (data: IAppSourceNews) => void,
+        options?: Record<string, string | null>
+    ) {
+        console.log(options);
+        fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
-            .then((res) => res.json()) 
+            .then((res) => res.json())
             .then((data) => callback(data))
             .catch((err) => console.error(err));
     }

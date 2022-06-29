@@ -1,14 +1,14 @@
 import './news.css';
 
 export interface INews {
-    author: string | null,
-    content: string,
-    description: string,
-    publishedAt: string,
-    source: {id: string, name: string},
-    title: string,
-    url: string,
-    urlToImage: string
+    author: string | null;
+    content: string;
+    description: string;
+    publishedAt: string;
+    source: { id: string; name: string };
+    title: string;
+    url: string;
+    urlToImage: string;
 }
 
 class News {
@@ -25,22 +25,18 @@ class News {
             if (idx % 2) newsItem.classList.add('alt');
 
             const newsPhoto = newsClone.querySelector('.news__meta-photo') as HTMLDivElement;
-            
-            newsPhoto.style.backgroundImage = `url(${ item.urlToImage || 'img/news_placeholder.jpg'})`;
+
+            newsPhoto.style.backgroundImage = `url(${item.urlToImage || 'img/news_placeholder.jpg'})`;
 
             const author = newsClone.querySelector('.news__meta-author') as HTMLElement;
             author.textContent = item.author || item.source.name;
 
             const newsDate = newsClone.querySelector('.news__meta-date') as HTMLElement;
-            newsDate.textContent = item.publishedAt
-                .slice(0, 10)
-                .split('-')
-                .reverse()
-                .join('-');
+            newsDate.textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
 
             const descriptionTitle = newsClone.querySelector('.news__description-title') as HTMLElement;
             descriptionTitle.textContent = item.title;
-            
+
             const descriptionSource = newsClone.querySelector('.news__description-source') as HTMLElement;
             descriptionSource.textContent = item.source.name;
 

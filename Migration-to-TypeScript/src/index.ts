@@ -5,16 +5,12 @@ import './global.css';
 const form = document.querySelector('form') as HTMLElement;
 const app = new App();
 
-
 form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  submitForm()
-})
+    e.preventDefault();
+    submitForm();
+});
 
-function submitForm(){
-  writeLocalStorage();
-  app.start();
+function submitForm() {
+    writeLocalStorage();
+    app.start();
 }
-   
-   
-

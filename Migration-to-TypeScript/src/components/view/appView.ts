@@ -4,10 +4,10 @@ import { ISources } from './sources/sources';
 import { INews } from './news/news';
 
 export interface IAppSourceNews {
-    status: string,
-    sources?: ISources[],
-    totalResults?: number,
-    articles?: INews[]
+    status: string;
+    sources?: ISources[];
+    totalResults?: number;
+    articles?: INews[];
 }
 
 export class AppView {
