@@ -1,0 +1,42 @@
+.select {
+  position: relative;
+  display: flex;
+  width: auto;
+  height: auto;
+  line-height: 3;
+  overflow: hidden;
+  border-radius: .25em;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+}
+.section__title{
+  font-size: 1.2em;
+  margin: 0;
+  margin-bottom: 0.2em;
+  padding: 0.5em; 
+  height:1.2em;
+}
+
+select {
+  width: 20em;
+  box-shadow:none;
+  margin: 0.5em;
+  padding: 0.5em;
+  font-size: 1em;
+  background:#17181c;
+  border: 2px solid #30c5ff;
+  color: #70d6ff;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+select:focus {
+  border-color: #3fcc59;
+  color: #69db7e;
+  box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
+  transform: translateY(-0.25em);
+}
+
