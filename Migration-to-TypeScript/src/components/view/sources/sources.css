@@ -9,7 +9,6 @@
     align-items: center;
     justify-content: center;
 }
-
 .source__item {
     background: none;
     border: 2px solid #30c5ff;
@@ -21,7 +20,6 @@
     transition: 0.25s;
     cursor: pointer;
 }
-
 .source__item:hover,
 .source__item:focus {
     border-color: #3fcc59;
@@ -29,7 +27,6 @@
     box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
     transform: translateY(-0.25em);
 }
-
 .source__item-name {
     font-weight: 400;
     white-space: nowrap;
