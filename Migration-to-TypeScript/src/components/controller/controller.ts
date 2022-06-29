@@ -9,9 +9,12 @@ class AppController extends AppLoader {
 
     getSources(callback: (data: IAppSourceNews) => void) {
         super.getResp(
-            {
-                endpoint: 'sources',
-            },
+            { endpoint: 'sources',
+            options: {
+                'category': localStorage.getItem('category'),
+                'country': localStorage.getItem('country'),
+                'language': localStorage.getItem('language')
+            }},
             callback
         );
     }
