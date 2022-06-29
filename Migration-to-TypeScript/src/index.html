@@ -11,31 +11,39 @@
             <h1>News Portal</h1>
         </header>
         <main>
-            <div class="select">
+            <form class="select">
                 <div class="section"> 
                     <p class="section__title">Category</p> 
-                    <select name="country" class="form-select">
-                        <option disabled selected>Select </option>
-                        <option value="All">all</option>
+                    <select name="country" class="form-select" id="section__category">
+                        <option disabled selected>Choose category</option>
                     </select>
                 </div>
                 
                 <div class="section"> 
                     <p class="section__title">Country</p> 
-                    <select name="country" class="form-select">
-                        <option disabled selected>Select</option>
-                        <option value="All">all</option>
+                    <select name="country" class="form-select" id="section__country">
+                        <option disabled selected>Choose country</option>
                     </select>
                 </div>
 
                 <div class="section"> 
                     <p class="section__title">Language</p> 
-                    <select name="country" class="form-select">
-                        <option disabled selected>Select</option>
-                        <option value="All">all</option>
+                    <select name="country" class="form-select" id="section__language">
+                        <option disabled selected>Choose language</option>
                     </select>
                 </div>
-            </div>
+
+                <div class="section"> 
+                    <p class="section__title">News on page</p> 
+                    <select name="country" class="form-select" id="section__news">
+                        <option disabled selected>Choose number news on page</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+                <input type="submit" value="Show" class="filter__button">
+            </form>
             <div class="sources buttons"></div>
             <div class="news"></div>
         </main>

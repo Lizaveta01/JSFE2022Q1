@@ -1,5 +1,5 @@
 import './sources.css';
-
+import { addOptions } from './filter'
 export interface ISources {
     category: string,
     country: string,
@@ -9,6 +9,7 @@ export interface ISources {
     name: string,
     url: string
 }
+
 class Sources {
     draw(data: ISources []) {
         
@@ -24,11 +25,14 @@ class Sources {
             sourceItem.setAttribute('data-source-id', item.id);
 
             fragment.append(sourceClone);
-        });
+            addOptions(item.category, item.country, item.language);
 
+        });
+        
         const sources = document.querySelector('.sources') as HTMLElement;
         sources.append(fragment);
     }
 }
 
 export default Sources;
+
