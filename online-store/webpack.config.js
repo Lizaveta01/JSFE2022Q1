@@ -23,7 +23,7 @@ const baseConfig = {
           exclude: /node_modules/,
       },
       {
-        test: /\.(?:ico|gif|png|svg|jpg|jpeg)$/i,
+        test: /\.(?:\\ico|gif|png|svg|jpg|jpeg)$/i,
         type: 'asset/resource',
       },
       {
@@ -38,6 +38,10 @@ const baseConfig = {
         test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.(html)$/,
+        use: ['html-loader'],
+      }
     ],  
   },
   resolve: {

@@ -1,6 +1,180 @@
-$bodyColor: rgb(84, 201, 21);
+@import "./styles/nullstyle.scss";
+@import "./styles/filter.scss";
 
+$bodyColor: rgb(219, 247, 255);
+$linkColor: rgb(118, 153, 240);
+$color_text: black;
+$color_header: white;
+
+%templates {
+  color: $bodyColor;
+
+}
+//использование @extend %templates прописть внутри класса
+// & присоединение к названию
+
+// @mixin fonttz($d, $c) {
+//  font-sixe: $d;
+//  color: $c;
+// }
+// @includes fonttz (100px, green)
 
 body {
   background-color: $bodyColor;
+  height: 100%;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
 }
+  
+header{
+  background-color:$color_header;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  margin-left: 100px;
+  width: 50px;
+ 
+}
+
+.header__buttons{
+  margin-right: 100px;
+  img{
+    width: 32px;
+  }
+}
+
+
+form {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.search {
+  
+  &:after{
+    content:""; clear:both; display:table
+  }
+
+  form {
+    width: auto;
+    float: right;
+    margin-right: 30px;
+  }
+  input {
+    width: 250px;
+    height: 42px;
+    padding-left: 15px;
+    border-radius: 42px;
+    border: 2px solid #324b4e;
+    outline: none;
+    position: relative;
+    transition: .3s linear;
+
+    &:focus{
+      width: 300px;
+    }
+  }
+
+  button {
+    width: 42px;
+    height: 42px;
+    border: none;
+    position: absolute;
+    top: -2px;
+    right: 0;
+    background-color: inherit;
+
+    img{
+      object-fit: cover;
+      width: 50%;
+      height: 50%;
+    }
+  }
+
+}
+
+.nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  font-size: 20px;
+    .nav-link{
+      cursor: pointer;
+      position: relative;
+      line-height: 1.5;
+
+      &:after {
+        display: block;
+        position: absolute;
+        left: 0; 
+        width: 0;
+        height: 2px; 
+        background-color: $linkColor; 
+        content: "";
+        transition: width 0.3s ease-out; 
+      }
+    
+      &:hover:after,
+      &:focus:after {
+        width: 100%; 
+      }
+    }
+}
+
+main{
+  height: 100vh;
+
+  .label{
+    height: 160px;
+    background-color: azure;
+    
+    
+    h1{
+      font-size: 36px;
+      margin-left: 100px;
+      line-height: 160px;
+     }
+  }
+   
+}
+
+
+
+
+
+// about-rss {
+//     width: 100vw;
+//     display: flex;
+//     justify-content: space-evenly;
+//     align-items: center;
+//     font-size: 14px;
+//     color: #333;
+//     text-align: center;
+// }
+// about-rss p {
+//     font-size: 14px;
+//     color: #333;
+//     text-align: center;
+// }
+// .rss {
+// 	width: 112px;
+// 	height: 45px;
+//     background-image: url("./assets/rs_school_js.svg");   
+// 	background-size: contain;
+// 	background-repeat: no-repeat;
+//   }
+// .nav-link {
+// 	position: relative;
+// 	padding: 0 24px; 
+// 	text-decoration: none; 
+// 	font-size: 20px; 
+// 	font-size: 14px;
+//     color: #333;
+//     text-align: center;
+// }
