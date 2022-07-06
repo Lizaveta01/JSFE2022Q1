@@ -1,5 +1,5 @@
 @import "./styles/nullstyle.scss";
-@import "./styles/filter.scss";
+@import "./styles/catalog.scss";
 
 $bodyColor: rgb(219, 247, 255);
 $linkColor: rgb(118, 153, 240);
@@ -21,9 +21,13 @@ $color_header: white;
 
 body {
   background-color: $bodyColor;
+  display: flex;
+  flex-direction: column;
   height: 100%;
   font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+  ;
 }
   
 header{
@@ -47,7 +51,6 @@ header{
   }
 }
 
-
 form {
   position: relative;
   width: 300px;
@@ -55,11 +58,9 @@ form {
 }
 
 .search {
-  
   &:after{
     content:""; clear:both; display:table
   }
-
   form {
     width: auto;
     float: right;
@@ -74,12 +75,10 @@ form {
     outline: none;
     position: relative;
     transition: .3s linear;
-
     &:focus{
       width: 300px;
     }
   }
-
   button {
     width: 42px;
     height: 42px;
@@ -88,14 +87,12 @@ form {
     top: -2px;
     right: 0;
     background-color: inherit;
-
     img{
       object-fit: cover;
       width: 50%;
       height: 50%;
     }
   }
-
 }
 
 .nav{
@@ -104,44 +101,40 @@ form {
   align-items: center;
   gap: 40px;
   font-size: 20px;
-    .nav-link{
-      cursor: pointer;
-      position: relative;
-      line-height: 1.5;
-
-      &:after {
-        display: block;
-        position: absolute;
-        left: 0; 
-        width: 0;
-        height: 2px; 
-        background-color: $linkColor; 
-        content: "";
-        transition: width 0.3s ease-out; 
-      }
-    
-      &:hover:after,
-      &:focus:after {
-        width: 100%; 
-      }
+  .nav-link{
+    cursor: pointer;
+    position: relative;
+    line-height: 1.5;
+    &:after {
+      display: block;
+      position: absolute;
+      left: 0; 
+      width: 0;
+      height: 2px; 
+      background-color: $linkColor; 
+      content: "";
+      transition: width 0.3s ease-out; 
     }
+    &:hover:after,
+    &:focus:after {
+      width: 100%; 
+    }
+  }
 }
 
 main{
-  height: 100vh;
-
+  justify-content: center;
+  align-items: center;
+  height: auto;
   .label{
     height: 160px;
     background-color: azure;
-    
-    
     h1{
       font-size: 36px;
       margin-left: 100px;
       line-height: 160px;
      }
   }
-   
 }
 
 

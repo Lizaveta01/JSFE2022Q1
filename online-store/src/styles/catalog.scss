@@ -1,18 +1,19 @@
 @import "./checkbox.scss";
 @import "./product-card.scss";
-@import "./polzunok.scss";
+@import "./slider.scss";
 
 .catalog{
   display: flex;
-  height: 100vh;
+  height: auto;
   padding: 40px;
+
 }
 
 
 .filter{
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 360px;
   height: 100%;
   background-color: rgb(254, 254, 254);
   padding-left: 20px;
@@ -26,7 +27,11 @@
   display: flex;
   flex-direction: column;
   border-bottom:1px solid rgb(161, 161, 161);
-  border-width:50%;
+  
+}
+.price{
+  padding-bottom: 24px;
+  border-bottom:1px solid rgb(161, 161, 161);
 }
 
 
