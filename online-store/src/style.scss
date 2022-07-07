@@ -5,19 +5,29 @@ $bodyColor: white;
 $linkColor: rgb(248, 248, 248);
 $color_text: black;
 
+//------SCROLLBAR-----------------------
+$scrollbarBg:  rgba(255, 255, 255, 0.8);
+$scrollbarThumb: rgb(221, 221, 221);
+$scrollbarWidth: 12px;
+$scrollbarBorder: 3px solid $scrollbarBg;
+$scrollbarBorderRadius: calc($scrollbarWidth / 2);
 
-%templates {
-  color: $bodyColor;
-
+body {
+  &::-webkit-scrollbar{
+    width: $scrollbarWidth;
+  }
+  &::-webkit-scrollbar-track {
+    background: $scrollbarBg;
+    border-radius: $scrollbarBorderRadius;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbarThumb;
+    border-radius: $scrollbarBorderRadius;
+    border: $scrollbarBorder;
+  }
 }
-//использование @extend %templates прописть внутри класса
-// & присоединение к названию
+//------SCROLLBAR-----------------------
 
-// @mixin fonttz($d, $c) {
-//  font-sixe: $d;
-//  color: $c;
-// }
-// @includes fonttz (100px, green)
 
 body {
   background-color: $bodyColor;

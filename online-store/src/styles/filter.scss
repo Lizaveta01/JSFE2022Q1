@@ -11,6 +11,29 @@ $filterLine: 1px solid rgb(187, 187, 187);
   padding-bottom: $padding;
  }
 
+ 
+  $scrollbarBg:  rgba(255, 255, 255, 0.8);
+  $scrollbarThumb: rgb(221, 221, 221);
+  $scrollbarWidth: 12px;
+  $scrollbarBorder: 3px solid $scrollbarBg;
+  $scrollbarBorderRadius: calc($scrollbarWidth / 2);
+.filter::-webkit-scrollbar {
+  width: $scrollbarWidth;
+}
+.filter::-webkit-scrollbar-track {
+  background: $scrollbarBg;
+  border-radius: $scrollbarBorderRadius;
+}
+.filter::-webkit-scrollbar-thumb {
+  background-color: $scrollbarThumb;
+  border-radius: $scrollbarBorderRadius;
+  border: $scrollbarBorder;
+}
+
+
+
+
+
 .filter{
   overflow-y: scroll;
   display: flex;
