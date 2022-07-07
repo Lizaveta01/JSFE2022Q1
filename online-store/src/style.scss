@@ -53,9 +53,13 @@ header{
       width: 0;
       bottom: 0;
       height: 2px; 
-      background-color: $linkColor; 
+      background-color: rgb(192, 192, 192); 
       content: "";
       transition: width 0.3s ease-out; 
+    }
+    &:hover:after,
+    &:focus:after {
+	    width: 100%; 
     }
   }
 }
@@ -84,7 +88,8 @@ header{
   input {
     width: 250px;
     height: 36px;
-    padding-left: 15px;
+    padding-left: 45px;
+    padding-right: 10px;
     border-radius: 42px;
     outline: none;
     position: relative;  
@@ -97,12 +102,13 @@ header{
     border: none;
     position: absolute;
     top: -2px;
-    right: 0;
+    left: 0;
     background-color: inherit;
     img{
       object-fit: cover;
       width: 50%;
       height: 50%;
+      opacity: 0.5;
     }
   }
 }
@@ -126,8 +132,15 @@ main{
   height: auto;
   padding: 40px;
   padding-left: 8px;
-  gap: 20px;
   font-size: $fontSizeFilter;
+}
+.hiden{
+  display: none;
+}
+.noresult{
+  text-align: center;
+  font-size: 36px;
+  margin: 50px 0px;
 }
 
 .sorting{

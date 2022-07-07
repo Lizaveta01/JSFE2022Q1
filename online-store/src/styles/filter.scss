@@ -14,8 +14,10 @@ $filterLine: 1px solid rgb(187, 187, 187);
 .filter{
   overflow-y: scroll;
   display: flex;
+  min-width: 300px;
+  max-width: 300px;
   flex-direction: column;
-  padding: 0px 20px 24px 20px;
+  margin: 0px 20px 24px 20px;
   height: 100vh;
   background-color: rgb(254, 254, 254);
   h3{
@@ -68,7 +70,7 @@ $filterLine: 1px solid rgb(187, 187, 187);
 
 .brand{
   #brands{
-    width: 240px;
+    width: 180px;
     border: $filterLine;
     border-radius: 5px;
     padding: 5px;

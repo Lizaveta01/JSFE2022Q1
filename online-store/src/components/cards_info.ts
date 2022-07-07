@@ -1,4 +1,4 @@
-interface ICards {
+export interface ICards {
   name: string,
   category: string,
   price: string,

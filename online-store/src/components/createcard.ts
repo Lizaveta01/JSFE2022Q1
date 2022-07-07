@@ -1,10 +1,10 @@
-import { cards } from './cards_info'
+import { ICards } from './cards_info'
 
- export function draw(){
+ export function draw(data: ICards[]){
     const products = document.querySelector('.products') as HTMLElement;
     const fragment = document.createDocumentFragment();
 
-    cards.forEach((el) => {
+    data.forEach((el) => {
       const shoesCard = document.createElement('div');
       shoesCard.classList.add('shoes-card');
       shoesCard.innerHTML = `
@@ -12,7 +12,8 @@ import { cards } from './cards_info'
       <p id="shoes__name">${el.name}</p>
       <p id="shoes__category">${el.category}</p>
       <p id="shoes__colors">${el.color.length} colors</p>
-      <p id="shoes__price">$${el.price}</p>`;
+      <p id="shoes__price">$${el.price}</p>
+      <div class="basket-status"></div>`;
 
       fragment.append(shoesCard);
     });
