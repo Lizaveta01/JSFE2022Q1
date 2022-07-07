@@ -1,0 +1,100 @@
+@import "./checkbox.scss";
+@import "./product-card.scss";
+@import "./slider.scss";
+@import "./colorfilter.scss";
+
+$fontSizeFilter: 18px;
+$filterLine: 1px solid rgb(187, 187, 187);
+
+@mixin filterLine($color, $padding) {
+  border-bottom:$color;
+  padding-bottom: $padding;
+ }
+
+.filter{
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px 24px 20px;
+  width: 360px;
+  height: 100vh;
+  background-color: rgb(254, 254, 254);
+  h3{
+    font-size: 22px;
+    padding: 24px 0px;
+  }
+}
+
+.price{
+  @include filterLine ($filterLine, 24px);
+}
+
+.checkbox{
+  display: flex;
+  flex-direction: column;
+  @include filterLine ($filterLine, 24px);
+}
+
+.color{
+  @include filterLine ($filterLine, 24px);
+}
+
+.size{
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  @include filterLine ($filterLine, 24px);
+}
+.sizes{
+  text-align: center;
+  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  button {
+    border: $filterLine;
+    width:54px;
+    position: relative;
+    margin: auto;
+    padding: 8px 10px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: white;
+    .active{
+      background-color: #3264fe;
+      color: white;
+    }
+  } 
+}
+
+.brand{
+
+  #brands{
+    width: 240px;
+    border: $filterLine;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: $fontSizeFilter;
+  }
+  @include filterLine ($filterLine, 24px);
+}
+
+.material{
+  .checkbox-without-line{
+    display: flex;
+    flex-direction: column;
+  }
+  
+}
+.clear{
+  background-color: #3264fe;
+  width:180px;
+  position: relative;
+  margin: auto;
+  margin-top: 24px;
+  padding: 5px 0;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+}

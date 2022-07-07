@@ -1,0 +1,58 @@
+.colors{
+  display: flex;
+  gap: 6px;
+}
+.all-btn{
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin-right: 0.8rem;
+  opacity: 0.5;
+  font-size: 20px;
+  background-color: white;
+}
+
+button[data-color="white"]{
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(129, 129, 129)
+}
+button[data-color="black"]{
+  background: rgb(0, 0, 0);
+}
+button[data-color="red"]{
+  background: rgb(175, 0, 0);
+}
+button[data-color="blue"]{
+  background: rgb(0, 155, 175);
+}
+button[data-color="green"]{
+  background: rgb(0, 175, 44);
+}
+button[data-color="pink"]{
+  background: rgb(202, 95, 170);
+}
+
+.color-btn{
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background: rgb(34, 34, 34);
+  margin-right: 0.8rem;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  &:active {
+    background: red;
+    opacity: 1;
+  }
+  active{
+    opacity: 1;
+  }
+}

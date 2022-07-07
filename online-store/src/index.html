@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./assets/nike_logo.ico" type="image/x-icon">
   <title>Online Store</title>
 </head>
 <body>
@@ -34,29 +35,29 @@
     <div class="filter">
       <div class="category">
         <h3>Category</h3>
-        <input type="checkbox" class="custom-checkbox" id="Lifestyle" name="Lifestyle" value="yes">
-        <label for="Lifestyle">Lifestyle</label>
-        <input type="checkbox" class="custom-checkbox" id="Jordan" name="Jordan" value="yes">
-        <label for="Jordan">Jordan</label>
-        <input type="checkbox" class="custom-checkbox" id="Running" name="Running" value="yes">
-        <label for="Running">Running</label>
-        <input type="checkbox" class="custom-checkbox" id="Basketball" name="Basketball" value="yes">
-        <label for="Basketball">Basketball</label>
-        <input type="checkbox" class="custom-checkbox" id="Football" name="Football" value="yes">
-        <label for="Football">Football</label>
-        <input type="checkbox" class="custom-checkbox" id="Training" name="Training" value="yes">
-        <label for="Training">Training & Gym</label>
-        <input type="checkbox" class="custom-checkbox" id="Skateboarding" name="Skateboarding" value="yes">
-        <label for="Skateboarding">Skateboarding</label>
-        <input type="checkbox" class="custom-checkbox" id="Golf" name="Golf" value="yes">
-        <label for="Golf">Golf</label>
-        <input type="checkbox" class="custom-checkbox" id="Tennis" name="Tennis" value="yes">
-        <label for="Tennis">Tennis</label>
-
+        <div class="checkbox">
+          <input type="checkbox" class="custom-checkbox" id="Lifestyle" name="Lifestyle" value="yes">
+          <label for="Lifestyle">Lifestyle</label>
+          <input type="checkbox" class="custom-checkbox" id="Jordan" name="Jordan" value="yes">
+          <label for="Jordan">Jordan</label>
+          <input type="checkbox" class="custom-checkbox" id="Running" name="Running" value="yes">
+          <label for="Running">Running</label>
+          <input type="checkbox" class="custom-checkbox" id="Basketball" name="Basketball" value="yes">
+          <label for="Basketball">Basketball</label>
+          <input type="checkbox" class="custom-checkbox" id="Football" name="Football" value="yes">
+          <label for="Football">Football</label>
+          <input type="checkbox" class="custom-checkbox" id="Training" name="Training" value="yes">
+          <label for="Training">Training & Gym</label>
+          <input type="checkbox" class="custom-checkbox" id="Skateboarding" name="Skateboarding" value="yes">
+          <label for="Skateboarding">Skateboarding</label>
+          <input type="checkbox" class="custom-checkbox" id="Golf" name="Golf" value="yes">
+          <label for="Golf">Golf</label>
+          <input type="checkbox" class="custom-checkbox" id="Tennis" name="Tennis" value="yes">
+          <label for="Tennis">Tennis</label>
+        </div>
       </div>
       <div class="price">
         <h3>Price</h3>
-
         <div class="slider">
           <div class="values">
             <span id="range1">
@@ -76,41 +77,92 @@
       </div>
       <div class="gender">
         <h3>Gender</h3>
-        <input type="checkbox" class="custom-checkbox" id="Men" name="Men" value="yes">
-        <label for="Men">Men</label>
-        <input type="checkbox" class="custom-checkbox" id="Women" name="Women" value="yes">
-        <label for="Women">Women</label>
-        <input type="checkbox" class="custom-checkbox" id="Children" name="Children" value="yes">
-        <label for="Children">Children</label>
+        <div class="checkbox">
+          <input type="checkbox" class="custom-checkbox" id="Men" name="Men" value="yes">
+          <label for="Men">Men</label>
+          <input type="checkbox" class="custom-checkbox" id="Women" name="Women" value="yes">
+          <label for="Women">Women</label>
+          <input type="checkbox" class="custom-checkbox" id="Children" name="Children" value="yes">
+          <label for="Children">Children</label>
+        </div>
+        
       </div>
-
       <div class="color">
         <h3>Color</h3>
+        <div class="colors">
+          <button name="color" class="all-btn" data-color="all">all</button>
+          <button name="color" class="color-btn" data-color="white"></button>
+          <button name="color" class="color-btn active" data-color="black"></button>
+          <button name="color" class="color-btn" data-color="red"></button>
+          <button name="color" class="color-btn" data-color="blue"></button>
+          <button name="color" class="color-btn" data-color="green"></button>
+          <button name="color" class="color-btn" data-color="pink"></button>
+        </div>
       </div>
-
       <div class="size">
         <h3>Size</h3>
+        <div class="sizes">
+          <button name="size" >3</button>
+          <button name="size" >3.5</button>
+          <button name="size" >4</button>
+          <button name="size" >4.5</button>
+          <button name="size" >5</button>
+          <button name="size" >5.5</button>
+          <button name="size" >6</button>
+          <button name="size" >6.5</button>
+          <button name="size" >7</button>
+          <button name="size" >7.5</button>
+        </div> 
       </div>
-
       <div class="brand">
         <h3>Brand</h3>
+          <select id="brands">
+            <option>5</option>
+            <option>10</option>
+            <option>15</option>
+            <option>20</option>
+            <option>25</option> 
+          </select>  
       </div>
-
       <div class="material">
         <h3>Material</h3>
-      </div>
+        <div class="checkbox-without-line">
+          <input type="checkbox" class="custom-checkbox" id="Canvas" name="Canvas" value="yes">
+          <label for="Canvas">Canvas</label>
+          <input type="checkbox" class="custom-checkbox" id="Leather" name="Leather" value="yes">
+          <label for="Leather">Leather</label>
+          <input type="checkbox" class="custom-checkbox" id="Sustainable" name="Sustainable" value="yes">
+          <label for="Sustainable">Sustainable Materials</label>
       </div>
 
-     
-
+      <button class="clear">Clear filters</button>
+      </div>
     </div>
-
 
     <div class="product-place">
       <div class="sorting">
+        <button><span>Hide Filters</span>
+          <img src="./assets/SingleChoice.svg" alt="icon-filter">
+        </button>
+        <select name="sorting" class="form-select" id="section__sort">
+          <option disabled selected>Sort By</option>
+          <option>Featured</option>
+          <option>Newest</option>
+          <option>Price: Hight-Low</option>
+          <option>Price: Low-High</option>
+      </select>
+
+        
       </div>
 
       <div class="products">
+        <div class="shoes-card">
+          <img src="./assets/products/6f8fadf4-3ac7-4902-95ac-cd986c4d6587.jpg" alt="img">
+          <p id="shoes__name">Nike Metcon 7</p>
+          <p id="shoes__category">Training Shoes</p>
+          <p id="shoes__colors">6 colors</p>
+          <p id="shoes__price">$115.95</p>
+        </div>
       </div>
 
     </div>
