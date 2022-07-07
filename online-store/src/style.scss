@@ -1,10 +1,9 @@
 @import "./styles/nullstyle.scss";
 @import "./styles/filter.scss";
 
-$bodyColor: rgb(219, 247, 255);
-$linkColor: rgb(118, 153, 240);
+$bodyColor: white;
+$linkColor: rgb(248, 248, 248);
 $color_text: black;
-$color_header: white;
 
 
 %templates {
@@ -22,17 +21,17 @@ $color_header: white;
 
 body {
   background-color: $bodyColor;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   height: 100%;
-  font-size: 14px;
+  font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0 auto;
 }
   
 header{
-  background-color:$color_header;
-  padding: 12px 0px;
+  background-color:$bodyColor;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,25 +41,21 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
   font-size: 20px;
   .nav-link{
     cursor: pointer;
     position: relative;
-    line-height: 1.5;
+    line-height: 60px;
     &:after {
       display: block;
       position: absolute;
       left: 0; 
       width: 0;
+      bottom: 0;
       height: 2px; 
       background-color: $linkColor; 
       content: "";
       transition: width 0.3s ease-out; 
-    }
-    &:hover:after,
-    &:focus:after {
-      width: 100%; 
     }
   }
 }
@@ -91,13 +86,10 @@ header{
     height: 36px;
     padding-left: 15px;
     border-radius: 42px;
-    border: 2px solid #324b4e;
     outline: none;
-    position: relative;
-    transition: .3s linear;
-    &:focus{
-      width: 300px;
-    }
+    position: relative;  
+    background-color: $linkColor; 
+    font-size: 16px;
   }
   button {
     width: 42px;
@@ -115,18 +107,17 @@ header{
   }
 }
 
-
 main{
   justify-content: center;
   align-items: center;
   height: auto;
   .label{
-    height: 160px;
-    background-color: azure;
+    height: 100px;
+    background-color: $linkColor; 
     h1{
-      font-size: 36px;
+      font-size: 24px;
       margin-left: 100px;
-      line-height: 160px;
+      line-height: 100px;
      }
   }
 }
@@ -134,9 +125,52 @@ main{
   display: flex;
   height: auto;
   padding: 40px;
+  padding-left: 8px;
   gap: 20px;
   font-size: $fontSizeFilter;
 }
+
+.sorting{
+  font-size: 16px;
+  display: flex;
+  justify-content: flex-end;
+  width: auto;
+  gap:20px;
+  line-height: 28px;
+  img{
+    width: 24px;
+  }
+  button{
+    background-color: transparent;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap:10px;
+  }
+  span{
+    text-align: center;
+  }
+}
+
+  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

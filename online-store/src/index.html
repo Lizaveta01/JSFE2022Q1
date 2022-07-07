@@ -61,16 +61,16 @@
         <div class="slider">
           <div class="values">
             <span id="range1">
-              0
+              $0
             </span>
             <span> &dash; </span>
             <span id="range2">
-              100
+              300
             </span>
           </div>
           <div class="slider-track"></div>
-          <input type="range" min="0" max="100" value="0" id="slider-1" oninput="slideOne()">
-          <input type="range" min="0" max="100" value="100" id="slider-2" oninput="slideTwo()">
+          <input type="range" min="0" max="300" value="0" id="slider-1" oninput="slideOne()">
+          <input type="range" min="0" max="300" value="800" id="slider-2" oninput="slideTwo()">
         </div> 
 
 
@@ -112,16 +112,18 @@
           <button name="size" >6.5</button>
           <button name="size" >7</button>
           <button name="size" >7.5</button>
+          <button name="size" >8</button>
+          <button name="size" >8.5</button>
         </div> 
       </div>
       <div class="brand">
         <h3>Brand</h3>
           <select id="brands">
-            <option>5</option>
-            <option>10</option>
-            <option>15</option>
-            <option>20</option>
-            <option>25</option> 
+            <option>Nike Sportwear</option>
+            <option>Jordan</option>
+            <option>Nike By You</option>
+            <option>NikeLab</option>
+            <option>ACG</option> 
           </select>  
       </div>
       <div class="material">
@@ -141,8 +143,9 @@
 
     <div class="product-place">
       <div class="sorting">
-        <button><span>Hide Filters</span>
-          <img src="./assets/SingleChoice.svg" alt="icon-filter">
+        <button>
+          <span>Hide Filters</span>
+          <img src="./assets/SingleChoice.svg" alt="icon-filter">    
         </button>
         <select name="sorting" class="form-select" id="section__sort">
           <option disabled selected>Sort By</option>
@@ -156,17 +159,9 @@
       </div>
 
       <div class="products">
-        <div class="shoes-card">
-          <img src="./assets/products/6f8fadf4-3ac7-4902-95ac-cd986c4d6587.jpg" alt="img">
-          <p id="shoes__name">Nike Metcon 7</p>
-          <p id="shoes__category">Training Shoes</p>
-          <p id="shoes__colors">6 colors</p>
-          <p id="shoes__price">$115.95</p>
-        </div>
       </div>
 
     </div>
-
 
    </div>
    
