@@ -12,14 +12,16 @@ draw(cards);
 //================================================================SEARCH
   
   let inputSearch = document.querySelector('#input-search') as HTMLInputElement;
-   const products = document.querySelector('.products') as HTMLElement;
-  
+  const products = document.querySelector('.products') as HTMLElement;
+  const notify = document.querySelector('.notify') as HTMLElement;
+  const catalog = document.querySelector('.catalog') as HTMLElement;
+
+
   inputSearch.oninput = function () {
   let text = inputSearch.value.trim();
  
   products.innerHTML = "";
-  const notify = document.querySelector('.notify') as HTMLElement;
-  const catalog = document.querySelector('.catalog') as HTMLElement;
+  
 
   if(text != ''){
     cards.forEach((el) => {
@@ -61,13 +63,32 @@ const inBasket = document.querySelectorAll('.shoes-card');
 
 inBasket.forEach(item => item.addEventListener('click', function(){
   const status = item.querySelector('.basket-status') as HTMLElement;
-  status.classList.toggle('active');
-  if(status.classList.contains('active')){
-    counter++
-  } else {
-    counter = counter -1;
+ 
+  counter >= 21 ? seeNotify (): addToBasket() ;
+
+  //Позволяет удалить элемент, который уже находится в корзинеб если в корзине больше 20 товаров 
+  if (counter > 20 && status.classList.contains('active')){
+    seeNotify ();
+    status.classList.remove('active');
+    counter --;
+    counterBasket.innerHTML = counter.toString();
   }
-  counterBasket.innerHTML = counter.toString();
-  console.log(status);
+ //Показывает уведомление, что корзина переполнена и не позволяет добавлять в корзину новые товары
+  function seeNotify () {
+    notify.innerText = 'Sorry, basket is full. \r\n Please, remove something'
+    notify.classList.remove('hiden');
+    catalog.classList.add('catalog__hiden');
+    setTimeout(function(){
+      notify.classList.add('hiden');
+      catalog.classList.remove('catalog__hiden');
+      notify.innerText = "Sorry, we couldn't find the page you're looking for";
+    }, 2000);  
+  }
+  //Добавляет в корзину новые товары
+  function addToBasket(){
+    status.classList.toggle('active');
+    status.classList.contains('active') ? counter++ : counter --;
+    counterBasket.innerHTML = counter.toString();
+  }
 }));
 //=======================================================

@@ -173,15 +173,13 @@ main{
 }
 .notify{
   text-align: center;
-  background-color: $colorWhite;
   font-size: 36px;
-  margin-left: -300px;
-  margin-top: -100px;
-  width: auto;
+  margin-left: -200px;
+  width: 500px;
   height: 200px;
   position: absolute;
   left: 50%;
-  top: 40%;
+  top: 10%;
   border-radius: 8px;
   padding: 20px;
   z-index: 100;
