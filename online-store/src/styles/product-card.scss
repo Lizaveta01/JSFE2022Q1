@@ -2,7 +2,6 @@
 .products{
   display: flex;
   margin-left: 20px;
-  width: 1000px;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
@@ -26,23 +25,22 @@
   p{
     color: rgb(199, 199, 199);
     margin-top: 6px;
-  }
- 
-  .basket-status{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    
-    .active{
-      background-image: url(https://img.icons8.com/ios-glyphs/2x/checkmark.png);
-      background-size: contain;
-    }
-  }
+  }  
+}
+.basket-status{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(182, 252, 231);
+  background-image: url(https://img.icons8.com/ios-glyphs/2x/checkmark.png);
+  background-size: contain;
+}
+.active{
+  display: flex;
 }
