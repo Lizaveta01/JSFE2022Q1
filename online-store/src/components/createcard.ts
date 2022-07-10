@@ -7,6 +7,8 @@ import { ICards } from './cards_info'
     data.forEach((el) => {
       const shoesCard = document.createElement('div');
       shoesCard.classList.add('shoes-card');
+      shoesCard.setAttribute('data-price', el.price);
+      shoesCard.setAttribute('data-release', el.release);
       shoesCard.innerHTML = `
       <img src="${el.image}" alt="img">
       <p id="shoes__name">${el.name}</p>

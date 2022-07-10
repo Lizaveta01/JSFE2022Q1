@@ -1,6 +1,6 @@
 $colorBlue: #3264fe;
 $colorWhite:#ffffff;
-$colorGrey:rgb(248, 248, 248);
+$colorGrey:rgb(226, 226, 226);
 
 .slider{
   position: relative;
@@ -36,7 +36,7 @@ $colorGrey:rgb(248, 248, 248);
   height: 5px;
   margin: auto;
   position: absolute;
-  background-color: $colorGrey;
+  background-color: $colorBlue;
   bottom: 0.5em;
   border-radius: 5px;
 }

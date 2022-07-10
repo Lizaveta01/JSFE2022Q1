@@ -4,6 +4,8 @@ let sliderOne = document.getElementById("slider-1") as HTMLInputElement;
 let sliderTwo = document.getElementById("slider-2") as HTMLInputElement;
 let displayValOne = document.getElementById("range1") as HTMLInputElement;
 let displayValTwo = document.getElementById("range2") as HTMLInputElement;
+let sliderTrack = document.querySelector(".slider-track") as HTMLElement;
+let sliderMaxValue = sliderOne.max;
 
 let minGap: number = 5;
 
@@ -12,6 +14,7 @@ sliderOne.oninput = function slideOne(){
     sliderOne.value = String(parseInt(sliderTwo.value) - minGap);
   }
   displayValOne.textContent = sliderOne.value;
+  fillColor();
 }
 
 sliderTwo.oninput = function slideTwo(){
@@ -19,6 +22,12 @@ sliderTwo.oninput = function slideTwo(){
     sliderTwo.value = String(parseInt(sliderOne.value) + minGap);
   }
   displayValTwo.textContent = sliderTwo.value;
+  fillColor();
 }
 
+function fillColor(){
+  const persent1: number = (+sliderOne.value / +sliderMaxValue) * 100;
+  const persent2: number = (+sliderTwo.value / +sliderMaxValue) * 100;
+  sliderTrack.style.background = `linear-gradient(to right, rgb(226, 226, 226) ${persent1}%, #3264fe ${persent1}%, #3264fe ${persent2}%, rgb(226, 226, 226) ${persent2}%) `
+}
 }
