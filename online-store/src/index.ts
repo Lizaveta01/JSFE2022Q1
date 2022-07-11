@@ -16,32 +16,25 @@ draw(cards);
   const notify = document.querySelector('.notify') as HTMLElement;
   const catalog = document.querySelector('.catalog') as HTMLElement;
 
-
+  const items = document.querySelectorAll('.shoes-card');
   inputSearch.oninput = function () {
   let text = inputSearch.value.trim();
- 
+  let count = items.length;
   // products.innerHTML = "";
-  
-
   if(text != ''){
-    cards.forEach((el) => {
-      if(el.name.toLowerCase().search(text.toLowerCase()) == -1){
-        notify.classList.remove('hiden');
-        catalog.classList.add('catalog__hiden');
-      } else {
+    items.forEach((el) => {
+    
+      if(el.children[1].innerHTML.toLowerCase().search(text.toLowerCase()) == -1){
+        el.classList.add('hiden') 
+        count--
+        } else {
         notify.classList.add('hiden');
         catalog.classList.remove('catalog__hiden');
-        const shoesCard = document.createElement('div');
-        shoesCard.classList.add('shoes-card');
-        shoesCard.innerHTML = `
-        <img src="${el.image}" alt="img">
-        <p id="shoes__name">${el.name}</p>
-        <p id="shoes__category">${el.category}</p>
-        <p id="shoes__colors">${el.color.length} colors</p>
-        <p id="shoes__price">$${el.price}</p>
-        <div class="basket-status"></div>`;
-        products.appendChild(shoesCard);
-      }      
+        el.classList.remove('hiden')}   
+      if(count == 0){
+        notify.classList.remove('hiden');
+        catalog.classList.add('catalog__hiden');
+      }
     });
   } else {
     notify.classList.add('hiden');
@@ -109,22 +102,18 @@ sortInput.onchange = function(){
 
 function sortByPriceHightLow() {
   cards.sort((a,b) => +b.price - +a.price);
-  console.log(cards);
   draw(cards)
 }
 function sortByPriceLowHight() {
   cards.sort((a,b) => +a.price - +b.price);
-  console.log(cards);
   draw(cards)
 }
 function sortByDateNew() {
   cards.sort((a,b) => +b.release - +a.release);
-  console.log(cards);
   draw(cards)
 }
 function sortByDateOld() {
   cards.sort((a,b) => +a.release - +b.release);
-  console.log(cards);
   draw(cards)
 }
 //=======================================================SORTING
