@@ -1,8 +1,9 @@
 import { ICards } from './cards_info'
 
- export function draw(data: ICards[]){
+ export function draw(data: ICards[]){ 
     const products = document.querySelector('.products') as HTMLElement;
     const fragment = document.createDocumentFragment();
+    products.innerHTML = "";
 
     data.forEach((el) => {
       const shoesCard = document.createElement('div');

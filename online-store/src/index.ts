@@ -20,7 +20,7 @@ draw(cards);
   inputSearch.oninput = function () {
   let text = inputSearch.value.trim();
  
-  products.innerHTML = "";
+  // products.innerHTML = "";
   
 
   if(text != ''){
@@ -93,40 +93,38 @@ inBasket.forEach(item => item.addEventListener('click', function(){
 }));
 //=======================================================SORTING
 
-
 const sortInput = document.getElementById('section__sort') as HTMLSelectElement;
-const products1 = document.querySelector('.products') as HTMLElement;
 
-
-
+// при нажатии определяет на каком option был сделан клик
 sortInput.onchange = function(){
   const indexSelected = sortInput.selectedIndex;
   let option = sortInput.querySelectorAll('option')[indexSelected];
-
   let selectedId = option.getAttribute('id');
 
-  if(selectedId == '1') console.log('1');
-  if(selectedId == '2') console.log('2');
-  if(selectedId == '3') console.log('3');
-  if(selectedId == '4') sortByPriceHightLow();
+  if(selectedId == '1') sortByDateOld();
+  if(selectedId == '2') sortByDateNew();
+  if(selectedId == '3') sortByPriceHightLow();
+  if(selectedId == '4') sortByPriceLowHight();
 }
 
 function sortByPriceHightLow() {
-  console.log(products1.children.length)
-  for (let i = 0; i < products1.children.length; i++){
-    for(let j = 1; j < products1.children.length; j++){
-      if (Number(products1.children[i].getAttribute('data-price')) > Number(products1.children[j].getAttribute('data-price'))){
-      const replacedNode = products1.replaceChildren(products1.children[i], products1.children[j]);
-      //  insertAfter(replacedNode, products1.children[i]);
-      }
-      console.log(products1.children.length)
-      console.log(i, products1.children[i]);
-       console.log(products1.children[i]);
-       console.log(Number(products1.children[i].getAttribute('data-price')))
-    }
-  }
+  cards.sort((a,b) => +b.price - +a.price);
+  console.log(cards);
+  draw(cards)
 }
-
-function insertAfter(elem: any, refElem: any) :HTMLElement{
-  return refElem.parentNode?.insertBefore(elem, refElem.nextSibling);
+function sortByPriceLowHight() {
+  cards.sort((a,b) => +a.price - +b.price);
+  console.log(cards);
+  draw(cards)
 }
+function sortByDateNew() {
+  cards.sort((a,b) => +b.release - +a.release);
+  console.log(cards);
+  draw(cards)
+}
+function sortByDateOld() {
+  cards.sort((a,b) => +a.release - +b.release);
+  console.log(cards);
+  draw(cards)
+}
+//=======================================================SORTING

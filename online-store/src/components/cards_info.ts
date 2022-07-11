@@ -15,7 +15,7 @@ export const cards: ICards[] = [
   {
     name: 'Nike Waffle One SE',
     category: 'Basketball',
-    price: '89.95',
+    price: '89',
     gender: 'Mens Shoes',
     color: ['white', 'black'],
     size: ['4.5', '5.0', '6.0'],
@@ -27,7 +27,7 @@ export const cards: ICards[] = [
   {
     name: 'Nike Air Force 1',
     category: 'Running',
-    price: '115.96',
+    price: '115',
     gender: 'Mens Shoes',
     color: ['red', 'white', 'black'],
     size: ['7.5', '5.0', '6.0'],
