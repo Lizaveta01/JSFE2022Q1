@@ -1,16 +1,16 @@
-import { ICards } from './cards_info'
+import { ICards } from './inrefaces'
 
- export function draw(data: ICards[]){ 
-    const products = document.querySelector('.products') as HTMLElement;
-    const fragment = document.createDocumentFragment();
-    products.innerHTML = "";
+export function draw(data: ICards[]){ 
+  const products = document.querySelector('.products') as HTMLElement;
+  const fragment = document.createDocumentFragment();
+  products.innerHTML = "";
 
-    data.forEach((el) => {
-      const shoesCard = document.createElement('div');
-      shoesCard.classList.add('shoes-card');
-      shoesCard.setAttribute('data-price', el.price);
-      shoesCard.setAttribute('data-release', el.release);
-      shoesCard.innerHTML = `
+  data.forEach((el) => {
+    const shoesCard = document.createElement('div');
+    shoesCard.classList.add('shoes-card');
+    shoesCard.setAttribute('data-price', el.price);
+    shoesCard.setAttribute('data-release', el.release);
+    shoesCard.innerHTML = `
       <img src="${el.image}" alt="img">
       <p id="shoes__name">${el.name}</p>
       <p id="shoes__category">${el.category}</p>
@@ -18,8 +18,8 @@ import { ICards } from './cards_info'
       <p id="shoes__price">$${el.price}</p>
       <div class="basket-status"></div>`;
 
-      fragment.append(shoesCard);
-    });
-    products.appendChild(fragment);
+    fragment.append(shoesCard);
+  });
+  products.appendChild(fragment);
 }
 
