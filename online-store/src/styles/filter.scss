@@ -98,12 +98,17 @@ $filterLine: 1px solid rgb(187, 187, 187);
   @include filterLine ($filterLine, 24px);
 }
 
-.material{
-  .checkbox-without-line{
+.radio__buttons{
     display: flex;
+    gap:16px;
     flex-direction: column;
-  }
+    p{
+      input{
+        margin-right:14px;
+      }
+    }
 }
+
 .clear{
   background-color: #3264fe;
   width:180px;

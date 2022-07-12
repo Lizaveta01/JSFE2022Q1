@@ -1,16 +1,3 @@
-interface Filter {
-  category: string[],
-  gender:string[],
-  material:string[]
-}
-const filterObj: Filter ={
-  category: [],
-  gender:[],
-  material:[]
-}
-//*?  Вопросы: хотела вынести из getCheckedCheckBoxes() чтобы элементы пушились в filterObj.category но возникает ошибка, что при одном клике добавляется сразу несколько строк одной категории. Когда массив, например  checkboxesChecked находится в функции - все в порядке
-
-
 //определяет какой чекбокс выбран
 export function getCheckedCheckBoxes(){
     const checkboxes = document.getElementsByClassName('custom-checkbox');

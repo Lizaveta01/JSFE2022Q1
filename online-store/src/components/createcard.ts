@@ -10,6 +10,7 @@ export function draw(data: ICards[]){
     shoesCard.classList.add('shoes-card');
     shoesCard.setAttribute('data-price', el.price);
     shoesCard.setAttribute('data-release', el.release);
+    shoesCard.setAttribute('data-color', el.color.join(','));
     shoesCard.innerHTML = `
       <img src="${el.image}" alt="img">
       <p id="shoes__name">${el.name}</p>

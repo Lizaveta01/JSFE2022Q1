@@ -81,9 +81,9 @@
       <div class="color">
         <h3>Color</h3>
         <div class="colors">
-          <button name="color" class="all-btn" data-color="all">all</button>
-          <button name="color" class="color-btn" data-color="white"></button>
-          <button name="color" class="color-btn active" data-color="black"></button>
+          <!-- <button name="color" class="all-btn" data-color="all">all</button> -->
+          <button name="color" class="color-btn white" data-color="white"></button>
+          <button name="color" class="color-btn" data-color="black"></button>
           <button name="color" class="color-btn" data-color="red"></button>
           <button name="color" class="color-btn" data-color="blue"></button>
           <button name="color" class="color-btn" data-color="green"></button>
@@ -119,13 +119,10 @@
       </div>
       <div class="material">
         <h3>Material</h3>
-        <div class="checkbox-without-line">
-          <input type="checkbox" class="custom-checkbox" id="Canvas" name="Canvas" value="yes">
-          <label for="Canvas">Canvas</label>
-          <input type="checkbox" class="custom-checkbox" id="Leather" name="Leather" value="yes">
-          <label for="Leather">Leather</label>
-          <input type="checkbox" class="custom-checkbox" id="Sustainable" name="Sustainable" value="yes">
-          <label for="Sustainable">Sustainable Materials</label>
+        <div class="radio__buttons">
+          <p><input type="radio" class="custom-radio" id="Canvas" name="material">Canvas</p>
+          <p><input type="radio" class="custom-radio" id="Leather" name="material">Leather</p>
+          <p><input type="radio" class="custom-radio"id="Sustainable" name="material">Sustainable Materials</p>
       </div>
 
       <button class="clear">Clear filters</button>
