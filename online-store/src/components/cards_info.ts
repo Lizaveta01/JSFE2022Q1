@@ -74,7 +74,7 @@ export const cards: ICards[] = [
   },
   {
     name: 'Nike Air Force 5',
-    category: 'Training & Gym',
+    category: 'Training',
     price: '178',
     gender: 'Mens Shoes',
     color: ['red', 'white', 'black', 'green', 'pink'],
