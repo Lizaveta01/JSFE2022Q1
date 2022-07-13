@@ -1,10 +1,12 @@
+import { selectors } from "../models/selectors";
+
 export function slider() {
   
-  let sliderOne = document.getElementById("slider-1") as HTMLInputElement;
-  let sliderTwo = document.getElementById("slider-2") as HTMLInputElement;
-  let displayValOne = document.getElementById("range1") as HTMLInputElement;
-  let displayValTwo = document.getElementById("range2") as HTMLInputElement;
-  let sliderTrack = document.querySelector(".slider-track") as HTMLElement;
+  let sliderOne = document.getElementById(selectors.sliderPointRight) as HTMLInputElement;
+  let sliderTwo = document.getElementById(selectors.sliderPointLeft) as HTMLInputElement;
+  let displayValOne = document.getElementById(selectors.sliderValueRight) as HTMLInputElement;
+  let displayValTwo = document.getElementById(selectors.sliderValueLeft) as HTMLInputElement;
+  let sliderTrack = document.querySelector(selectors.sliderTrack) as HTMLElement;
   let sliderMaxValue = sliderOne.max;
 
   let minGap: number = 5;
@@ -15,7 +17,6 @@ export function slider() {
     }
     displayValOne.textContent = sliderOne.value;
     fillColor();
-    filterPrice()
   }
 
   sliderTwo.oninput = function slideTwo(){
@@ -24,27 +25,11 @@ export function slider() {
     }
     displayValTwo.textContent = sliderTwo.value;
     fillColor();
-    filterPrice()
   }
 
   function fillColor(){
     const persent1: number = (+sliderOne.value / +sliderMaxValue) * 100;
     const persent2: number = (+sliderTwo.value / +sliderMaxValue) * 100;
     sliderTrack.style.background = `linear-gradient(to right, rgb(226, 226, 226) ${persent1}%, #3264fe ${persent1}%, #3264fe ${persent2}%, rgb(226, 226, 226) ${persent2}%) `
-  }
-
-  function filterPrice(){
-    const items = document.querySelectorAll('.shoes-card');
-    const max = +sliderTwo.value;
-    const min = +sliderOne.value;
-    
-    items.forEach((el) => {
-      const val = Number(el.getAttribute('data-price'));
-      if (min < val && val < max){
-        el.classList.remove('hiden')
-      } else {
-        el.classList.add('hiden')
-      }
-    })
   }
 }

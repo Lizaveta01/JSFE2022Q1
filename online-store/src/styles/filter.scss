@@ -98,7 +98,7 @@ $filterLine: 1px solid rgb(187, 187, 187);
   @include filterLine ($filterLine, 24px);
 }
 
-.radio__buttons{
+.material__radio-buttons{
     display: flex;
     gap:16px;
     flex-direction: column;
@@ -109,7 +109,7 @@ $filterLine: 1px solid rgb(187, 187, 187);
     }
 }
 
-.clear{
+.clear-button{
   background-color: #3264fe;
   width:180px;
   position: relative;
