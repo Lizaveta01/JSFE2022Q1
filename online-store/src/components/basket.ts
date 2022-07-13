@@ -1,4 +1,4 @@
-
+import { selectors } from '../models/selectors'
 class Basket {
   basketStorage: Record<string, number>;
   basketCounter: number;
@@ -8,8 +8,8 @@ class Basket {
   constructor() {
     this.basketStorage = {};
     this.basketCounter = 0;
-    this.modalWindow = document.querySelector('.modal-window-overlay') as HTMLElement;
-    this.modalButton = document.querySelector('.popup__button') as HTMLElement;
+    this.modalWindow = document.querySelector(selectors.modalWindow) as HTMLElement;
+    this.modalButton = document.querySelector(selectors.popupButton) as HTMLElement;
     this.init();
 }
 
@@ -70,3 +70,5 @@ class Basket {
       this.modalWindow.classList.add('visible');
   }
 }
+
+export default Basket

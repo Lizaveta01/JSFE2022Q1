@@ -1,5 +1,5 @@
-import { ICards } from '../assets/models/inrefaces'
-
+import { ICards } from '../models/inrefaces'
+import { selectors } from '../models/selectors'
 class RenderCards {
   shoesItemTemp: HTMLTemplateElement;
   fragment:DocumentFragment;
@@ -12,21 +12,21 @@ class RenderCards {
   cardPrice: HTMLElement;
   cardColor: HTMLElement;
   cardStock: HTMLElement;
-  cardBasket: HTMLElement;
+  cardBasketButton: HTMLElement;
 
   constructor(){
-    this.shoesItemTemp = document.querySelector('.shoes-card-template') as HTMLTemplateElement;
+    this.shoesItemTemp = document.querySelector(selectors.shoesTemplate) as HTMLTemplateElement;
     this.fragment = document.createDocumentFragment();
     this.cardClone = this.shoesItemTemp?.content.cloneNode(true) as HTMLElement;
-    this.img = this.cardClone?.querySelector('.shop-card__image') as HTMLImageElement;
-    this.cardName = this.cardClone.querySelector('.shoes-card__name') as HTMLElement;
-    this.cardCategory =this.cardClone.querySelector('.shoes-card__category') as HTMLElement;
-    this.cardBrand =this.cardClone.querySelector('.shoes-card__brand') as HTMLElement;
-    this.cardMaterial = this.cardClone.querySelector('.shoes-card__material') as HTMLElement;
-    this.cardPrice = this.cardClone.querySelector('.shop-card__price') as HTMLElement;
-    this.cardColor = this.cardClone.querySelector('.shoes-card__material') as HTMLElement;
-    this.cardStock = this.cardClone.querySelector('.basket__stock') as HTMLElement;
-    this.cardBasket = this.cardClone.querySelector('.basket__stoke-button') as HTMLElement;
+    this.img = this.cardClone?.querySelector(selectors.shoesCardImage) as HTMLImageElement;
+    this.cardName = this.cardClone.querySelector(selectors.shoesCardName) as HTMLElement;
+    this.cardCategory =this.cardClone.querySelector(selectors.shoesCardName) as HTMLElement;
+    this.cardBrand =this.cardClone.querySelector(selectors.shoesCardBrand) as HTMLElement;
+    this.cardMaterial = this.cardClone.querySelector(selectors.shoesCardMaterial) as HTMLElement;
+    this.cardPrice = this.cardClone.querySelector(selectors.shoesCardPrice) as HTMLElement;
+    this.cardColor = this.cardClone.querySelector(selectors.shoesCardColor) as HTMLElement;
+    this.cardStock = this.cardClone.querySelector(selectors.shoesCardStock) as HTMLElement;
+    this.cardBasketButton = this.cardClone.querySelector(selectors.shoesCardBasketButton) as HTMLElement;
 }      
 
   draw(data: ICards[], cart:Record<string,number>){
@@ -45,14 +45,14 @@ class RenderCards {
         this.cardMaterial.textContent = item.material;
         this.cardColor.textContent = `${item.color.length} color`
         this.cardPrice.textContent = `$${item.price}`;
-        this.cardStock.textContent = item.stock ? 'In stoke' : 'On request';
+        this.cardStock.textContent = item.stock ? 'In stock' : 'On request';
         item.stock
             ? this.cardStock.classList.add('shoes-in-stock')
             : this.cardStock.classList.add('shoes-out-of-stock');
-        this.cardBasket.textContent = cart[item.name] ? 'In the basket' : 'Add to basket';
+        this. cardBasketButton.textContent = cart[item.name] ? 'In the basket' : 'Add to basket';
         cart[item.name]
-            ? this.cardBasket.classList.add('added')
-            : this.cardBasket.classList.remove('added');
+            ? this. cardBasketButton.classList.add('added')
+            : this. cardBasketButton.classList.remove('added');
         this.fragment.append(cardClone);   
       })
      }
