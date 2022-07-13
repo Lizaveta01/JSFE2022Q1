@@ -5,6 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="./assets/nike_logo.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <title>Online Store</title>
 </head>
 <body>
@@ -29,13 +32,22 @@
    </div>
  </header>
  <main >
-   
    <div class="label">
      <h1>Men / Shoes</h1>
    </div>
-   <div class="notify hiden">
-    Sorry, we couldn't find the page you're looking for
-   </div>
+   <div class="sorting">
+    <button id="hide-filter">
+      <span>Hide Filters</span>
+      <img src="./assets/SingleChoice.svg" alt="icon-filter">    
+    </button>
+    <select name="sorting" class="form-select" id="section__sort">
+      <option disabled selected>Sort By</option>
+      <option id="1">Featured</option>
+      <option id="2">Newest</option>
+      <option id="3">Price: Hight-Low</option>
+      <option id="4">Price: Low-High</option>
+  </select>
+  </div>
    <div class="catalog">
     <div class="filter">
       <div class="category">
@@ -129,29 +141,8 @@
       </div>
     </div>
 
-    <div class="product-place">
-      <div class="sorting">
-        <button id="hide-filter">
-          <span>Hide Filters</span>
-          <img src="./assets/SingleChoice.svg" alt="icon-filter">    
-        </button>
-        <select name="sorting" class="form-select" id="section__sort">
-          <option disabled selected>Sort By</option>
-          <option id="1">Featured</option>
-          <option id="2">Newest</option>
-          <option id="3">Price: Hight-Low</option>
-          <option id="4">Price: Low-High</option>
-      </select>
-
-        
-      </div>
-
-      <div class="products">
-       
-      </div>
-
+     <div class="products">
     </div>
-
    </div>
    
  </main>
@@ -162,5 +153,36 @@
     <a href="https://rs.school/js/" class="rss"></a>
   </div>
  </footer>
+
+ <div class="modal-window-overlay">
+   <div class="message__popup">
+    <div class="popup__button">
+      <img src="./assets/Close.svg" alt="close">
+    </div>
+    <p class="popup__text">Sorry, basket is full.<br>Please, remove something</p>
+   </div>
+ </div>
+
+ <template class="shoes-card-template">
+  <div class="shoes-card">
+    <img class="shoes-card__image" src="#" alt="shoes imgage">
+    <div class="shoes-card-info">
+      <h2 class="shoes-card__name"></h2>
+      <p class="shoes-card__category"></p>
+      <p class="shoes-card__brand"></p>
+      <div class="shoes-card__appearence">
+        <p class="shoes-card__material"></p>
+        <p class="shoes-card__colors"></p>
+      </div>
+      <p class="shoes-card__price"></p>
+      <div class="shoes-card__basket">
+        <p class="basket__stoke"></p>
+        <button class="basket__stoke-button"></button>
+      </div>
+    </div>
+  </div>
+ </template>
+  
 </body>
 </html>
+

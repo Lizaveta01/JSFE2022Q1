@@ -1,9 +1,10 @@
+$grayColor: rgb(175, 175, 175);
+
 .products{
   display: flex;
-  margin-left: 20px;
+  padding-left: 40px;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  gap: 34px;
   margin: 16px auto;
 }
 .shoes-card{
@@ -13,34 +14,74 @@
   img{
     width: 320px;
   }
-  #shoes__name{
-    line-height: 24px;
-    margin-top: 14px;
-    color: black;
+  &:hover{
+    box-shadow: -5px 13px 26px -15px rgba(112, 112, 112, 0.38);
   }
-  #shoes__price{
-    color: black;
-    margin-top: 18px;
-  }
-  p{
-    color: rgb(199, 199, 199);
-    margin-top: 6px;
-  }  
 }
-.basket-status{
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(182, 252, 231);
-  background-image: url(https://img.icons8.com/ios-glyphs/2x/checkmark.png);
-  background-size: contain;
+.shoes-card__name{
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 14px;
+ color: black;
 }
-.active{
+.shoes-card__price{
+  font-size: 18px;
+  margin-top: 18px;
+  font-weight: 500;
+  color: black;
+} 
+.shoes-card-info{
   display: flex;
+  flex-direction: column;
+  color:$grayColor;
+  padding: 14px;
+  gap: 8px;
 }
+.shoes-card__appearence{
+  display: flex;
+  justify-content: space-between;
+}
+.shoes-card__colors{
+  padding-right: 9px;
+}
+.shoes-card__basket{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.basket__stoke{
+  font-size: 16px;
+  color: black;
+}
+.basket__stoke-button{
+  width: 140px;
+  height: 40px;
+  border: 1px solid $grayColor;
+  border-radius: 20px;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  &:hover{
+    background-color: black;
+    color: white;
+  }
+}
+
+// .basket-status{
+//   position: absolute;
+//   top: 10px;
+//   right: 10px;
+//   width: 36px;
+//   height: 36px;
+//   border-radius: 50%;
+//   display: none;
+//   justify-content: center;
+//   align-items: center;
+//   background-color: rgb(182, 252, 231);
+//   background-image: url(https://img.icons8.com/ios-glyphs/2x/checkmark.png);
+//   background-size: contain;
+// }
+// .active{
+//   display: flex;
+// }

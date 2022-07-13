@@ -1,4 +1,4 @@
-import { ICards } from './inrefaces'
+import { ICards } from '../assets/models/inrefaces'
 
 export const cards: ICards[] = [
   {
@@ -10,8 +10,10 @@ export const cards: ICards[] = [
     size: ['4.5', '5.0', '6.0'],
     brand: 'Nike By You',
     material: 'Canvas',
+    img:'1',
     image: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/29082110-583d-4021-9ff0-57d2cff36c9b/waffle-one-se-shoes-mT3CQN.png',
     release: '2021',
+    stock: true
   },
   {
     name: 'Nike Air Force 1',
@@ -22,8 +24,10 @@ export const cards: ICards[] = [
     size: ['7.5', '5.0', '6.0'],
     brand: 'Jordan',
     material: 'Leather',
+    img:'2',
     image: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/05aeb54f-ca86-48d9-a60f-57d798e3935d/air-max-95-shoes-TJLLsB.png',
     release: '2021',
+    stock: true
   },
   {
     name: 'Nike Air Force 2',
@@ -34,8 +38,10 @@ export const cards: ICards[] = [
     size: ['5.5', '5.0', '6.0'],
     brand: 'Nike Sportwear',
     material: 'Leather',
+    img:'3',
     image: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/358b5ffe-0704-4c5a-89fd-0fa5b2b1f99b/air-max-plus-iii-shoe-3BSBtx.png',
     release: '2020',
+    stock: true
   },
   {
     name: 'Nike Air Force 3',
@@ -46,8 +52,10 @@ export const cards: ICards[] = [
     size: ['3.5', '4.0', '5.5', '6.0', '7.0'],
     brand: 'NikeLab',
     material: 'Sustainable Materials',
+    img:'4',
     image: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/312e0df6-a0c6-4a5d-ba01-e837b3d8ee49/jordan-delta-3-sp-shoes.png',
     release: '2019',
+    stock: false
   },
   {
     name: 'Nike Air Force 4',
@@ -58,8 +66,10 @@ export const cards: ICards[] = [
     size: ['3.5', '4.0', '5.5', '6.0', '7.0'],
     brand: 'Jordan',
     material: 'Sustainable Materials',
+    img:'5',
     image: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/4180e725-4966-463b-8c22-71e3ca6a9a55/air-jordan-2-retro-sp-shoes.png',
     release: '2022',
+    stock: false
   },
   {
     name: 'Nike Air Force 5',
@@ -70,8 +80,10 @@ export const cards: ICards[] = [
     size: ['3.5', '4.0', '5.5', '6.0', '7.0'],
     brand: 'Nike By You',
     material: 'Sustainable Materials',
+    img:'6',
     image: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/0db30447-d199-4373-bf36-6cbb439e96c2/air-max-terrascape-90-shoes-wdBkKH.png',
     release: '2020',
+    stock: false
   },
   {
     name: 'Nike Air Force 6',
@@ -82,8 +94,10 @@ export const cards: ICards[] = [
     size: ['8.0', '7.0', '6.5', '6.0', '9.0'],
     brand: 'ACG',
     material: 'Sustainable Materials',
+    img:'.7',
     image: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e6b5dd64-1a32-45f8-8f19-8f421a1cdd6d/air-max-terrascape-90-shoes-CRn0XW.png',
     release: '2021',
+    stock: true
   },
   {
     name: 'Nike Air Force 7',
@@ -94,8 +108,10 @@ export const cards: ICards[] = [
     size: ['8.0', '7.0', '6.5', '6.0', '9.0'],
     brand: 'NikeLab',
     material: 'Canvas',
+    img:'8',
     image: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/271371f3-0f5c-47c7-b4b4-f840e8b488c1/air-pegasus-83-shoes-hq200x.png',
     release: '2020',
+    stock: false
   },
   {
     name: 'Nike Air Force 8',
@@ -106,7 +122,9 @@ export const cards: ICards[] = [
     size: ['8.0', '7.0', '6.5', '6.0', '9.0'],
     brand: 'ACG',
     material: 'Canvas',
+    img:'9',
     image: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/b00a5170-20ed-4cda-9c69-6c1e0a04276e/air-force-1-07-shoes-KprQCr.png',
     release: '2022',
+    stock: false
   }
 ]

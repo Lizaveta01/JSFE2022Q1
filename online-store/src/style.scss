@@ -1,5 +1,6 @@
 @import "./styles/nullstyle.scss";
 @import "./styles/filter.scss";
+@import "./styles/modalWindow.scss";
 
 $bodyColor: white;
 $linkColor: rgb(248, 248, 248);
@@ -36,8 +37,10 @@ body {
   flex-direction: column;
   height: 100%;
   font-size: 16px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Albert Sans', sans-serif;
+  font-weight: 400;
   margin: 0 auto;
+  position: relative;
 }
   
 header{
@@ -164,7 +167,7 @@ main{
 .catalog{
   display: flex;
   height: auto;
-  padding: 40px;
+  padding: 0px 40px;
   padding-left: 8px;
   font-size: $fontSizeFilter;
 }
@@ -186,10 +189,6 @@ main{
   color: black;
 }
 
-.product-place{
-  width: auto;
-  justify-content: center;
-}
 .sorting{
   font-size: 16px;
   display: flex;
@@ -197,6 +196,8 @@ main{
   width: auto;
   gap:20px;
   line-height: 28px;
+  padding-top: 20px;
+  padding-right:40px;
   img{
     width: 24px;
   }

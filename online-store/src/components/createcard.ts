@@ -1,4 +1,4 @@
-import { ICards } from './inrefaces'
+import { ICards } from '../assets/models/inrefaces'
 
 export function draw(data: ICards[]){ 
   const products = document.querySelector('.products') as HTMLElement;

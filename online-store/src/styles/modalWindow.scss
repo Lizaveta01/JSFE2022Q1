@@ -1,0 +1,47 @@
+.modal-window-overlay {
+  display: none;
+  position: fixed;
+  left:0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(233, 233, 233, 0.4);
+  z-index: 10;
+}
+.visible{
+  display: block;
+}
+.message__popup {
+  opacity: 1;
+  position: relative;
+  background-color: #fefefe;
+  margin: 40vh auto;
+  padding: 15px;
+  box-shadow: -5px 13px 26px -15px rgba(112, 112, 112, 0.38);
+  border-radius: 20px;
+  width: 400px;
+  animation-name: appear;
+  animation-duration: 0.5s;
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+.popup__button {
+  float: right;
+  img{
+    width: 25px;
+    height: 25px;
+  }
+}
+.popup__text {
+  line-height: 1.4;
+  color: black;
+  text-align: center;
+  font-size: 20px;
+  margin: 40px 20px 25px;
+}

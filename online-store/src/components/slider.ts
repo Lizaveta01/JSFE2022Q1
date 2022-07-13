@@ -42,9 +42,6 @@ export function slider() {
       const val = Number(el.getAttribute('data-price'));
       if (min < val && val < max){
         el.classList.remove('hiden')
-        // if(el.classList.contains('.hiden')){
-        //   return 'yes'
-        // }
       } else {
         el.classList.add('hiden')
       }
