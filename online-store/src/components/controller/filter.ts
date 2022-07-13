@@ -23,21 +23,15 @@ class Filter {
 
     this.categoryListName = document.querySelector(selectors.categoryListName)as HTMLElement;
     this.categoryList = this.categoryListName.querySelectorAll(selectors.checkboxList);
-
     this.priceSlider = document.querySelector(selectors.priceSlider)as HTMLElement;
     this.sliderOne = document.getElementById(selectors.sliderPointRight) as HTMLInputElement;
     this.sliderTwo = document.getElementById(selectors.sliderPointLeft) as HTMLInputElement;
-
-
     this.colorListName = document.querySelector(selectors.colorListName)as HTMLElement;
     this.colorList = this.colorListName.querySelectorAll(selectors.colorList);
-
     this.sizeListName = document.querySelector(selectors.sizeListName)as HTMLElement;
     this.sizeList = this.sizeListName.querySelectorAll(selectors.sizeList);
-
     this.brandListName = document.querySelector(selectors.brandListName)as HTMLElement;
     this.brandList = this.brandListName.querySelectorAll(selectors.option);
-
     this.materialListName = document.querySelector(selectors.materialListName)as HTMLElement;
     this.materialList = this.materialListName.querySelectorAll(selectors.radioButton);
     this.cleanFiltersButton = document.querySelector(selectors.cleanFiltersButton)as HTMLElement;
@@ -201,7 +195,7 @@ class Filter {
     filterData = this.filterBySize(filterData);
     filterData = this.filterByBrand(filterData);
     filterData = this.filterByMaterial(filterData);
-    return filterData
+    return filterData;
   }
 }
 
