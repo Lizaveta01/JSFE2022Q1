@@ -44,7 +44,7 @@ class Basket {
       }
       if (this.basketStorage[name] <= 0)
           delete this.basketStorage[name];
-      localStorage.setItem('cartStorage', JSON.stringify(this.basketStorage));
+      localStorage.setItem('basketStorage', JSON.stringify(this.basketStorage));
   }
   toggle(name:string) {
       if (this.basketStorage[name]) {
@@ -59,12 +59,12 @@ class Basket {
           this.basketStorage[name] = 1;
           this.basketCounter += 1;
       }
-      localStorage.setItem('cartStorage', JSON.stringify(this.basketStorage));
+      localStorage.setItem('basketStorage', JSON.stringify(this.basketStorage));
   }
   clear() {
       this.basketStorage = {};
       this.basketCounter = 0;
-      localStorage.removeItem('cartStorage');
+      localStorage.removeItem('basketStorage');
   }
   showModal() {
       this.modalWindow.classList.add('visible');

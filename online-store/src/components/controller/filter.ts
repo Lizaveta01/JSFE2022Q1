@@ -40,10 +40,10 @@ class Filter {
 
    init() {
      const checkedCategoryOption = JSON.parse(localStorage.getItem('category')!);
-  //   const checkedColorOption = JSON.parse(localStorage.getItem('color')!);
-  //   const checkedSizeOption = JSON.parse(localStorage.getItem('size')!);
-  //   const checkedBrandOption = JSON.parse(localStorage.getItem('brand')!);
-  //   const checkedMaterialOption = JSON.parse(localStorage.getItem('material')!);
+     const checkedColorOption = JSON.parse(localStorage.getItem('color')!);
+    // const checkedSizeOption = JSON.parse(localStorage.getItem('size')!);
+    const checkedBrandOption = JSON.parse(localStorage.getItem('brand')!);
+     const checkedMaterialOption = JSON.parse(localStorage.getItem('material')!);
 
     if (checkedCategoryOption) {
         this.categoryList.forEach((chbox, idx) => {
@@ -51,15 +51,11 @@ class Filter {
         });
     }
     
-  //   if(checkedColorOption){
-  //     this.colorList.forEach((color) => {
-  //       for(let i =0; i< checkedColorOption.length; i++){
-  //         if(color.name == checkedColorOption[i]){
-  //           color.classList.add(selectors.selectedColor)
-  //         }
-  //       }
-  //   });
-  //   }
+     if(checkedColorOption){
+      this.colorList.forEach((chbox, idx) => {
+        chbox.checked = checkedColorOption[idx];
+    });
+    }
   //   if(checkedSizeOption){
   //     this.sizeList.forEach((size) => {
   //       for(let i =0; i< checkedSizeOption.length; i++){
@@ -69,16 +65,16 @@ class Filter {
   //       }
   //   });
   //   }
-  //   if(checkedBrandOption){
-  //     this.brandList.forEach((chbox, idx) => {
-  //       chbox.selected = checkedCategoryOption[idx];
-  //   });
-  //   }
-  //   if(checkedMaterialOption){
-  //     this.materialList.forEach((chbox, idx) => {
-  //       chbox.checked = checkedCategoryOption[idx];
-  //   });
-  //   }
+    if(checkedBrandOption){
+      this.brandList.forEach((chbox, idx) => {
+        chbox.selected = checkedBrandOption[idx];
+    });
+    }
+    if(checkedMaterialOption){
+      this.materialList.forEach((chbox, idx) => {
+        chbox.checked = checkedMaterialOption[idx];
+    });
+    }
 
   //   const minValue = JSON.parse(localStorage.getItem('minPrice')!);
   //   const maxValue = JSON.parse(localStorage.getItem('maxPrice')!);
@@ -87,6 +83,7 @@ class Filter {
    }
 
   searchShoesName(data: ICards[]){
+    console.log(this.searchField.value)
     if(!this.searchField.value){
       return data
     }
@@ -125,26 +122,8 @@ class Filter {
     if(!checkedBox.length){ 
       return data
     } else {
-      return data.filter((item) => {
-        for(let i = 0; item.color.length; i++)
-        checkedBox.indexOf(item.color[i]) != -1})
+      return data.filter((item) => checkedBox.indexOf(item.color) != -1)
     }
-
-
-    // const checkedColor:string[] = [];
-    // this.colorList.forEach((color) => {
-    //   if(color.classList.contains(selectors.selectedColor)){
-    //     checkedColor.push(color.name)
-    //   }
-    // })
-    // if(!checkedColor.length){ 
-    //   return data
-    // } else {
-    //   return data.filter((item) => {
-    //     for(let i = 0; item.color.length; i++)
-    //     checkedColor.indexOf(item.color[i]) != -1
-    //   })
-    // }
   }
 
   filterBySize(data: ICards[]){
@@ -171,10 +150,9 @@ class Filter {
         checkedBrand.push(brand.value)
       }
     })
-    if(checkedBrand.length == 1){ 
+    if(checkedBrand[0] == 'Select brand'){ 
       return data
     } else {
-      console.log('yes', data, checkedBrand)
       return data.filter((item) => checkedBrand.indexOf(item.brand) != -1)
     }
   }
@@ -199,12 +177,17 @@ class Filter {
     this.sliderTwo.value = '300';
     this.colorList.forEach((color) => color.classList.remove(selectors.selectedColor));
     this.sizeList.forEach((size) => size.classList.remove(selectors.selectedSize));
-    this.brandList.forEach((brand) => brand.selected = false);
-    this.materialList.forEach((brand) => brand.checked = false);
+    this.brandList.forEach((brand) => {
+      const brandInput = document.querySelector('#brands') as HTMLOptionElement;
+      brandInput.value = 'Select brand'
+      brand.selected = false
+    });
+    this.materialList.forEach((material) => material.checked = false);
   }
 
   filterAll(data: ICards[]){
     let filterData = data;
+    filterData = this.searchShoesName(filterData);
     filterData = this.filterByCategory(filterData); 
     filterData = this.filterByPrice(filterData);
     filterData = this.filterByColor(filterData);

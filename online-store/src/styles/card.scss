@@ -24,7 +24,8 @@ $grayColor: rgb(175, 175, 175);
   font-weight: 500;
   line-height: 24px;
   margin-top: 14px;
- color: black;
+  padding-left: 14px;
+  color: black;
 }
 .shoes-card__price{
   font-size: 18px;
@@ -64,27 +65,13 @@ $grayColor: rgb(175, 175, 175);
   font-size: 16px;
   font-weight: 500;
   &:hover{
-    background-color: black;
-    color: white;
+    box-shadow: -5px -5px 5px -5px rgba(34, 60, 80, 0.6) inset;
   }
 }
 .shoes-out-of-stock{
   color: $grayColor;
 }
-// .basket-status{
-//   position: absolute;
-//   top: 10px;
-//   right: 10px;
-//   width: 36px;
-//   height: 36px;
-//   border-radius: 50%;
-//   display: none;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: rgb(182, 252, 231);
-//   background-image: url(https://img.icons8.com/ios-glyphs/2x/checkmark.png);
-//   background-size: contain;
-// }
-// .active{
-//   display: flex;
-// }
+.added{
+  background-color: black;
+  color: white;
+}

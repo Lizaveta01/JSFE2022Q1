@@ -26,17 +26,18 @@ class App{
   }
 
   start(){
-    this.redraw()
-    // this.sort.sortInput.addEventListener('change', () => {
-    //   localStorage.setItem('sort', this.sort.sortInput.value)
-    //   this.redraw()
-    // })
-    this.filterData()
+    this.redraw();
+    this.search();
+    this.sortCard();
+    this.filterData();
+    this.seeBasket();
+    this.reset();
   }
 
   search(){
     const searchInput = document.querySelector('#input-search') as HTMLInputElement;
     searchInput.addEventListener('input', ()=> {
+      this.redraw()
     })
   }
 
@@ -51,7 +52,7 @@ class App{
           checkboxesChecked[i] = checkbox.checked;
         })
         localStorage.setItem('category', JSON.stringify(checkboxesChecked));
-        this.redraw();
+        
       }
       if(targetElement.classList.contains('checkbox-color')){
         const checkboxesChecked: boolean[] = [];
@@ -59,10 +60,63 @@ class App{
           checkboxesChecked[i] = checkbox.checked;
         })
         localStorage.setItem('color', JSON.stringify(checkboxesChecked));
-        this.redraw();
+       
+      }
+      if(targetElement.classList.contains('custom-radio')){
+        const checkboxesChecked: boolean[] = [];
+        this.filter.materialList.forEach((checkbox, i) => {
+          checkboxesChecked[i] = checkbox.checked;
+        })
+        localStorage.setItem('material', JSON.stringify(checkboxesChecked));
+      }
+      const brandInput = document.querySelector('#brands') as HTMLOptionElement;
+      brandInput.addEventListener('change', ()=> {
+        const checkboxesChecked: boolean[] = [];
+        this.filter.brandList.forEach((checkbox, i) => {
+          checkboxesChecked[i] = checkbox.selected;
+        })
+        console.log(checkboxesChecked)
+        localStorage.setItem('brand', JSON.stringify(checkboxesChecked))
+        this.redraw()
+      })
+      this.redraw()
+    })
+  }
+
+  reset(){
+    const cleanFilters = document.querySelector('.clear-button')
+    cleanFilters?.addEventListener('click', () => {
+      this.filter.filterReset();
+      this.sort.sortReset();
+      this.basket.clear();
+      localStorage.clear();
+      this.redraw();
+      
+    })
+  }
+
+  sortCard(){
+    this.sort.sortInput.addEventListener('change', ()=> {
+      console.log(this.sort.sortInput);
+      localStorage.setItem('sort', this.sort.sortInput.value)
+      this.redraw()
+    })
+  }
+
+  seeBasket(){
+    const catalog = document.querySelector('.products') as HTMLElement;
+    catalog.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const targetElement =target.closest('.shoes-card') as HTMLElement;
+      
+      if(targetElement){
+        console.log(targetElement.children[1])
+        this.basket.toggle(targetElement.children[1].innerHTML);
+        this.redraw()
       }
     })
   }
+
   redraw(){
     this.data = this.filter.filterAll(cards);
     const sortData = this.sort.sort(this.data);

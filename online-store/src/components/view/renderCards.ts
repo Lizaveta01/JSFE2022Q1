@@ -58,7 +58,7 @@ class RenderCards {
         cardCategory.textContent = item.category;
         cardBrand.textContent = item.brand;
         cardMaterial.textContent = item.material;
-        cardColor.textContent = `${item.color.length} color`;
+        cardColor.textContent = `${item.color} color`;
         cardPrice.textContent = `$${item.price}`;
         cardStock.textContent = item.stock ? 'In stock' : 'On request';
         item.stock
