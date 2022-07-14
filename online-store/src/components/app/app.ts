@@ -91,7 +91,6 @@ class App{
       this.basket.clear();
       localStorage.clear();
       this.redraw();
-      
     })
   }
 
