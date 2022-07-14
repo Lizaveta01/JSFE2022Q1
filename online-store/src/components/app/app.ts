@@ -54,6 +54,15 @@ class App{
         localStorage.setItem('category', JSON.stringify(checkboxesChecked));
         
       }
+      if(targetElement.classList.contains('checkbox-size')){
+        console.log(targetElement)
+        const checkboxesChecked: boolean[] = [];
+        this.filter.sizeList.forEach((checkbox, i) => {
+          checkboxesChecked[i] = checkbox.checked;
+        })
+        localStorage.setItem('size', JSON.stringify(checkboxesChecked));
+        
+      }
       if(targetElement.classList.contains('checkbox-color')){
         const checkboxesChecked: boolean[] = [];
         this.filter.colorList.forEach((checkbox, i) => {
@@ -69,6 +78,13 @@ class App{
         })
         localStorage.setItem('material', JSON.stringify(checkboxesChecked));
       }
+
+
+
+
+
+
+
       const brandInput = document.querySelector('#brands') as HTMLOptionElement;
       brandInput.addEventListener('change', ()=> {
         const checkboxesChecked: boolean[] = [];

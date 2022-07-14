@@ -19,7 +19,7 @@
   colorListName: '.colors',
   colorList: '.checkbox-color',
   sizeListName: '.sizes',
-  sizeList:'.size__button',
+  sizeList:'.checkbox-size',
   brandListName: '#brands',
   option: 'option',
   materialListName: '.material__radio-buttons',

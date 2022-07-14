@@ -119,15 +119,15 @@ export const cards: ICards[] = [
     stock: false
   },
   {
-    name: 'Nike Waffle One SE',
+    name: 'Nike Waff SE',
     category: 'Basketball',
-    price: '89',
+    price: '289',
     gender: 'Mens Shoes',
     color: 'black',
     size: '4.5',
     brand: 'Nike By You',
     material: 'Canvas',
-    img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/29082110-583d-4021-9ff0-57d2cff36c9b/waffle-one-se-shoes-mT3CQN.png',
+    img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6ae95951-4abe-455c-8962-42cbadebfbb7/zoom-freak-3-basketball-shoes-MZpJZF.png',
     release: '2021',
     stock: true
   },
@@ -140,7 +140,7 @@ export const cards: ICards[] = [
     size: '4.5',
     brand: 'Jordan',
     material: 'Leather',
-    img:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/d175869d-a0df-486c-b546-f59aa710c77c/air-force-1-07-lv8-shoes-KkS3Cf.png',
+    img:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/45289cb4-2ae6-4165-be6c-88237d42c819/zoomx-streakfly-road-racing-shoes-Zv8Jbg.png',
     release: '2022',
     stock: true
   },
@@ -153,7 +153,7 @@ export const cards: ICards[] = [
     size: '8.5', 
     brand: 'Nike Sportwear',
     material: 'Leather',
-    img:'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/9f810fa0-25ea-4880-89d0-e6f1e124aa02/stussy-air-force-1-07-mid-shoes-bdsfmH.png',
+    img:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e1c1290c-5314-47dd-ba1b-20ae4780897e/kyrie-low-5-community-jewell-loyd-basketball-shoes-zwtk0S.png',
     release: '2020',
     stock: true
   },
@@ -166,7 +166,7 @@ export const cards: ICards[] = [
     size: '3.5',
     brand: 'NikeLab',
     material: 'Sustainable Materials',
-    img:'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c7fa66ed-271a-4f37-9425-d83a5ed742ae/air-max-97-shoes-9QwZMc.png',
+    img:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8a3bab79-6c98-4a03-a8a5-1ca70bbd2362/zion-2-basketball-shoes-khWbrw.png',
     release: '2019',
     stock: false
   },
@@ -179,7 +179,7 @@ export const cards: ICards[] = [
     size: '6.0',
     brand: 'Jordan',
     material: 'Sustainable Materials',
-    img: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/e5841dd7-c5c6-444f-afdf-89e3b87ceceb/air-jordan-1-retro-high-og-shoes-79vGWV.png',
+    img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/51fe0926-f146-4bde-9f3c-fefc0f0107ff/ispa-link-shoes.png',
     release: '2022',
     stock: false
   },
@@ -192,7 +192,7 @@ export const cards: ICards[] = [
     size: '6.5',
     brand: 'Nike By You',
     material: 'Sustainable Materials',
-    img: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c5bf1010-00cf-4461-81b4-16efc6abbdef/air-max-95-essential-shoes-Zgg3pn.png',
+    img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e58ac538-a815-46ad-a14d-132f3d2cc3bb/zoomx-vaporfly-next-2-road-racing-shoes-821S4F.png',
     release: '2020',
     stock: false
   },
@@ -205,7 +205,7 @@ export const cards: ICards[] = [
     size: '7.0',
     brand: 'ACG',
     material: 'Sustainable Materials',
-    img: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/d8ac9255-b966-443b-9934-edc835b59d19/acronym-blazer-low-shoes-H6l3kD.png',
+    img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f2635aab-deeb-443b-a5cf-59419e6e663b/air-max-95-essential-shoes-Zgg3pn.png',
     release: '2021',
     stock: true
   },
@@ -218,7 +218,7 @@ export const cards: ICards[] = [
     size: '8.0',
     brand: 'NikeLab',
     material: 'Canvas',
-    img: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/8109efda-cdb6-4d19-9fa1-b970dbb653a6/air-max-plus-shoes-x37n30.png',
+    img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/506a05c7-eea4-4405-af12-bba32bd0e48c/air-jordan-1-retro-high-og-shoes-79vGWV.png',
     release: '2020',
     stock: true
   },
@@ -231,7 +231,7 @@ export const cards: ICards[] = [
     size: '3.0',
     brand: 'ACG',
     material: 'Canvas',
-    img: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/216ba0e1-8875-488c-8576-d76cde6a291c/pegasus-trail-3-gore-tex-waterproof-trail-running-shoes-FngTl6.png',
+    img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/ee2a1e79-4626-46c7-b181-6fadbc2351a4/stussy-air-force-1-07-mid-shoes-bdsfmH.png',
     release: '2022',
     stock: true
   },
@@ -244,7 +244,7 @@ export const cards: ICards[] = [
     size: '5.5', 
     brand: 'Nike Sportwear',
     material: 'Leather',
-    img:'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/54cf8fb6-5eb3-4147-aa44-4a11cc2668f4/kd15-basketball-shoes-0H8pmQ.png',
+    img:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8d584e3e-e2b5-4d19-9e73-174d599055eb/air-max-plus-shoes-x37n30.png',
     release: '2020',
     stock: true
   },
@@ -257,7 +257,7 @@ export const cards: ICards[] = [
     size: '6.5',
     brand: 'NikeLab',
     material: 'Sustainable Materials',
-    img:'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/04993055-6221-4a74-8ff2-bd37b481c057/zoom-alphafly-next-nature-road-racing-shoe-3mk9g2.png',
+    img:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f4ea7019-b9a5-434d-9753-976cae67049b/air-max-97-shoes.png',
     release: '2019',
     stock: false
   },
@@ -270,7 +270,7 @@ export const cards: ICards[] = [
     size: '6.0',
     brand: 'Jordan',
     material: 'Sustainable Materials',
-    img: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/e5841dd7-c5c6-444f-afdf-89e3b87ceceb/air-jordan-1-retro-high-og-shoes-79vGWV.png',
+    img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/1641853f-5265-467d-96dc-8a1c14ce76ca/kd15-basketball-shoes-0H8pmQ.png',
     release: '2022',
     stock: false
   },
@@ -283,7 +283,7 @@ export const cards: ICards[] = [
     size: '6.5',
     brand: 'Nike By You',
     material: 'Sustainable Materials',
-    img: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/42a6a00e-11d9-4bfd-beea-688c53affed7/nikecourt-zoom-pro-clay-court-tennis-shoes-qJFxc8.png',
+    img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5eb6df1b-20f1-48a9-b94a-b9b494a79636/zoom-alphafly-next-nature-road-racing-shoe-3mk9g2.png',
     release: '2020',
     stock: false
   },
@@ -296,7 +296,7 @@ export const cards: ICards[] = [
     size: '7.0',
     brand: 'ACG',
     material: 'Sustainable Materials',
-    img: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/d8ac9255-b966-443b-9934-edc835b59d19/acronym-blazer-low-shoes-H6l3kD.png',
+    img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f2423f7a-95a7-40c5-a2b5-bc3eea2bd953/nikecourt-zoom-pro-clay-court-tennis-shoes-qJFxc8.png',
     release: '2021',
     stock: true
   },
@@ -309,7 +309,7 @@ export const cards: ICards[] = [
     size: '8.0',
     brand: 'NikeLab',
     material: 'Canvas',
-    img: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/368aab4d-4493-4d23-b8df-5e41bfbaf89e/air-jordan-1-low-flyease-easy-on-off-shoes-8HnsGF.png',
+    img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/b3db3acb-3a16-479e-8aea-49f8e3aef01b/air-zoom-flight-95-shoes-j7MRhz.png',
     release: '2020',
     stock: true
   },
@@ -322,7 +322,7 @@ export const cards: ICards[] = [
     size: '8.5',
     brand: 'ACG',
     material: 'Canvas',
-    img: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/b69d1007-7a39-46bd-8236-42a002dc8326/air-zoom-tempo-next-road-running-shoes-7kzrjk.png',
+    img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/2b21b6be-2e24-4c7f-abe3-70fb409bf231/revolution-6-next-nature-road-running-shoes-DvtXMX.png',
     release: '2022',
     stock: true
   }

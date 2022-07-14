@@ -9,7 +9,7 @@ class Filter {
   colorListName: HTMLElement;
   colorList: NodeListOf<HTMLInputElement>;
   sizeListName: HTMLElement;
-  sizeList: NodeListOf<HTMLButtonElement>;
+  sizeList: NodeListOf<HTMLInputElement>;
   brandListName: HTMLElement;
   brandList: NodeListOf<HTMLOptionElement>;
   materialListName: HTMLElement;
@@ -39,11 +39,11 @@ class Filter {
   }
 
    init() {
-     const checkedCategoryOption = JSON.parse(localStorage.getItem('category')!);
-     const checkedColorOption = JSON.parse(localStorage.getItem('color')!);
-    // const checkedSizeOption = JSON.parse(localStorage.getItem('size')!);
-    const checkedBrandOption = JSON.parse(localStorage.getItem('brand')!);
-     const checkedMaterialOption = JSON.parse(localStorage.getItem('material')!);
+    const checkedCategoryOption: boolean[] = JSON.parse(localStorage.getItem('category')!);
+    const checkedColorOption: boolean[] = JSON.parse(localStorage.getItem('color')!);
+    const checkedSizeOption: boolean[] = JSON.parse(localStorage.getItem('size')!);
+    const checkedBrandOption: boolean[] = JSON.parse(localStorage.getItem('brand')!);
+    const checkedMaterialOption: boolean[] = JSON.parse(localStorage.getItem('material')!);
 
     if (checkedCategoryOption) {
         this.categoryList.forEach((chbox, idx) => {
@@ -56,15 +56,13 @@ class Filter {
         chbox.checked = checkedColorOption[idx];
     });
     }
-  //   if(checkedSizeOption){
-  //     this.sizeList.forEach((size) => {
-  //       for(let i =0; i< checkedSizeOption.length; i++){
-  //         if(size.textContent == checkedSizeOption[i]){
-  //           size.classList.add(selectors.selectedSize)
-  //         }
-  //       }
-  //   });
-  //   }
+
+    if(checkedSizeOption){
+      this.sizeList.forEach((chbox, idx) => {
+      chbox.checked = checkedSizeOption[idx];
+     })
+    }
+
     if(checkedBrandOption){
       this.brandList.forEach((chbox, idx) => {
         chbox.selected = checkedBrandOption[idx];
@@ -129,17 +127,15 @@ class Filter {
   filterBySize(data: ICards[]){
     const checkedSize:string[] = [];
     this.sizeList.forEach((size) => {
-      if(size.classList.contains(selectors.selectedSize)){
+      if(size.checked){
         checkedSize.push(size.name)
       }
     })
     if(!checkedSize.length){ 
       return data
     } else {
-      return data.filter((item) => {
-        for(let i = 0; item.size.length; i++)
-        checkedSize.indexOf(item.size[i]) != -1
-      })
+      return data.filter((item) => checkedSize.indexOf(item.size) != -1
+      )
     }
   }
 
