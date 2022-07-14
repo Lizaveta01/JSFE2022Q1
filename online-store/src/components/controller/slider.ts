@@ -21,15 +21,28 @@ class Slider {
   }
  
   start(){
-    if(parseInt(this.sliderTwo.value) - parseInt(this.sliderOne.value) <= this.minGap) {
-      this.sliderOne.value = String(parseInt(this.sliderTwo.value) - this.minGap);
-    }
-    this.displayValOne.textContent = this.sliderOne.value;
+    
+    console.log(this.sliderOne.value)
+    console.log('yes')
+    this.sliderOne.addEventListener('click', () => {
+      if(parseInt(this.sliderTwo.value) - parseInt(this.sliderOne.value) <= this.minGap) {
+        this.sliderOne.value = String(parseInt(this.sliderTwo.value) - this.minGap);
+        
+      }
+      this.displayValOne.textContent = this.sliderOne.value;
+      console.log(this.sliderOne.value);
+      localStorage.setItem('minPrice', this.sliderOne.value) 
+      this.fillColor();
+
+    })
+    this.sliderTwo.addEventListener('click', () => {
     if(parseInt(this.sliderTwo.value) - parseInt(this.sliderOne.value) <= this.minGap) {
       this.sliderTwo.value = String(parseInt(this.sliderOne.value) + this.minGap);
     }
     this.displayValTwo.textContent = this.sliderTwo.value;
+    localStorage.setItem('maxPrice', this.sliderTwo.value) 
     this.fillColor();
+  })
   }
 
   fillColor(){

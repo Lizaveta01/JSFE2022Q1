@@ -79,12 +79,6 @@ class App{
         localStorage.setItem('material', JSON.stringify(checkboxesChecked));
       }
 
-
-
-
-
-
-
       const brandInput = document.querySelector('#brands') as HTMLOptionElement;
       brandInput.addEventListener('change', ()=> {
         const checkboxesChecked: boolean[] = [];
@@ -114,7 +108,7 @@ class App{
     this.sort.sortInput.addEventListener('change', ()=> {
       console.log(this.sort.sortInput);
       localStorage.setItem('sort', this.sort.sortInput.value)
-      this.redraw()
+      this.redraw();
     })
   }
 
@@ -123,11 +117,9 @@ class App{
     catalog.addEventListener('click', (e) => {
       const target = e.target as HTMLElement;
       const targetElement =target.closest('.shoes-card') as HTMLElement;
-      
       if(targetElement){
-        console.log(targetElement.children[1])
         this.basket.toggle(targetElement.children[1].innerHTML);
-        this.redraw()
+        this.redraw();
       }
     })
   }
@@ -136,7 +128,7 @@ class App{
     this.data = this.filter.filterAll(cards);
     const sortData = this.sort.sort(this.data);
     this.shopCards.draw(sortData!, this.basket.basketStorage);
-    this.basket.basketCounter ? this.counterBasket.classList.add('has-item') : this.counterBasket.classList.remove('has-item')
+    this.basket.basketCounter ? this.counterBasket.classList.add('has-item') : this.counterBasket.classList.remove('has-item');
     this.counterBasket.innerText = String(this.basket.basketCounter);
   }
 }

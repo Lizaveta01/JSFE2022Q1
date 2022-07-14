@@ -1,5 +1,6 @@
 import { ICards } from '../models/inrefaces';
 import { selectors } from '../models/selectors'
+import Slider from './slider';
 
 class Filter {
   searchField: HTMLInputElement;
@@ -17,10 +18,10 @@ class Filter {
   cleanFiltersButton: HTMLElement;
   sliderOne: HTMLInputElement;
   sliderTwo: HTMLInputElement;
+  newPriceFilter: Slider;
 
   constructor (){
     this.searchField = document.querySelector(selectors.searchField) as HTMLInputElement;
-
     this.categoryListName = document.querySelector(selectors.categoryListName)as HTMLElement;
     this.categoryList = this.categoryListName.querySelectorAll(selectors.checkboxList);
     this.priceSlider = document.querySelector(selectors.priceSlider)as HTMLElement;
@@ -35,10 +36,12 @@ class Filter {
     this.materialListName = document.querySelector(selectors.materialListName)as HTMLElement;
     this.materialList = this.materialListName.querySelectorAll(selectors.radioButton);
     this.cleanFiltersButton = document.querySelector(selectors.cleanFiltersButton)as HTMLElement;
-    this.init()
+    this.newPriceFilter = new Slider();
+    this.init();
   }
 
    init() {
+    this.hideFilter();
     const checkedCategoryOption: boolean[] = JSON.parse(localStorage.getItem('category')!);
     const checkedColorOption: boolean[] = JSON.parse(localStorage.getItem('color')!);
     const checkedSizeOption: boolean[] = JSON.parse(localStorage.getItem('size')!);
@@ -46,38 +49,44 @@ class Filter {
     const checkedMaterialOption: boolean[] = JSON.parse(localStorage.getItem('material')!);
 
     if (checkedCategoryOption) {
-        this.categoryList.forEach((chbox, idx) => {
-            chbox.checked = checkedCategoryOption[idx];
-        });
+      this.categoryList.forEach((chbox, idx) => {
+        chbox.checked = checkedCategoryOption[idx];
+      });
     }
-    
-     if(checkedColorOption){
+    if(checkedColorOption){
       this.colorList.forEach((chbox, idx) => {
         chbox.checked = checkedColorOption[idx];
-    });
+      });
     }
-
     if(checkedSizeOption){
       this.sizeList.forEach((chbox, idx) => {
-      chbox.checked = checkedSizeOption[idx];
+        chbox.checked = checkedSizeOption[idx];
      })
     }
-
     if(checkedBrandOption){
       this.brandList.forEach((chbox, idx) => {
         chbox.selected = checkedBrandOption[idx];
-    });
+      });
     }
     if(checkedMaterialOption){
       this.materialList.forEach((chbox, idx) => {
         chbox.checked = checkedMaterialOption[idx];
-    });
+      });
     }
 
-  //   const minValue = JSON.parse(localStorage.getItem('minPrice')!);
-  //   const maxValue = JSON.parse(localStorage.getItem('maxPrice')!);
-  //   this.sliderOne.value = minValue;
-  //   this.sliderTwo.value = maxValue;
+    let minValue ='0';
+    let maxValue ='300';
+    if(localStorage.getItem('minPrice')){
+      minValue = localStorage.getItem('minPrice')!;
+    }
+    if(localStorage.getItem('maxPrice')){
+      maxValue = localStorage.getItem('maxPrice')!;
+    }
+    this.sliderOne.value = minValue;
+    this.sliderTwo.value = maxValue;
+    this.newPriceFilter.displayValOne.textContent = minValue;
+    this.newPriceFilter.displayValTwo.textContent = maxValue;
+    this.newPriceFilter.fillColor()
    }
 
   searchShoesName(data: ICards[]){
@@ -106,7 +115,7 @@ class Filter {
     if(+this.sliderOne.value == 0 && +this.sliderTwo.value == 300){
       return data
     } else {
-      return data.filter((item) => +item.price >= +this.sliderOne && +item.price <= +this.sliderTwo.value)
+      return data.filter((item) => +item.price >= +this.sliderOne.value && +item.price <= +this.sliderTwo.value)
     }
   }
 
@@ -168,11 +177,14 @@ class Filter {
   }
 
   filterReset(){
-    this.categoryList.forEach((checkbox => checkbox.checked = false));
-    this.sliderOne.value = '0';
-    this.sliderTwo.value = '300';
+    this.categoryList.forEach((checkbox )=> checkbox.checked = false);
+    this.newPriceFilter.sliderOne.value = '0';
+    this.newPriceFilter.sliderTwo.value = '300';
+    this.newPriceFilter.displayValOne.textContent = '0';
+    this.newPriceFilter.displayValTwo.textContent = '300';
+    this.newPriceFilter.fillColor();
     this.colorList.forEach((color) => color.classList.remove(selectors.selectedColor));
-    this.sizeList.forEach((size) => size.classList.remove(selectors.selectedSize));
+    this.sizeList.forEach((size) => size.checked = false);
     this.brandList.forEach((brand) => {
       const brandInput = document.querySelector('#brands') as HTMLOptionElement;
       brandInput.value = 'Select brand'
@@ -191,6 +203,14 @@ class Filter {
     filterData = this.filterByBrand(filterData);
     filterData = this.filterByMaterial(filterData);
     return filterData;
+  }
+
+  hideFilter(){
+    const buttonHide = document.querySelector('#hide-filter') as HTMLElement;
+    const filter = document.querySelector('.filter') as HTMLElement;
+    buttonHide.onclick = function (){
+      filter.classList.toggle('hiden');
+    }
   }
 }
 
