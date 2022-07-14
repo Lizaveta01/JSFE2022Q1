@@ -191,6 +191,13 @@ class Filter {
       brand.selected = false
     });
     this.materialList.forEach((material) => material.checked = false);
+    localStorage.removeItem('category');
+    localStorage.removeItem('material');
+    localStorage.removeItem('brand');
+    localStorage.removeItem('size');
+    localStorage.removeItem('color');
+    localStorage.removeItem('minPrice');
+    localStorage.removeItem('maxPrice');
   }
 
   filterAll(data: ICards[]){

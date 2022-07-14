@@ -97,9 +97,7 @@ class App{
     const cleanFilters = document.querySelector('.clear-button')
     cleanFilters?.addEventListener('click', () => {
       this.filter.filterReset();
-      this.sort.sortReset();
-      this.basket.clear();
-      localStorage.clear();
+      
       this.redraw();
     })
   }
