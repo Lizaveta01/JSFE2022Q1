@@ -1,35 +1,42 @@
 import { selectors } from "../models/selectors";
 
-export function slider() {
-  
-  let sliderOne = document.getElementById(selectors.sliderPointRight) as HTMLInputElement;
-  let sliderTwo = document.getElementById(selectors.sliderPointLeft) as HTMLInputElement;
-  let displayValOne = document.getElementById(selectors.sliderValueRight) as HTMLInputElement;
-  let displayValTwo = document.getElementById(selectors.sliderValueLeft) as HTMLInputElement;
-  let sliderTrack = document.querySelector(selectors.sliderTrack) as HTMLElement;
-  let sliderMaxValue = sliderOne.max;
+class Slider {
+  sliderOne: HTMLInputElement;
+  sliderTwo: HTMLInputElement;
+  displayValOne: HTMLInputElement;
+  displayValTwo: HTMLInputElement;
+  sliderTrack: HTMLElement;
+  sliderMaxValue: string;
+  minGap: number;
 
-  let minGap: number = 5;
-
-  sliderOne.oninput = function slideOne(){
-    if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
-      sliderOne.value = String(parseInt(sliderTwo.value) - minGap);
+  constructor(){
+    this.sliderOne = document.getElementById(selectors.sliderPointRight) as HTMLInputElement;
+    this.sliderTwo = document.getElementById(selectors.sliderPointLeft) as HTMLInputElement;
+    this.displayValOne = document.getElementById(selectors.sliderValueRight) as HTMLInputElement;
+    this.displayValTwo = document.getElementById(selectors.sliderValueLeft) as HTMLInputElement;
+    this.sliderTrack = document.querySelector(selectors.sliderTrack) as HTMLElement;
+    this.sliderMaxValue = this.sliderOne.max;
+    this.minGap = 5;
+    this.start()
+  }
+ 
+  start(){
+    if(parseInt(this.sliderTwo.value) - parseInt(this.sliderOne.value) <= this.minGap) {
+      this.sliderOne.value = String(parseInt(this.sliderTwo.value) - this.minGap);
     }
-    displayValOne.textContent = sliderOne.value;
-    fillColor();
+    this.displayValOne.textContent = this.sliderOne.value;
+    if(parseInt(this.sliderTwo.value) - parseInt(this.sliderOne.value) <= this.minGap) {
+      this.sliderTwo.value = String(parseInt(this.sliderOne.value) + this.minGap);
+    }
+    this.displayValTwo.textContent = this.sliderTwo.value;
+    this.fillColor();
   }
 
-  sliderTwo.oninput = function slideTwo(){
-    if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
-      sliderTwo.value = String(parseInt(sliderOne.value) + minGap);
-    }
-    displayValTwo.textContent = sliderTwo.value;
-    fillColor();
-  }
-
-  function fillColor(){
-    const persent1: number = (+sliderOne.value / +sliderMaxValue) * 100;
-    const persent2: number = (+sliderTwo.value / +sliderMaxValue) * 100;
-    sliderTrack.style.background = `linear-gradient(to right, rgb(226, 226, 226) ${persent1}%, #3264fe ${persent1}%, #3264fe ${persent2}%, rgb(226, 226, 226) ${persent2}%) `
+  fillColor(){
+    const persent1: number = (+this.sliderOne.value / +this.sliderMaxValue) * 100;
+    const persent2: number = (+this.sliderTwo.value / +this.sliderMaxValue) * 100;
+    this.sliderTrack.style.background = `linear-gradient(to right, rgb(226, 226, 226) ${persent1}%, #3264fe ${persent1}%, #3264fe ${persent2}%, rgb(226, 226, 226) ${persent2}%) `
   }
 }
+
+export default Slider

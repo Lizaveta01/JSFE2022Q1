@@ -8,7 +8,6 @@ export interface ICards {
   brand: string,
   material: string,
   img: string,
-  image: string,
   release: string,
   stock: boolean
 }

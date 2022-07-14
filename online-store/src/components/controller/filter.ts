@@ -7,7 +7,7 @@ class Filter {
   categoryList: NodeListOf<HTMLInputElement>;
   priceSlider: HTMLElement;
   colorListName: HTMLElement;
-  colorList: NodeListOf<HTMLButtonElement>;
+  colorList: NodeListOf<HTMLInputElement>;
   sizeListName: HTMLElement;
   sizeList: NodeListOf<HTMLButtonElement>;
   brandListName: HTMLElement;
@@ -38,12 +38,12 @@ class Filter {
     this.init()
   }
 
-  init() {
-    const checkedCategoryOption = JSON.parse(localStorage.getItem('category')!);
-    const checkedColorOption = JSON.parse(localStorage.getItem('color')!);
-    const checkedSizeOption = JSON.parse(localStorage.getItem('size')!);
-    const checkedBrandOption = JSON.parse(localStorage.getItem('brand')!);
-    const checkedMaterialOption = JSON.parse(localStorage.getItem('material')!);
+   init() {
+     const checkedCategoryOption = JSON.parse(localStorage.getItem('category')!);
+  //   const checkedColorOption = JSON.parse(localStorage.getItem('color')!);
+  //   const checkedSizeOption = JSON.parse(localStorage.getItem('size')!);
+  //   const checkedBrandOption = JSON.parse(localStorage.getItem('brand')!);
+  //   const checkedMaterialOption = JSON.parse(localStorage.getItem('material')!);
 
     if (checkedCategoryOption) {
         this.categoryList.forEach((chbox, idx) => {
@@ -51,40 +51,40 @@ class Filter {
         });
     }
     
-    if(checkedColorOption){
-      this.colorList.forEach((color) => {
-        for(let i =0; i< checkedColorOption.length; i++){
-          if(color.name == checkedColorOption[i]){
-            color.classList.add(selectors.selectedColor)
-          }
-        }
-    });
-    }
-    if(checkedSizeOption){
-      this.sizeList.forEach((size) => {
-        for(let i =0; i< checkedSizeOption.length; i++){
-          if(size.textContent == checkedSizeOption[i]){
-            size.classList.add(selectors.selectedSize)
-          }
-        }
-    });
-    }
-    if(checkedBrandOption){
-      this.brandList.forEach((chbox, idx) => {
-        chbox.selected = checkedCategoryOption[idx];
-    });
-    }
-    if(checkedMaterialOption){
-      this.materialList.forEach((chbox, idx) => {
-        chbox.checked = checkedCategoryOption[idx];
-    });
-    }
+  //   if(checkedColorOption){
+  //     this.colorList.forEach((color) => {
+  //       for(let i =0; i< checkedColorOption.length; i++){
+  //         if(color.name == checkedColorOption[i]){
+  //           color.classList.add(selectors.selectedColor)
+  //         }
+  //       }
+  //   });
+  //   }
+  //   if(checkedSizeOption){
+  //     this.sizeList.forEach((size) => {
+  //       for(let i =0; i< checkedSizeOption.length; i++){
+  //         if(size.textContent == checkedSizeOption[i]){
+  //           size.classList.add(selectors.selectedSize)
+  //         }
+  //       }
+  //   });
+  //   }
+  //   if(checkedBrandOption){
+  //     this.brandList.forEach((chbox, idx) => {
+  //       chbox.selected = checkedCategoryOption[idx];
+  //   });
+  //   }
+  //   if(checkedMaterialOption){
+  //     this.materialList.forEach((chbox, idx) => {
+  //       chbox.checked = checkedCategoryOption[idx];
+  //   });
+  //   }
 
-    const minValue = JSON.parse(localStorage.getItem('minPrice')!);
-    const maxValue = JSON.parse(localStorage.getItem('maxPrice')!);
-    this.sliderOne.value = minValue;
-    this.sliderTwo.value = maxValue;
-  }
+  //   const minValue = JSON.parse(localStorage.getItem('minPrice')!);
+  //   const maxValue = JSON.parse(localStorage.getItem('maxPrice')!);
+  //   this.sliderOne.value = minValue;
+  //   this.sliderTwo.value = maxValue;
+   }
 
   searchShoesName(data: ICards[]){
     if(!this.searchField.value){
@@ -116,20 +116,35 @@ class Filter {
   }
 
   filterByColor(data: ICards[]){
-    const checkedColor:string[] = [];
-    this.colorList.forEach((color) => {
-      if(color.classList.contains(selectors.selectedColor)){
-        checkedColor.push(color.name)
+    const checkedBox:string[] = [];
+    this.colorList.forEach((checkbox) => {
+      if(checkbox.checked){
+        checkedBox.push(checkbox.name)
       }
     })
-    if(!checkedColor.length){ 
+    if(!checkedBox.length){ 
       return data
     } else {
       return data.filter((item) => {
         for(let i = 0; item.color.length; i++)
-        checkedColor.indexOf(item.color[i]) != -1
-      })
+        checkedBox.indexOf(item.color[i]) != -1})
     }
+
+
+    // const checkedColor:string[] = [];
+    // this.colorList.forEach((color) => {
+    //   if(color.classList.contains(selectors.selectedColor)){
+    //     checkedColor.push(color.name)
+    //   }
+    // })
+    // if(!checkedColor.length){ 
+    //   return data
+    // } else {
+    //   return data.filter((item) => {
+    //     for(let i = 0; item.color.length; i++)
+    //     checkedColor.indexOf(item.color[i]) != -1
+    //   })
+    // }
   }
 
   filterBySize(data: ICards[]){
@@ -156,9 +171,10 @@ class Filter {
         checkedBrand.push(brand.value)
       }
     })
-    if(!checkedBrand.length){ 
+    if(checkedBrand.length == 1){ 
       return data
     } else {
+      console.log('yes', data, checkedBrand)
       return data.filter((item) => checkedBrand.indexOf(item.brand) != -1)
     }
   }
@@ -189,7 +205,7 @@ class Filter {
 
   filterAll(data: ICards[]){
     let filterData = data;
-    filterData = this.filterByCategory(filterData);
+    filterData = this.filterByCategory(filterData); 
     filterData = this.filterByPrice(filterData);
     filterData = this.filterByColor(filterData);
     filterData = this.filterBySize(filterData);

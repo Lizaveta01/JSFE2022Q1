@@ -41,7 +41,7 @@
       <img src="./assets/SingleChoice.svg" alt="icon-filter">    
     </button>
     <select name="sorting" class="form-select" id="section__sort">
-      <option disabled selected>Sort By</option>
+      <option value="none" disabled selected>Sort By</option>
       <option id="1" value="releaseON">Featured</option>
       <option id="2" value="releaseNO">Newest</option>
       <option id="3" value="priceHL">Price: Hight-Low</option>
@@ -94,12 +94,12 @@
         <h3>Color</h3>
         <div class="colors">
           <!-- <button name="color" class="all-btn" data-color="all">all</button> -->
-          <button name="white" class="color-btn white" data-color="white"></button>
-          <button name="black" class="color-btn" data-color="black"></button>
-          <button name="red" class="color-btn" data-color="red"></button>
-          <button name="blue" class="color-btn" data-color="blue"></button>
-          <button name="green" class="color-btn" data-color="green"></button>
-          <button name="pink" class="color-btn" data-color="pink"></button>
+          <input type="checkbox" name="white" class="checkbox-color white" data-color="white"></input>
+          <input type="checkbox" name="black" class="checkbox-color black" data-color="black"></input>
+          <input type="checkbox" name="red" class="checkbox-color red" data-color="red"></input>
+          <input type="checkbox" name="blue" class="checkbox-color blue" data-color="blue"></input>
+          <input type="checkbox" name="green" class="checkbox-color green" data-color="green"></input>
+          <input type="checkbox" name="pink" class="checkbox-color pink" data-color="pink"></input>
         </div>
       </div>
       <div class="size">
@@ -122,6 +122,7 @@
       <div class="brand">
         <h3>Brand</h3>
           <select id="brands">
+            <option disabled selected>Select brand</option>
             <option value="Nike Sportwear">Nike Sportwear</option>
             <option value="Jordan">Jordan</option>
             <option value="Nike By You">Nike By You</option>

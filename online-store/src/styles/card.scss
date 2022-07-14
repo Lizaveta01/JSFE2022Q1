@@ -5,11 +5,12 @@ $grayColor: rgb(175, 175, 175);
   padding-left: 40px;
   flex-wrap: wrap;
   gap: 34px;
-  margin: 16px auto;
+  margin: 16px 0px;
 }
 .shoes-card{
   margin-bottom: 30px;
   position: relative;
+  height: 560px;
   cursor: pointer;
   img{
     width: 320px;
@@ -67,7 +68,9 @@ $grayColor: rgb(175, 175, 175);
     color: white;
   }
 }
-
+.shoes-out-of-stock{
+  color: $grayColor;
+}
 // .basket-status{
 //   position: absolute;
 //   top: 10px;

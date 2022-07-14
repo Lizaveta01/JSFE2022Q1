@@ -2,7 +2,7 @@ import { ICards } from '../models/inrefaces'
 
 class SortCard {
   sortInput!: HTMLOptionElement;
-  construcrot(elem:string){
+  constructor(elem:string){
     this.sortInput = document.querySelector(elem) as HTMLOptionElement;
     this.init()
   }
@@ -15,7 +15,7 @@ class SortCard {
   }
 
   sort(data: ICards[]){
-    switch( this.sortInput.value){
+    switch(this.sortInput.value){
       case 'releaseON':
         return this.sortByDateOld(data);
       case 'releaseNO':
@@ -24,6 +24,8 @@ class SortCard {
         return this.sortByPriceHightLow(data);
       case 'priceLH':
         return this.sortByPriceLowHight(data);
+      case 'none':
+        return data
     }
   }
 
