@@ -1,35 +1,11 @@
-import { ICards } from '../models/inrefaces'
-import { selectors } from '../models/selectors'
+import { ICards } from '../../models/inrefaces'
+import { selectors } from '../../models/selectors'
 class RenderCards {
    products: HTMLElement;
-  // shoesItemTemp: HTMLTemplateElement;
-  // fragment:DocumentFragment;
-  // cardClone: HTMLElement;
-  // img: HTMLImageElement;
-  // cardName: HTMLElement;
-  // cardCategory: HTMLElement;
-  // cardBrand: HTMLElement ;
-  // cardMaterial: HTMLElement;
-  // cardPrice: HTMLElement;
-  // cardColor: HTMLElement;
-  // cardStock: HTMLElement;
-  // cardBasketButton: HTMLElement;
-
+ 
   constructor(){
-    // this.shoesItemTemp = document.querySelector(selectors.shoesTemplate) as HTMLTemplateElement;
-    // this.fragment = document.createDocumentFragment();
-    // this.cardClone = this.shoesItemTemp?.content.cloneNode(true) as HTMLElement;
-    // this.img = this.cardClone?.querySelector(selectors.shoesCardImage) as HTMLImageElement;
-    // this.cardName = this.cardClone.querySelector(selectors.shoesCardName) as HTMLElement;
-    // this.cardCategory =this.cardClone.querySelector(selectors.shoesCardCategory) as HTMLElement;
-    // this.cardBrand =this.cardClone.querySelector(selectors.shoesCardBrand) as HTMLElement;
-    // this.cardMaterial = this.cardClone.querySelector(selectors.shoesCardMaterial) as HTMLElement;
-    // this.cardPrice = this.cardClone.querySelector(selectors.shoesCardPrice) as HTMLElement;
-    // this.cardColor = this.cardClone.querySelector(selectors.shoesCardColor) as HTMLElement;
-    // this.cardStock = this.cardClone.querySelector(selectors.shoesCardStock) as HTMLElement;
-    // this.cardBasketButton = this.cardClone.querySelector(selectors.shoesCardBasketButton) as HTMLElement;
     this.products = document.querySelector(selectors.catalogProducts) as HTMLElement;
-}      
+  }      
 
   draw(data: ICards[], basket:Record<string,number>){
     const shoesItemTemp = document.querySelector(selectors.shoesTemplate) as HTMLTemplateElement;

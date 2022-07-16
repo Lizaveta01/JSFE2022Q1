@@ -1,0 +1,34 @@
+$scrollbarBg:  rgba(255, 255, 255, 0.8);
+$scrollbarThumb: rgb(221, 221, 221);
+$scrollbarWidth: 12px;
+$scrollbarBorder: 3px solid $scrollbarBg;
+$scrollbarBorderRadius: calc($scrollbarWidth / 2);
+
+body {
+  &::-webkit-scrollbar{
+    width: $scrollbarWidth;
+  }
+  &::-webkit-scrollbar-track {
+    background: $scrollbarBg;
+    border-radius: $scrollbarBorderRadius;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbarThumb;
+    border-radius: $scrollbarBorderRadius;
+    border: $scrollbarBorder;
+  }
+}
+.filter {
+  &::-webkit-scrollbar {
+    width: $scrollbarWidth;
+  }
+  &::-webkit-scrollbar-track {
+    background: $scrollbarBg;
+    border-radius: $scrollbarBorderRadius;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbarThumb;
+    border-radius: $scrollbarBorderRadius;
+    border: $scrollbarBorder;
+  }
+}

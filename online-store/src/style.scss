@@ -1,37 +1,10 @@
 @import "./styles/nullstyle.scss";
 @import "./styles/filter.scss";
+@import "./components/view/cards/card.scss";
 @import "./styles/modalWindow.scss";
 
-$bodyColor: white;
-$linkColor: rgb(248, 248, 248);
-$color_text: black;
-
-//------SCROLLBAR-----------------------
-$scrollbarBg:  rgba(255, 255, 255, 0.8);
-$scrollbarThumb: rgb(221, 221, 221);
-$scrollbarWidth: 12px;
-$scrollbarBorder: 3px solid $scrollbarBg;
-$scrollbarBorderRadius: calc($scrollbarWidth / 2);
-
 body {
-  &::-webkit-scrollbar{
-    width: $scrollbarWidth;
-  }
-  &::-webkit-scrollbar-track {
-    background: $scrollbarBg;
-    border-radius: $scrollbarBorderRadius;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: $scrollbarThumb;
-    border-radius: $scrollbarBorderRadius;
-    border: $scrollbarBorder;
-  }
-}
-//------SCROLLBAR-----------------------
-
-
-body {
-  background-color: $bodyColor;
+  background-color: $mainWhiteColor;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
@@ -42,14 +15,11 @@ body {
   margin: 0 auto;
   position: relative;
 }
-  
 header{
-  background-color:$bodyColor;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .nav{
   display: flex;
   justify-content: center;
@@ -66,7 +36,7 @@ header{
       width: 0;
       bottom: 0;
       height: 2px; 
-      background-color: rgb(192, 192, 192); 
+      background-color: $grayColor; 
       content: "";
       transition: width 0.3s ease-out; 
     }
@@ -76,12 +46,11 @@ header{
     }
   }
 }
-
 .header__logo {
   margin-left: 100px;
   width: 50px;
 }
-.header__buttons{
+.header__basket{
   margin-right: 100px;
   position: relative;
   height: 40px;
@@ -104,10 +73,9 @@ header{
   line-height: 22px;
 }
 .has-item{
-  background-color: black;
-  color: white;
+  background-color: $mainBlackColor;
+  color: $mainWhiteColor;
 }
-
 .search {
   &:after{
     content:""; clear:both; display:table
@@ -126,7 +94,7 @@ header{
     border-radius: 42px;
     outline: none;
     position: relative;  
-    background-color: $linkColor; 
+    background-color: $grayColorLight; 
     font-size: 16px;
   }
   button {
@@ -145,7 +113,6 @@ header{
     }
   }
 }
-
 main{
   justify-content: center;
   align-items: center;
@@ -153,7 +120,7 @@ main{
   position: relative;
   .label{
     height: 100px;
-    background-color: $linkColor; 
+    background-color: $grayColorLight; 
     h1{
       font-size: 24px;
       margin-left: 100px;
@@ -167,7 +134,6 @@ main{
   background-color: $filterLine;
   opacity: 0.3;
 }
-
 .catalog{
   display: flex;
   height: auto;
@@ -178,21 +144,6 @@ main{
 .hiden{
   display: none;
 }
-.notify{
-  text-align: center;
-  font-size: 24px;
-  margin-left: -200px;
-  width: 500px;
-  height: 200px;
-  position: absolute;
-  left: 50%;
-  top: 30%;
-  border-radius: 8px;
-  padding: 20px;
-  z-index: 100;
-  color: black;
-}
-
 .sorting{
   font-size: 16px;
   display: flex;
@@ -216,41 +167,31 @@ main{
     text-align: center;
   }
 }
-
-  
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.notify{
+  text-align: center;
+  font-size: 24px;
+  margin-left: -200px;
+  width: 500px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  border-radius: 8px;
+  padding: 20px;
+  z-index: 100;
+  color: $mainBlackColor;
+}
 .about-rss {
     width: 100vw;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     font-size: 14px;
-    color: #333;
+    color: $mainBlackColor;
     text-align: center;
     p {
       font-size: 14px;
-      color: #333;
+      color: $mainBlackColor;
       text-align: center;
   }
 }
@@ -267,6 +208,6 @@ main{
 	text-decoration: none; 
 	font-size: 20px; 
 	font-size: 14px;
-  color: #333;
+  color: $mainBlackColor;
   text-align: center;
 }

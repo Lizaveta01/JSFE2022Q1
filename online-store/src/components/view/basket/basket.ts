@@ -1,4 +1,4 @@
-import { selectors } from '../models/selectors'
+import { selectors } from '../../models/selectors'
 class Basket {
   basketStorage: Record<string, number>;
   basketCounter: number;

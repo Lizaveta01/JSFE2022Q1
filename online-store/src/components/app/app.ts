@@ -1,11 +1,9 @@
-import Slider from "../controller/slider";
-import Basket from "../controller/basket";
-import RenderCards from "../view/renderCards";
-import { ICards } from "../models/inrefaces";
+import Slider from "../view/slider/slider";
+import Basket from "../view/basket/basket";
+import RenderCards from "../view/cards/renderCards";
 import Filter from "../controller/filter";
 import SortCard from "../controller/sortCard";
-import { cards } from "../controller/cardsInfo";
-import { selectors } from "../models/selectors";
+import { cards } from "../view/cards/cardsInfo";
 class App{
   private data: any;
   private readonly shopCards: RenderCards;
@@ -45,15 +43,15 @@ class App{
     const filterContainer =document.querySelector('.filter') as HTMLElement;
     filterContainer.addEventListener('click', (e) => {
       const targetElement = e.target as HTMLElement;
-      console.log(e.target);
+
       if(targetElement.classList.contains('custom-checkbox')){
         const checkboxesChecked: boolean[] = [];
         this.filter.categoryList.forEach((checkbox, i) => {
           checkboxesChecked[i] = checkbox.checked;
         })
         localStorage.setItem('category', JSON.stringify(checkboxesChecked));
-        
       }
+
       if(targetElement.classList.contains('checkbox-size')){
         console.log(targetElement)
         const checkboxesChecked: boolean[] = [];
@@ -61,16 +59,16 @@ class App{
           checkboxesChecked[i] = checkbox.checked;
         })
         localStorage.setItem('size', JSON.stringify(checkboxesChecked));
-        
       }
+
       if(targetElement.classList.contains('checkbox-color')){
         const checkboxesChecked: boolean[] = [];
         this.filter.colorList.forEach((checkbox, i) => {
           checkboxesChecked[i] = checkbox.checked;
         })
         localStorage.setItem('color', JSON.stringify(checkboxesChecked));
-       
       }
+
       if(targetElement.classList.contains('custom-radio')){
         const checkboxesChecked: boolean[] = [];
         this.filter.materialList.forEach((checkbox, i) => {
@@ -79,16 +77,14 @@ class App{
         localStorage.setItem('material', JSON.stringify(checkboxesChecked));
       }
 
-      const brandInput = document.querySelector('#brands') as HTMLOptionElement;
-      brandInput.addEventListener('change', ()=> {
+      if(targetElement.classList.contains('brands')){
         const checkboxesChecked: boolean[] = [];
         this.filter.brandList.forEach((checkbox, i) => {
           checkboxesChecked[i] = checkbox.selected;
         })
-        console.log(checkboxesChecked)
-        localStorage.setItem('brand', JSON.stringify(checkboxesChecked))
-        this.redraw()
-      })
+        localStorage.setItem('brand', JSON.stringify(checkboxesChecked));
+      }
+
       this.redraw()
     })
   }
@@ -97,7 +93,6 @@ class App{
     const cleanFilters = document.querySelector('.clear-button')
     cleanFilters?.addEventListener('click', () => {
       this.filter.filterReset();
-      
       this.redraw();
     })
   }
@@ -130,4 +125,5 @@ class App{
     this.counterBasket.innerText = String(this.basket.basketCounter);
   }
 }
+
 export default App

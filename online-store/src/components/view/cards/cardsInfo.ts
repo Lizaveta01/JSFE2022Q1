@@ -1,4 +1,4 @@
-import { ICards } from '../models/inrefaces'
+import { ICards } from '../../models/inrefaces'
 
 export const cards: ICards[] = [
   {

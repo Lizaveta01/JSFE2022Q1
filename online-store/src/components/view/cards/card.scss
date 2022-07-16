@@ -1,4 +1,4 @@
-$grayColor: rgb(175, 175, 175);
+@import "../../../styles/settings.scss";
 
 .products{
   display: flex;
@@ -25,18 +25,18 @@ $grayColor: rgb(175, 175, 175);
   line-height: 24px;
   margin-top: 14px;
   padding-left: 14px;
-  color: black;
+  color: $textColorActive;
 }
 .shoes-card__price{
   font-size: 18px;
   margin-top: 18px;
   font-weight: 500;
-  color: black;
+  color: $textColorActive;
 } 
 .shoes-card-info{
   display: flex;
   flex-direction: column;
-  color:$grayColor;
+  color:$textColorHiden;
   padding: 14px;
   gap: 8px;
 }
@@ -54,12 +54,12 @@ $grayColor: rgb(175, 175, 175);
 }
 .basket__stock{
   font-size: 16px;
-  color: black;
+  color: $mainBlackColor;
 }
 .basket__stock-button{
   width: 140px;
   height: 40px;
-  border: 1px solid $grayColor;
+  border: 1px solid $textColorHiden;
   border-radius: 20px;
   background-color: transparent;
   font-size: 16px;
@@ -69,9 +69,9 @@ $grayColor: rgb(175, 175, 175);
   }
 }
 .shoes-out-of-stock{
-  color: $grayColor;
+  color: $textColorHiden;
 }
 .added{
-  background-color: black;
-  color: white;
+  background-color: $mainBlackColor;
+  color: $mainWhiteColor;
 }

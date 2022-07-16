@@ -1,35 +1,12 @@
 @import "./checkbox.scss";
-@import "./card.scss";
-@import "./slider.scss";
-@import "./colorfilter.scss";
-
-$fontSizeFilter: 16px;
-$filterLine: 1px solid rgb(187, 187, 187);
+@import "../components/view/slider/slider.scss";
+@import "./filterColor.scss";
+@import "./scrollbar.scss";
 
 @mixin filterLine($color, $padding) {
   border-bottom:$color;
   padding-bottom: $padding;
  }
-
- 
-  $scrollbarBg:  rgba(255, 255, 255, 0.8);
-  $scrollbarThumb: rgb(221, 221, 221);
-  $scrollbarWidth: 12px;
-  $scrollbarBorder: 3px solid $scrollbarBg;
-  $scrollbarBorderRadius: calc($scrollbarWidth / 2);
-.filter::-webkit-scrollbar {
-  width: $scrollbarWidth;
-}
-.filter::-webkit-scrollbar-track {
-  background: $scrollbarBg;
-  border-radius: $scrollbarBorderRadius;
-}
-.filter::-webkit-scrollbar-thumb {
-  background-color: $scrollbarThumb;
-  border-radius: $scrollbarBorderRadius;
-  border: $scrollbarBorder;
-}
-
 .filter{
   overflow-y: scroll;
   display: flex;
@@ -38,27 +15,22 @@ $filterLine: 1px solid rgb(187, 187, 187);
   flex-direction: column;
   margin: 0px 20px 24px 20px;
   height: 100vh;
-  background-color: rgb(254, 254, 254);
   h3{
     font-size: 22px;
     padding: 24px 0px;
   }
 }
-
 .price{
   @include filterLine ($filterLine, 24px);
 }
-
 .checkbox{
   display: flex;
   flex-direction: column;
   @include filterLine ($filterLine, 24px);
 }
-
 .color{
   @include filterLine ($filterLine, 24px);
 }
-
 .size{
   height: auto;
   display: flex;
@@ -79,21 +51,19 @@ $filterLine: 1px solid rgb(187, 187, 187);
     padding: 8px 10px;
     border-radius: 5px;
     text-align: center;
-    background-color: white;
+    background-color: $mainWhiteColor;
     .active{
-      background-color: #dfe7fd;
-      color: white;
+      background-color: $mainWhiteColor;
+      color: $mainWhiteColor;
     }
   } 
 }
-
 .checkbox-size{
   display: none;
 }
 label input[type="checkbox"]:checked + .checkbox-size__text {
-  background: #000000;
-  color: white;
-  
+  background: $mainBlackColor;
+  color: $mainWhiteColor;
 }
 .checkbox-size__text{
   padding: 4px 22px;
@@ -103,16 +73,13 @@ label input[type="checkbox"]:checked + .checkbox-size__text {
   background: transparent;
   outline: none;
   border-radius: 4px;
-  border: 1px solid rgb(177, 177, 177);
+  border: 1px solid $checkboxBorder;
   transition: 0.2s;
   position: relative;
   &:hover{
     border: 2px solid $colorBlue;
   }
 }
-
-
-
 .brand{
   #brands{
     width: 180px;
@@ -123,7 +90,6 @@ label input[type="checkbox"]:checked + .checkbox-size__text {
   }
   @include filterLine ($filterLine, 24px);
 }
-
 .material__radio-buttons{
     display: flex;
     gap:16px;
@@ -134,9 +100,8 @@ label input[type="checkbox"]:checked + .checkbox-size__text {
       }
     }
 }
-
 .clear-button{
-  background-color: #3264fe;
+  background-color: $colorBlue;
   width:180px;
   position: relative;
   margin: auto;
@@ -145,5 +110,5 @@ label input[type="checkbox"]:checked + .checkbox-size__text {
   border-radius: 5px;
   text-align: center;
   font-size: 20px;
-  color: white;
+  color: $mainWhiteColor;
 }

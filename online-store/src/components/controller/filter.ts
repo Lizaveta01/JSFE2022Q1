@@ -1,6 +1,6 @@
 import { ICards } from '../models/inrefaces';
 import { selectors } from '../models/selectors'
-import Slider from './slider';
+import Slider from '../view/slider/slider';
 
 class Filter {
   searchField: HTMLInputElement;
@@ -90,7 +90,6 @@ class Filter {
    }
 
   searchShoesName(data: ICards[]){
-    console.log(this.searchField.value)
     if(!this.searchField.value){
       return data
     }
