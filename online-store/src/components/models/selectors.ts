@@ -1,4 +1,4 @@
- export const selectors = {
+export const selectors = {
   catalogProducts: '.products',
   shoesTemplate:'.shoes-card-template',
   shoesCardImage:'.shoes-card__image',
@@ -32,4 +32,4 @@
   sliderTrack:'.slider-track',
   selectedColor: 'color__active',
   selectedSize: 'size__active',
-}
+};

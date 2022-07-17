@@ -1,4 +1,4 @@
-import { ICards } from '../../models/inrefaces'
+import { ICards } from '../../models/inrefaces';
 
 export const cards: ICards[] = [
   {
@@ -12,7 +12,7 @@ export const cards: ICards[] = [
     material: 'Canvas',
     img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/29082110-583d-4021-9ff0-57d2cff36c9b/waffle-one-se-shoes-mT3CQN.png',
     release: '2021',
-    stock: true
+    stock: true,
   },
   {
     name: 'Nike Air Force 1',
@@ -25,7 +25,7 @@ export const cards: ICards[] = [
     material: 'Leather',
     img:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/05aeb54f-ca86-48d9-a60f-57d798e3935d/air-max-95-shoes-TJLLsB.png',
     release: '2021',
-    stock: true
+    stock: true,
   },
   {
     name: 'Nike Air Force 2',
@@ -38,7 +38,7 @@ export const cards: ICards[] = [
     material: 'Leather',
     img:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/358b5ffe-0704-4c5a-89fd-0fa5b2b1f99b/air-max-plus-iii-shoe-3BSBtx.png',
     release: '2020',
-    stock: true
+    stock: true,
   },
   {
     name: 'Nike Air Force 3',
@@ -51,7 +51,7 @@ export const cards: ICards[] = [
     material: 'Sustainable Materials',
     img:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/312e0df6-a0c6-4a5d-ba01-e837b3d8ee49/jordan-delta-3-sp-shoes.png',
     release: '2019',
-    stock: false
+    stock: false,
   },
   {
     name: 'Nike Air Force 4',
@@ -64,7 +64,7 @@ export const cards: ICards[] = [
     material: 'Sustainable Materials',
     img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/4180e725-4966-463b-8c22-71e3ca6a9a55/air-jordan-2-retro-sp-shoes.png',
     release: '2022',
-    stock: false
+    stock: false,
   },
   {
     name: 'Nike Air Force 5',
@@ -77,7 +77,7 @@ export const cards: ICards[] = [
     material: 'Sustainable Materials',
     img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/0db30447-d199-4373-bf36-6cbb439e96c2/air-max-terrascape-90-shoes-wdBkKH.png',
     release: '2020',
-    stock: false
+    stock: false,
   },
   {
     name: 'Nike Air Force 6',
@@ -90,7 +90,7 @@ export const cards: ICards[] = [
     material: 'Sustainable Materials',
     img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e6b5dd64-1a32-45f8-8f19-8f421a1cdd6d/air-max-terrascape-90-shoes-CRn0XW.png',
     release: '2021',
-    stock: true
+    stock: true,
   },
   {
     name: 'Nike Air Force 7',
@@ -103,7 +103,7 @@ export const cards: ICards[] = [
     material: 'Canvas',
     img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/271371f3-0f5c-47c7-b4b4-f840e8b488c1/air-pegasus-83-shoes-hq200x.png',
     release: '2020',
-    stock: false
+    stock: false,
   },
   {
     name: 'Nike Air Force 8',
@@ -116,7 +116,7 @@ export const cards: ICards[] = [
     material: 'Canvas',
     img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/b00a5170-20ed-4cda-9c69-6c1e0a04276e/air-force-1-07-shoes-KprQCr.png',
     release: '2022',
-    stock: false
+    stock: false,
   },
   {
     name: 'Nike Waff SE',
@@ -129,7 +129,7 @@ export const cards: ICards[] = [
     material: 'Canvas',
     img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6ae95951-4abe-455c-8962-42cbadebfbb7/zoom-freak-3-basketball-shoes-MZpJZF.png',
     release: '2021',
-    stock: true
+    stock: true,
   },
   {
     name: 'Nike Air Force 1 07 LV8',
@@ -142,7 +142,7 @@ export const cards: ICards[] = [
     material: 'Leather',
     img:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/45289cb4-2ae6-4165-be6c-88237d42c819/zoomx-streakfly-road-racing-shoes-Zv8Jbg.png',
     release: '2022',
-    stock: true
+    stock: true,
   },
   {
     name: 'Nike x Stüssy Air Force 1 07 Mid',
@@ -155,7 +155,7 @@ export const cards: ICards[] = [
     material: 'Leather',
     img:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e1c1290c-5314-47dd-ba1b-20ae4780897e/kyrie-low-5-community-jewell-loyd-basketball-shoes-zwtk0S.png',
     release: '2020',
-    stock: true
+    stock: true,
   },
   {
     name: 'Nike Air Max 97',
@@ -168,7 +168,7 @@ export const cards: ICards[] = [
     material: 'Sustainable Materials',
     img:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8a3bab79-6c98-4a03-a8a5-1ca70bbd2362/zion-2-basketball-shoes-khWbrw.png',
     release: '2019',
-    stock: false
+    stock: false,
   },
   {
     name: 'Air Jordan 1 Retro High OG',
@@ -181,7 +181,7 @@ export const cards: ICards[] = [
     material: 'Sustainable Materials',
     img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/51fe0926-f146-4bde-9f3c-fefc0f0107ff/ispa-link-shoes.png',
     release: '2022',
-    stock: false
+    stock: false,
   },
   {
     name: 'Nike Air Max 95 Essential',
@@ -194,7 +194,7 @@ export const cards: ICards[] = [
     material: 'Sustainable Materials',
     img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e58ac538-a815-46ad-a14d-132f3d2cc3bb/zoomx-vaporfly-next-2-road-racing-shoes-821S4F.png',
     release: '2020',
-    stock: false
+    stock: false,
   },
   {
     name: 'Nike x ACRYM® Blazer Low',
@@ -207,7 +207,7 @@ export const cards: ICards[] = [
     material: 'Sustainable Materials',
     img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f2635aab-deeb-443b-a5cf-59419e6e663b/air-max-95-essential-shoes-Zgg3pn.png',
     release: '2021',
-    stock: true
+    stock: true,
   },
   {
     name: 'Nike Air Max Plus',
@@ -220,7 +220,7 @@ export const cards: ICards[] = [
     material: 'Canvas',
     img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/506a05c7-eea4-4405-af12-bba32bd0e48c/air-jordan-1-retro-high-og-shoes-79vGWV.png',
     release: '2020',
-    stock: true
+    stock: true,
   },
   {
     name: 'Nike Pegasus Trail 3 GORE-TEX',
@@ -233,7 +233,7 @@ export const cards: ICards[] = [
     material: 'Canvas',
     img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/ee2a1e79-4626-46c7-b181-6fadbc2351a4/stussy-air-force-1-07-mid-shoes-bdsfmH.png',
     release: '2022',
-    stock: true
+    stock: true,
   },
   {
     name: 'KD15',
@@ -246,7 +246,7 @@ export const cards: ICards[] = [
     material: 'Leather',
     img:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8d584e3e-e2b5-4d19-9e73-174d599055eb/air-max-plus-shoes-x37n30.png',
     release: '2020',
-    stock: true
+    stock: true,
   },
   {
     name: 'Nike Zoom Alphafly Next Nature',
@@ -259,7 +259,7 @@ export const cards: ICards[] = [
     material: 'Sustainable Materials',
     img:'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f4ea7019-b9a5-434d-9753-976cae67049b/air-max-97-shoes.png',
     release: '2019',
-    stock: false
+    stock: false,
   },
   {
     name: 'Air Jordan 1 Retro High ',
@@ -272,7 +272,7 @@ export const cards: ICards[] = [
     material: 'Sustainable Materials',
     img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/1641853f-5265-467d-96dc-8a1c14ce76ca/kd15-basketball-shoes-0H8pmQ.png',
     release: '2022',
-    stock: false
+    stock: false,
   },
   {
     name: 'NikeCourt Zoom Pro',
@@ -285,7 +285,7 @@ export const cards: ICards[] = [
     material: 'Sustainable Materials',
     img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5eb6df1b-20f1-48a9-b94a-b9b494a79636/zoom-alphafly-next-nature-road-racing-shoe-3mk9g2.png',
     release: '2020',
-    stock: false
+    stock: false,
   },
   {
     name: 'Nike x ACRONYM® Blazer Low',
@@ -298,7 +298,7 @@ export const cards: ICards[] = [
     material: 'Sustainable Materials',
     img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f2423f7a-95a7-40c5-a2b5-bc3eea2bd953/nikecourt-zoom-pro-clay-court-tennis-shoes-qJFxc8.png',
     release: '2021',
-    stock: true
+    stock: true,
   },
   {
     name: 'Air Jordan 1 Low FlyEase',
@@ -311,7 +311,7 @@ export const cards: ICards[] = [
     material: 'Canvas',
     img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/b3db3acb-3a16-479e-8aea-49f8e3aef01b/air-zoom-flight-95-shoes-j7MRhz.png',
     release: '2020',
-    stock: true
+    stock: true,
   },
   {
     name: 'Nike Air Zoom Tempo NEXT%',
@@ -324,6 +324,6 @@ export const cards: ICards[] = [
     material: 'Canvas',
     img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/2b21b6be-2e24-4c7f-abe3-70fb409bf231/revolution-6-next-nature-road-running-shoes-DvtXMX.png',
     release: '2022',
-    stock: true
-  }
-]
+    stock: true,
+  },
+];

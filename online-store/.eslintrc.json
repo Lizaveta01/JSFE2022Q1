@@ -2,19 +2,18 @@
     "root": true,
     "parser": "@typescript-eslint/parser",
     "plugins": [
-         "import",
-         "@typescript-eslint" 
+         "import"
+  
     ],
     "extends": [
         "airbnb-typescript/base",
         "eslint:recommended",
-        "@typescript-eslint/parser",
         "plugin:@typescript-eslint/recommended"
     ],
     "parserOptions": {
         "ecmaVersion": 2020,
         "sourceType": "module",
-        "project": ["tsconfig.json"]
+        "project": ["**/tsconfig.json"]
     },
     "env": {
         "es6": true,
@@ -28,6 +27,7 @@
         "@typescript-eslint/no-explicit-any": "error",
         "@typescript-eslint/no-unsafe-argument": "off",
         "@typescript-eslint/no-non-null-assertion": "off",
-        "@typescript-eslint/unbound-method": "off"    
+        "@typescript-eslint/unbound-method": "off",
+        "@typescript-eslint/lines-between-class-members": "off"
     }
 }

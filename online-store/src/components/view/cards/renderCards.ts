@@ -1,13 +1,14 @@
-import { ICards } from '../../models/inrefaces'
-import { selectors } from '../../models/selectors'
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+import { ICards } from '../../models/inrefaces';
+import { selectors } from '../../models/selectors';
 class RenderCards {
-   products: HTMLElement;
+  products: HTMLElement;
  
-  constructor(){
+  constructor() {
     this.products = document.querySelector(selectors.catalogProducts) as HTMLElement;
   }      
 
-  draw(data: ICards[], basket:Record<string,number>){
+  draw(data: ICards[], basket:Record<string, number>) {
     const shoesItemTemp = document.querySelector(selectors.shoesTemplate) as HTMLTemplateElement;
     const fragment = document.createDocumentFragment();
 
@@ -38,17 +39,17 @@ class RenderCards {
         cardPrice.textContent = `$${item.price}`;
         cardStock.textContent = item.stock ? 'In stock' : 'On request';
         item.stock
-            ? cardStock.classList.add('shoes-in-stock')
-            : cardStock.classList.add('shoes-out-of-stock');
+          ? cardStock.classList.add('shoes-in-stock')
+          : cardStock.classList.add('shoes-out-of-stock');
         cardBasketButton.textContent = basket[item.name] ? 'In the basket' : 'Add to basket';
         basket[item.name]
-            ? cardBasketButton.classList.add('added')
-            : cardBasketButton.classList.remove('added');
+          ? cardBasketButton.classList.add('added')
+          : cardBasketButton.classList.remove('added');
         fragment.append(cardClone);   
       });
-     }
-     this.products.innerHTML = '';
-     this.products.appendChild(fragment);
+    }
+    this.products.innerHTML = '';
+    this.products.appendChild(fragment);
   }
 }
 
