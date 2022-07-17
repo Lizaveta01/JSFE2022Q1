@@ -1,6 +1,6 @@
 import { selectors } from '../../models/selectors'
 class Basket {
-  basketStorage: Record<string, number>;
+  basketStorage: Record<string,number>;
   basketCounter: number;
   modalWindow: HTMLElement;
   modalButton: HTMLElement;

@@ -197,7 +197,7 @@ export const cards: ICards[] = [
     stock: false
   },
   {
-    name: 'Nike x ACRONYM® Blazer Low',
+    name: 'Nike x ACRYM® Blazer Low',
     category: 'Skateboarding',
     price: '299',
     gender: 'Mens Shoes',
@@ -262,9 +262,9 @@ export const cards: ICards[] = [
     stock: false
   },
   {
-    name: 'Air Jordan 1 Retro High OG',
+    name: 'Air Jordan 1 Retro High ',
     category: 'Football',
-    price: '103',
+    price: '183',
     gender: 'Mens Shoes',
     color: 'pink',
     size: '6.0',

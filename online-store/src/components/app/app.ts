@@ -30,6 +30,7 @@ class App{
     this.filterData();
     this.seeBasket();
     this.reset();
+    this.resetAll();
   }
 
   search(){
@@ -90,12 +91,22 @@ class App{
   }
 
   reset(){
-    const cleanFilters = document.querySelector('.clear-button')
+    const cleanFilters = document.querySelector('#clear-filter')
     cleanFilters?.addEventListener('click', () => {
       this.filter.filterReset();
       this.redraw();
     })
   }
+
+  resetAll(){
+    const cleanFilters = document.querySelector('#clear-settings');
+    cleanFilters?.addEventListener('click', () => {
+      this.filter.filterResetAll();
+      this.basket.clear();
+      this.redraw();
+    })
+  }
+
 
   sortCard(){
     this.sort.sortInput.addEventListener('change', ()=> {

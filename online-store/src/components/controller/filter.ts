@@ -199,6 +199,11 @@ class Filter {
     localStorage.removeItem('maxPrice');
   }
 
+  filterResetAll(){
+    this.filterReset();
+    localStorage.clear();
+  }
+
   filterAll(data: ICards[]){
     let filterData = data;
     filterData = this.searchShoesName(filterData);

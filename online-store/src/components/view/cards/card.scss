@@ -12,6 +12,10 @@
   position: relative;
   height: 560px;
   cursor: pointer;
+  animation-name: appearin;
+  animation-duration: 0.8s;
+  animation-fill-mode:both;
+  
   img{
     width: 320px;
   }
@@ -19,6 +23,17 @@
     box-shadow: -5px 13px 26px -15px rgba(112, 112, 112, 0.38);
   }
 }
+// @keyframes appearin {
+//   0%{
+//     opacity: 0;
+//     min-height: 0;
+//   }
+//   100%{
+//     opacity: 1;
+//     min-height: 560px;
+//   }
+  
+// }
 .shoes-card__name{
   font-size: 18px;
   font-weight: 500;
