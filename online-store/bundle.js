@@ -425,7 +425,7 @@ exports.cards = [
         stock: false
     },
     {
-        name: 'Nike x ACRONYM® Blazer Low',
+        name: 'Nike x ACRONY Blazer Low',
         category: 'Skateboarding',
         price: '299',
         gender: 'Mens Shoes',
