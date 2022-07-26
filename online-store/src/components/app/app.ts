@@ -95,7 +95,6 @@ class App {
     });
   }
 
-
   sortCard() {
     this.sort.sortInput.addEventListener('change', ()=> {
       console.log(this.sort.sortInput);
@@ -119,7 +118,7 @@ class App {
   redraw() {
     this.data = this.filter.filterAll(cards);
     const sortData = this.sort.sort(this.data);
-    this.shopCards.draw(sortData!, this.basket.basketStorage);
+    this.shopCards.draw(sortData!, this.basket);
     this.basket.basketCounter ? this.counterBasket.classList.add('has-item') : this.counterBasket.classList.remove('has-item');
     this.counterBasket.innerText = String(this.basket.basketCounter);
   }

@@ -1,56 +1,38 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 import { ICards } from '../../models/inrefaces';
 import { selectors } from '../../models/selectors';
-class RenderCards {
-  products: HTMLElement;
- 
+import Basket from '../basket/basket';
+import CardElement from './card';
+import NotFoundElement from './not-found-element';
+export default class RenderCards {
+  cardsContainer: HTMLElement;
+  private notFoundElement?: NotFoundElement;
+  private cards: CardElement[] = [];
+
   constructor() {
-    this.products = document.querySelector(selectors.catalogProducts) as HTMLElement;
+    this.cardsContainer = document.querySelector(selectors.catalogProducts) as HTMLElement;
   }      
 
-  draw(data: ICards[], basket:Record<string, number>) {
-    const shoesItemTemp = document.querySelector(selectors.shoesTemplate) as HTMLTemplateElement;
-    const fragment = document.createDocumentFragment();
-
+  draw(data: ICards[], basket:Basket) {
+    this.cardsContainer.innerHTML = '';
     if (!data.length) {
-      const text = document.createElement('p');
-      text.textContent = "Sorry, we couldn't find the page you're looking for";
-      text.classList.add('notify');
-      fragment.append(text);
+      this.createNotFoundMessage();
     } else {
-      data.forEach((item) => {
-        const cardClone = shoesItemTemp?.content.cloneNode(true) as HTMLElement;
-        const img = cardClone?.querySelector(selectors.shoesCardImage) as HTMLImageElement;
-        const cardName = cardClone.querySelector(selectors.shoesCardName) as HTMLElement;
-        const cardCategory = cardClone.querySelector(selectors.shoesCardCategory) as HTMLElement;
-        const cardBrand = cardClone.querySelector(selectors.shoesCardBrand) as HTMLElement;
-        const cardMaterial = cardClone.querySelector(selectors.shoesCardMaterial) as HTMLElement;
-        const cardPrice = cardClone.querySelector(selectors.shoesCardPrice) as HTMLElement;
-        const cardColor = cardClone.querySelector(selectors.shoesCardColor) as HTMLElement;
-        const cardStock = cardClone.querySelector(selectors.shoesCardStock) as HTMLElement;
-        const cardBasketButton = cardClone.querySelector(selectors.shoesCardBasketButton) as HTMLElement;
-
-        img.src = item.img;
-        cardName.innerText = item.name;
-        cardCategory.textContent = item.category;
-        cardBrand.textContent = item.brand;
-        cardMaterial.textContent = item.material;
-        cardColor.textContent = `${item.color} color`;
-        cardPrice.textContent = `$${item.price}`;
-        cardStock.textContent = item.stock ? 'In stock' : 'On request';
-        item.stock
-          ? cardStock.classList.add('shoes-in-stock')
-          : cardStock.classList.add('shoes-out-of-stock');
-        cardBasketButton.textContent = basket[item.name] ? 'In the basket' : 'Add to basket';
-        basket[item.name]
-          ? cardBasketButton.classList.add('added')
-          : cardBasketButton.classList.remove('added');
-        fragment.append(cardClone);   
-      });
+      const cards = data.map(cardData => new CardElement(cardData, basket));
+      this.cards = cards;
+      this.cards.forEach((card) => this.addCard(card));
     }
-    this.products.innerHTML = '';
-    this.products.appendChild(fragment);
+  }
+  
+  createNotFoundMessage(){
+    const notFoundElement = new NotFoundElement();
+    this.cardsContainer.appendChild(notFoundElement.container);
+    this.notFoundElement?.container.addEventListener('click', () => {
+      this.cardsContainer.removeChild(this.notFoundElement!.container);
+    })
+  }
+
+  addCard(card: CardElement){
+    this.cardsContainer.appendChild(card.container);
   }
 }
-
-export default RenderCards;

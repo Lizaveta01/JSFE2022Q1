@@ -1,8 +1,9 @@
 export const selectors = {
   catalogProducts: '.products',
+  shoesCard: 'shoes-card',
   shoesTemplate:'.shoes-card-template',
   shoesCardImage:'.shoes-card__image',
-  shoesCardName:'.shoes-card__name',
+  shoesCardName:'shoes-card__name',
   shoesCardCategory:'.shoes-card__category',
   shoesCardBrand:'.shoes-card__brand',
   shoesCardMaterial:'.shoes-card__material',
