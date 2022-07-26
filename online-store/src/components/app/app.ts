@@ -67,6 +67,11 @@ class App {
     brandContainer.addEventListener('click', (e) => {
         this.setItemInLocalStorage('brand', this.filter.brandList)
     });
+    
+    const priceContainer = document.querySelector('.price') as HTMLElement;
+    priceContainer.addEventListener('click', (e) => {
+      this.redraw()
+    });
   }
   
   setItemInLocalStorage(type:string, list: NodeListOf<HTMLInputElement>){
