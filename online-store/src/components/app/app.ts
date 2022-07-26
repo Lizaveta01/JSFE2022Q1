@@ -43,53 +43,39 @@ class App {
   }
 
   filterData() {
-    const filterContainer = document.querySelector('.filter') as HTMLElement;
-    filterContainer.addEventListener('click', (e) => {
-      const targetElement = e.target as HTMLElement;
-
-      if (targetElement.classList.contains('custom-checkbox')) {
-        const checkboxesChecked: boolean[] = [];
-        this.filter.categoryList.forEach((checkbox, i) => {
-          checkboxesChecked[i] = checkbox.checked;
-        });
-        localStorage.setItem('category', JSON.stringify(checkboxesChecked));
-      }
-
-      if (targetElement.classList.contains('checkbox-size')) {
-        console.log(targetElement);
-        const checkboxesChecked: boolean[] = [];
-        this.filter.sizeList.forEach((checkbox, i) => {
-          checkboxesChecked[i] = checkbox.checked;
-        });
-        localStorage.setItem('size', JSON.stringify(checkboxesChecked));
-      }
-
-      if (targetElement.classList.contains('checkbox-color')) {
-        const checkboxesChecked: boolean[] = [];
-        this.filter.colorList.forEach((checkbox, i) => {
-          checkboxesChecked[i] = checkbox.checked;
-        });
-        localStorage.setItem('color', JSON.stringify(checkboxesChecked));
-      }
-
-      if (targetElement.classList.contains('custom-radio')) {
-        const checkboxesChecked: boolean[] = [];
-        this.filter.materialList.forEach((checkbox, i) => {
-          checkboxesChecked[i] = checkbox.checked;
-        });
-        localStorage.setItem('material', JSON.stringify(checkboxesChecked));
-      }
-
-      if (targetElement.classList.contains('brands')) {
-        const checkboxesChecked: boolean[] = [];
-        this.filter.brandList.forEach((checkbox, i) => {
-          checkboxesChecked[i] = checkbox.selected;
-        });
-        localStorage.setItem('brand', JSON.stringify(checkboxesChecked));
-      }
-
-      this.redraw();
+    const categoryContainer = document.querySelector('.category') as HTMLElement;
+    categoryContainer.addEventListener('click', (e) => {
+        this.setItemInLocalStorage('category', this.filter.categoryList)
     });
+
+    const sizeContainer = document.querySelector('.size') as HTMLElement;
+    sizeContainer.addEventListener('click', (e) => {
+        this.setItemInLocalStorage('size', this.filter.sizeList)
+    });
+
+    const colorContainer = document.querySelector('.color') as HTMLElement;
+    colorContainer.addEventListener('click', (e) => {
+        this.setItemInLocalStorage('color', this.filter.colorList)
+    });
+
+    const materialContainer = document.querySelector('.material') as HTMLElement;
+    materialContainer.addEventListener('click', (e) => {
+        this.setItemInLocalStorage('material', this.filter.materialList)
+    });
+
+    const brandContainer = document.querySelector('.brand') as HTMLElement;
+    brandContainer.addEventListener('click', (e) => {
+        this.setItemInLocalStorage('brand', this.filter.brandList)
+    });
+  }
+  
+  setItemInLocalStorage(type:string, list: NodeListOf<HTMLInputElement>){
+    const checkboxesChecked: boolean[] = [];
+    list.forEach((checkbox, i) => {
+      checkboxesChecked[i] = checkbox.checked;
+    });
+    localStorage.setItem(type, JSON.stringify(checkboxesChecked));
+    this.redraw();
   }
 
   reset() {

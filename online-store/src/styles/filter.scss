@@ -20,13 +20,15 @@
     padding: 24px 0px;
   }
 }
+.category{
+  @include filterLine ($filterLine, 24px);
+}
 .price{
   @include filterLine ($filterLine, 24px);
 }
 .checkbox{
   display: flex;
   flex-direction: column;
-  @include filterLine ($filterLine, 24px);
 }
 .color{
   @include filterLine ($filterLine, 24px);

@@ -12,7 +12,7 @@ class Filter {
   sizeListName: HTMLElement;
   sizeList: NodeListOf<HTMLInputElement>;
   brandListName: HTMLElement;
-  brandList: NodeListOf<HTMLOptionElement>;
+  brandList: NodeListOf<HTMLInputElement>;
   materialListName: HTMLElement;
   materialList: NodeListOf<HTMLInputElement>;
   cleanFiltersButton: HTMLElement;
@@ -32,7 +32,7 @@ class Filter {
     this.sizeListName = document.querySelector(selectors.sizeListName) as HTMLElement;
     this.sizeList = this.sizeListName.querySelectorAll(selectors.sizeList);
     this.brandListName = document.querySelector(selectors.brandListName) as HTMLElement;
-    this.brandList = this.brandListName.querySelectorAll(selectors.option);
+    this.brandList = this.brandListName.querySelectorAll(selectors.brandList);
     this.materialListName = document.querySelector(selectors.materialListName) as HTMLElement;
     this.materialList = this.materialListName.querySelectorAll(selectors.radioButton);
     this.cleanFiltersButton = document.querySelector(selectors.cleanFiltersButton) as HTMLElement;
@@ -65,7 +65,7 @@ class Filter {
     }
     if (checkedBrandOption) {
       this.brandList.forEach((chbox, idx) => {
-        chbox.selected = checkedBrandOption[idx];
+        chbox.checked= checkedBrandOption[idx];
       });
     }
     if (checkedMaterialOption) {
@@ -149,11 +149,11 @@ class Filter {
   filterByBrand(data: ICards[]) {
     const checkedBrand:string[] = [];
     this.brandList.forEach((brand) => {
-      if (brand.selected) {
-        checkedBrand.push(brand.value);
+      if (brand.checked) {
+        checkedBrand.push(brand.name);
       }
     });
-    if (checkedBrand[0] == 'Select brand') { 
+    if (!checkedBrand.length) { 
       return data;
     } else {
       return data.filter((item) => checkedBrand.indexOf(item.brand) != -1);
@@ -175,19 +175,15 @@ class Filter {
   }
 
   filterReset() {
-    this.categoryList.forEach((checkbox )=> checkbox.checked = false);
+    this.categoryList.forEach((checkbox)=> checkbox.checked = false);
     this.newPriceFilter.sliderOne.value = '0';
     this.newPriceFilter.sliderTwo.value = '300';
     this.newPriceFilter.displayValOne.textContent = '0';
     this.newPriceFilter.displayValTwo.textContent = '300';
     this.newPriceFilter.fillColor();
-    this.colorList.forEach((color) => color.classList.remove(selectors.selectedColor));
+    this.colorList.forEach((checkbox)=> checkbox.checked = false);
     this.sizeList.forEach((size) => size.checked = false);
-    this.brandList.forEach((brand) => {
-      const brandInput = document.querySelector('#brands') as HTMLOptionElement;
-      brandInput.value = 'Select brand';
-      brand.selected = false;
-    });
+    this.brandList.forEach((brand) => brand.checked = false);
     this.materialList.forEach((material) => material.checked = false);
     localStorage.removeItem('category');
     localStorage.removeItem('material');

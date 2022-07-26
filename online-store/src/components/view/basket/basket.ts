@@ -1,7 +1,6 @@
 import { selectors } from '../../models/selectors';
 class Basket {
   basketStorage: Record<string, number>;
-
   basketCounter: number;
   modalWindow: HTMLElement;
   modalButton: HTMLElement;
@@ -28,6 +27,7 @@ class Basket {
       this.modalWindow.classList.remove('visible');
     });
   }
+
   add(name:string) {
     if (this.basketStorage[name]) {
       this.basketStorage[name] += 1;
@@ -37,6 +37,8 @@ class Basket {
     this.basketCounter += 1;
     localStorage.setItem('basketStorage', JSON.stringify(this.basketStorage));
   }
+
+
   remove(name:string) {
     if (this.basketStorage[name]) {
       this.basketStorage[name] -= 1;
@@ -70,4 +72,3 @@ class Basket {
 }
 
 export default Basket;
-module.exports = Basket;
