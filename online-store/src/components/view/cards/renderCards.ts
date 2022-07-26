@@ -23,16 +23,16 @@ export default class RenderCards {
       this.cards.forEach((card) => this.addCard(card));
     }
   }
-  
-  createNotFoundMessage(){
+
+  createNotFoundMessage() {
     const notFoundElement = new NotFoundElement();
     this.cardsContainer.appendChild(notFoundElement.container);
     this.notFoundElement?.container.addEventListener('click', () => {
       this.cardsContainer.removeChild(this.notFoundElement!.container);
-    })
+    });
   }
 
-  addCard(card: CardElement){
+  addCard(card: CardElement) {
     this.cardsContainer.appendChild(card.container);
   }
 }

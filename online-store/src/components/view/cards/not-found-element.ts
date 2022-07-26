@@ -1,10 +1,10 @@
 export default class NotFoundElement {
   container: HTMLElement;
 
-  constructor(){
+  constructor() {
     this.container = document.createElement('p');
     this.container.classList.add('notify');
-    this.container.innerText = `Sorry, we couldn't find the page you're looking for`;
+    this.container.innerText = 'Sorry, we could not find the page you are looking for';
   }
  
 }

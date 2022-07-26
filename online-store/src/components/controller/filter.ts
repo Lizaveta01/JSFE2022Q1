@@ -65,7 +65,7 @@ class Filter {
     }
     if (checkedBrandOption) {
       this.brandList.forEach((chbox, idx) => {
-        chbox.checked= checkedBrandOption[idx];
+        chbox.checked = checkedBrandOption[idx];
       });
     }
     if (checkedMaterialOption) {

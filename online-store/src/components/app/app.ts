@@ -44,37 +44,37 @@ class App {
 
   filterData() {
     const categoryContainer = document.querySelector('.category') as HTMLElement;
-    categoryContainer.addEventListener('click', (e) => {
-        this.setItemInLocalStorage('category', this.filter.categoryList)
+    categoryContainer.addEventListener('click', () => {
+      this.setItemInLocalStorage('category', this.filter.categoryList);
     });
 
     const sizeContainer = document.querySelector('.size') as HTMLElement;
-    sizeContainer.addEventListener('click', (e) => {
-        this.setItemInLocalStorage('size', this.filter.sizeList)
+    sizeContainer.addEventListener('click', () => {
+      this.setItemInLocalStorage('size', this.filter.sizeList);
     });
 
     const colorContainer = document.querySelector('.color') as HTMLElement;
-    colorContainer.addEventListener('click', (e) => {
-        this.setItemInLocalStorage('color', this.filter.colorList)
+    colorContainer.addEventListener('click', () => {
+      this.setItemInLocalStorage('color', this.filter.colorList);
     });
 
     const materialContainer = document.querySelector('.material') as HTMLElement;
-    materialContainer.addEventListener('click', (e) => {
-        this.setItemInLocalStorage('material', this.filter.materialList)
+    materialContainer.addEventListener('click', () => {
+      this.setItemInLocalStorage('material', this.filter.materialList);
     });
 
     const brandContainer = document.querySelector('.brand') as HTMLElement;
-    brandContainer.addEventListener('click', (e) => {
-        this.setItemInLocalStorage('brand', this.filter.brandList)
+    brandContainer.addEventListener('click', () => {
+      this.setItemInLocalStorage('brand', this.filter.brandList);
     });
     
     const priceContainer = document.querySelector('.price') as HTMLElement;
-    priceContainer.addEventListener('click', (e) => {
-      this.redraw()
+    priceContainer.addEventListener('click', () => {
+      this.redraw();
     });
   }
   
-  setItemInLocalStorage(type:string, list: NodeListOf<HTMLInputElement>){
+  setItemInLocalStorage(type:string, list: NodeListOf<HTMLInputElement>) {
     const checkboxesChecked: boolean[] = [];
     list.forEach((checkbox, i) => {
       checkboxesChecked[i] = checkbox.checked;
