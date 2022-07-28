@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack serve --open --config ./webpack.config.js --env mode=dev",
+    "lint": "eslint . --ext .ts"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +22,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-webpack-plugin": "^3.2.0",
+    "html-loader": "^4.1.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
     "prettier": "2.7.1",
