@@ -1,5 +1,5 @@
-import App from './pages/app';
-import './style.scss'
+// import App from './pages/app';
+// import './style.scss'
 
-const app = new App();
-app.run()
+// const app = new App();
+// app.run()
