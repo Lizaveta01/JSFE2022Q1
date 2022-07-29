@@ -91,7 +91,7 @@ export const getWinnerStatus = async (id: number): Promise<number> =>
 export const deleteWinner = async (id:number): Promise<void> => 
 (await fetch(`${path.winners}/${id}`, {method: 'DELETE'})).json();
   
-export const createWinner = async (body: IWinner): Promise<void> =>
+export const createWinner = async  (body: { id: number | undefined; wins: number; time: number }): Promise<void> =>
  (await fetch (path.winners, {
   method: 'POST',
   body: JSON.stringify(body),
@@ -100,7 +100,7 @@ export const createWinner = async (body: IWinner): Promise<void> =>
   },
 })).json();
 
-export const updateWinner = async (id:number, body: IWinner): Promise<void> =>
+export const updateWinner = async (id:number, body: { id: number | undefined; wins: number; time: number }): Promise<void> =>
 (await fetch (`${path.winners}/${id}`, {
   method: 'PUT',
   body: JSON.stringify(body),

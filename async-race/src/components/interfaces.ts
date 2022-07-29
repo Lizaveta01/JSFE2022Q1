@@ -32,9 +32,10 @@ export interface IStorage {
 }
 
 export interface IWinner {
-  id: number | undefined;
+  id: number;
   wins: number;
   time: number;
+  car: ICar;
 }
 
 export interface IRace {

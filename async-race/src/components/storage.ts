@@ -11,4 +11,4 @@ export const storage: IStorage = {
   view: "garage",
   sort: "time",
   sortOrder: "asc",
-}
+};
