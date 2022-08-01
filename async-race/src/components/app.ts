@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { createCar, getCars, getWinner, getWinners } from "./api";
+import { createCar, deleteCar, deleteWinner, getCar, getCars, getWinner, getWinners, updateCar } from "./api";
 import { constants } from "./constants";
 import { ICar, ICarCreate } from "./interfaces";
 import { storage } from "./storage";
-import { carBrands, carModels } from "./carData";
+import { generateCars } from "./generate-car";
+import { startDrive, stopDrive } from "./drive";
 
 export async function garageUpdate(): Promise<void> {
   const carInfo = await getCars(storage.garagePage);
@@ -175,12 +176,12 @@ export const render = async (): Promise<void> => {
       <div>
         <form class="form" id="create">
           <input class="input" id="create-name" name="name" type="text">
-          <input class="color" id="create-color" name="color" type="color" value="#888888">
-          <button class="btn" type="submit">Create</button>
+          <input class="color" id="create-color" name="color" type="color" value="#000000">
+          <button class="btn" id="create-submit" type="submit">Create</button>
         </form>
         <form class="form" id="update">
           <input class="input" id="update-name" name="name" type="text" disabled>
-          <input class="color" id="update-color" name="color" type="color" value="#888888" disabled>
+          <input class="color" id="update-color" name="color" type="color" value="#000000" disabled>
           <button class="btn" id="update-submit" type="submit" disabled>Update</button>
         </form>
       </div>
@@ -240,28 +241,15 @@ export function PageButtonsUpdate(): void {
   }
 }
 
-function disableButtons(operator: boolean): void {
-  const btns = document.querySelectorAll(".primary") as NodeListOf<HTMLButtonElement>;
-  if (operator) {
-    btns.forEach((btn) => (btn.disabled = true));
-  } else {
-    PageButtonsUpdate();
-  }
-}
+// function disableButtons(operator: boolean): void {
+//   const btns = document.querySelectorAll(".primary") as NodeListOf<HTMLButtonElement>;
+//   if (operator) {
+//     btns.forEach((btn) => (btn.disabled = true));
+//   } else {
+//     PageButtonsUpdate();
+//   }
+// }
 
-function generateColor(): string {
-  return "#" + ("00000" + Math.floor(Math.random() * Math.pow(16, 6)).toString(16)).slice(-6);
-}
-
-function generateName(): string {
-  const model = carBrands[Math.floor(Math.random() * carBrands.length)];
-  const name = carModels[Math.floor(Math.random() * carModels.length)];
-  return `${model} ${name}`
-}
-function generateCars(count: number): ICarCreate[] {
-  console.log("generate");
-  return new Array(count).fill(0).map((el) => ({ name: generateName(), color: generateColor() }));
-}
 
 
 
@@ -270,19 +258,19 @@ export const addListeners = function (): void {
   const createNameInput = document.getElementById("create-name") as HTMLInputElement;
   const createColorInput = document.getElementById("create-color") as HTMLInputElement;
   const createForm = document.getElementById("create") as HTMLFormElement;
+  const createBtn = document.getElementById("create-submit") as HTMLButtonElement;
   const updateNameInput = document.getElementById("update-name") as HTMLInputElement;
   const updateColorInput = document.getElementById("update-color") as HTMLInputElement;
   const updateBtn = document.getElementById("update-submit") as HTMLButtonElement;
   const updateForm = document.getElementById("update") as HTMLFormElement;
+  const winnersBtn = document.getElementById("winners-menu") as HTMLButtonElement;
+  const garageBtn = document.getElementById("garage-menu") as HTMLButtonElement;
   const winnersView = document.getElementById("winners-view") as HTMLElement;
   const garageView = document.getElementById("garage-view") as HTMLElement;
-  const resetBtn = document.getElementById("reset") as HTMLButtonElement;
-  const raceBtn = document.getElementById("race") as HTMLButtonElement;
   const btnPrev = document.getElementById("prev") as HTMLButtonElement;
   const btnNext = document.getElementById("next") as HTMLButtonElement;
   const btnGenerateCar = document.getElementById("generator") as HTMLButtonElement;
-
-  // let selectedCar: ICar | null = null;
+  let selectedCar: ICar | null = null;
   
    btnPrev.addEventListener('click', async () => {
     if (storage.view === "garage") {
@@ -319,13 +307,102 @@ export const addListeners = function (): void {
       await garageUpdate();
       PageButtonsUpdate();
       garageCars.innerHTML = renderGarage();
-      disableButtons(false);
+      // disableButtons(false);
       btnGenerateCar.disabled = false;
     })
 
+    winnersBtn.addEventListener('click', async () => {
+      console.log('click');
+      storage.view = 'winners';
+      garageView.style.display = 'none';
+      winnersView.style.display = 'block';
+      await winnersUpdate();
+      winnersView.innerHTML = renderWinners();
+      PageButtonsUpdate();
+    })
 
+    garageBtn.addEventListener('click', () => {
+      console.log('click');
+      storage.view = 'garage';
+      garageView.style.display = 'block';
+      winnersView.style.display =  'none';
+      PageButtonsUpdate();
+    })
+
+    createForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      console.log('create');
+      if (createNameInput.value) {
+        const bodyCar = {
+          name: createNameInput.value,
+          color: createColorInput.value
+        };
+        await createCar(bodyCar);
+        await garageUpdate();
+        garageCars.innerHTML = renderGarage();
+        createNameInput.value = '';
+        createColorInput.value = '#000000';
+      } else {
+        alert('paste name car!')
+      }
+    })
+
+
+    document.body.addEventListener("click", async (event) => {
+      const eventTarget = event.target as HTMLButtonElement;
+
+      if(eventTarget.classList.contains('remove-btn')){
+        const id = +eventTarget.id.split("remove-car-")[1];
+        await deleteCar(id);
+        await deleteWinner(id);
+        await garageUpdate();
+        garageCars.innerHTML = renderGarage();
+        PageButtonsUpdate();
+      }
+
+      if (eventTarget.classList.contains('select-btn')){
+        selectedCar = await getCar(+eventTarget.id.split("select-car-")[1]);
+        updateNameInput.value = selectedCar.name;
+        updateColorInput.value = selectedCar.color;
+        updateNameInput.disabled = false;
+        updateColorInput.disabled = false;
+        updateBtn.disabled = false;
+      }
+
+      if (eventTarget.classList.contains('start-engine-btn')){
+        const id = +eventTarget.id.split("start-engine-car-")[1];
+        
+        await startDrive(id);
+      } 
+      if (eventTarget.classList.contains('stop-engine-btn')){
+        const id = +eventTarget.id.split("stop-engine-car-")[1];
+        await stopDrive(id);
+      }
+
+      updateForm.addEventListener('submit', async () => {
+        event.preventDefault();
+        const bodyCar = {
+          name: updateNameInput.value,
+          color: updateColorInput.value
+        }
+        await updateCar(+eventTarget.id.split("select-car-")[1], bodyCar);
+        await garageUpdate();
+        updateNameInput.disabled = true;
+        updateNameInput.value = '';
+        updateColorInput.value = '#000000';
+        updateColorInput.disabled = true;
+        updateBtn.disabled = true;
+        selectedCar = null;
+      })
+
+      
+      
+    })
+    
+  
+    
 }  
 
 
 
- 
+

@@ -1,0 +1,17 @@
+import { carBrands, carModels } from "./carData";
+import { ICarCreate } from "./interfaces";
+
+function generateColor(): string {
+  return "#" + ("00000" + Math.floor(Math.random() * Math.pow(16, 6)).toString(16)).slice(-6);
+}
+
+function generateName(): string {
+  const model = carBrands[Math.floor(Math.random() * carBrands.length)];
+  const name = carModels[Math.floor(Math.random() * carModels.length)];
+  return `${model} ${name}`
+}
+
+export function generateCars(count: number): ICarCreate[] {
+  console.log("generate");
+  return new Array(count).fill(0).map(() => ({ name: generateName(), color: generateColor() }));
+}
