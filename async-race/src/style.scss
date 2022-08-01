@@ -163,3 +163,13 @@ li {
 .table-btn:hover {
   background-color: lighten(#abc7e7, 5);
 }
+
+@keyframes animation-car {
+  to {
+    left: 100%;
+  }
+  from {
+    left: 0%;
+  }
+  
+}

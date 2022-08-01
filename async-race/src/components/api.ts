@@ -52,9 +52,9 @@ export const stopEngine = async (id:number):  Promise<ICarSpeed> =>
 
 
 // не понимаю хачем здесь catch и потом вывод 
-export const switchCarToDrive = async (id:number) => {
-  const res = await fetch(`${path.engine}?id=${id}&status=drive`).catch();
-  res.status !== 200 ? { success: false } : { ...(await res.json())}; // вывод
+export const switchCarToDrive = async (id:number): Promise<{ success: boolean }> => {
+  const res = await fetch(`${path.engine}?id=${id}&status=drive`,{ method: "PATCH" } ).catch();
+ return res.status !== 200 ? { success: false } : { ...(await res.json())}; // вывод
 }
 
 
