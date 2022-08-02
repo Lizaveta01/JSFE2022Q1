@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { createCar, deleteCar, deleteWinner, getCar, getCars, getWinner, getWinners, updateCar } from "./api";
+import { createCar, deleteCar, deleteWinner, getCar, getCars, getWinner, getWinners, saveWinner, updateCar } from "./api";
 import { constants } from "./constants";
 import { ICar, ICarCreate } from "./interfaces";
 import { storage } from "./storage";
 import { generateCars } from "./generate-car";
-import { startDrive, stopDrive } from "./drive";
+import { race, startDrive, stopDrive } from "./drive";
 
 export async function garageUpdate(): Promise<void> {
   const carInfo = await getCars(storage.garagePage);
@@ -241,24 +241,12 @@ export function PageButtonsUpdate(): void {
   }
 }
 
-// function disableButtons(operator: boolean): void {
-//   const btns = document.querySelectorAll(".primary") as NodeListOf<HTMLButtonElement>;
-//   if (operator) {
-//     btns.forEach((btn) => (btn.disabled = true));
-//   } else {
-//     PageButtonsUpdate();
-//   }
-// }
-
-
-
 
 export const addListeners = function (): void {
   const garageCars = document.getElementById("garage-cars") as HTMLElement;
   const createNameInput = document.getElementById("create-name") as HTMLInputElement;
   const createColorInput = document.getElementById("create-color") as HTMLInputElement;
   const createForm = document.getElementById("create") as HTMLFormElement;
-  const createBtn = document.getElementById("create-submit") as HTMLButtonElement;
   const updateNameInput = document.getElementById("update-name") as HTMLInputElement;
   const updateColorInput = document.getElementById("update-color") as HTMLInputElement;
   const updateBtn = document.getElementById("update-submit") as HTMLButtonElement;
@@ -270,6 +258,9 @@ export const addListeners = function (): void {
   const btnPrev = document.getElementById("prev") as HTMLButtonElement;
   const btnNext = document.getElementById("next") as HTMLButtonElement;
   const btnGenerateCar = document.getElementById("generator") as HTMLButtonElement;
+  const raceBtn = document.getElementById("race") as HTMLButtonElement;
+  const raceResetBtn = document.getElementById("reset") as HTMLButtonElement;
+
   let selectedCar: ICar | null = null;
   
    btnPrev.addEventListener('click', async () => {
@@ -307,7 +298,6 @@ export const addListeners = function (): void {
       await garageUpdate();
       PageButtonsUpdate();
       garageCars.innerHTML = renderGarage();
-      // disableButtons(false);
       btnGenerateCar.disabled = false;
     })
 
@@ -328,6 +318,20 @@ export const addListeners = function (): void {
       winnersView.style.display =  'none';
       PageButtonsUpdate();
     })
+
+    raceBtn.addEventListener('click', async () => {
+      raceBtn.disabled = true;
+      const winner = await race(startDrive);
+      // await saveWinner(winner);
+      raceResetBtn.disabled = false;
+    });
+    
+    raceResetBtn.addEventListener('click', async () => {
+      raceResetBtn.disabled = true;
+      storage.cars.map(({ id }) => stopDrive(id));
+      raceBtn.disabled = false;
+    });
+   
 
     createForm.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -371,7 +375,7 @@ export const addListeners = function (): void {
 
       if (eventTarget.classList.contains('start-engine-btn')){
         const id = +eventTarget.id.split("start-engine-car-")[1];
-        
+
         await startDrive(id);
       } 
       if (eventTarget.classList.contains('stop-engine-btn')){
@@ -395,12 +399,8 @@ export const addListeners = function (): void {
         selectedCar = null;
       })
 
-      
-      
     })
-    
-  
-    
+      
 }  
 
 

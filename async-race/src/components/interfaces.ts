@@ -44,3 +44,9 @@ export interface IRace {
   id: number;
   time: number;
 }
+
+export interface IStartDrive {
+  success: boolean;
+  id: number;
+  time: number;
+}
