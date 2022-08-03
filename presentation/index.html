@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<textarea data-template>
+						## JWT 
+						JSON Web Tokens
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## What it?
+						JSON Web Token (JWT) Is a JSON object and it is considered one of the safest ways to transfer information between two participants
+					</textarea>
+				</section>
+
+				
+					<section data-markdown>
+						<textarea data-template>
+							## Three main parts:
+							1. Header
+							2. Playload
+							3. Signature
+						</textarea>
+					</section>
+
+					<section data-markdown>
+						<textarea data-template>
+							The application uses JWT to verify user authentication as follows:
+							1. First, the user logs on to the authentication server using an authentication key
+							2. The authentication server then creates the JWT and sends it to the user
+							3. When the user makes a request to the application API, he adds the previously received JWT to it
+							4. When a user makes an API request, the application can check whether the user is what he claims to be, using the JWT request 
+						</textarea>
+					</section>
+
+
+						<section>
+							<section data-markdown>
+								<textarea data-template>
+									## Header
+									The JWT header contains information on how the JWT signature should be calculated.
+									A header is also a JSON object that looks like this:
+									<pre><code data-trim data-noescape>
+										header = { "alg": "HS256", "typ": "JWT"}
+									</code></pre>
+							  </textarea>
+							</section>
+						</section>
+						
+
+						<section>
+							<section data-markdown>
+								<textarea data-template>
+									## Playload
+									Payload is the payload that is stored inside the JWT
+
+									<pre><code data-trim data-noescape>
+										playload = {
+											"sub": "1234567890",
+											"name": "John",
+											"iat": 1516239022
+										}
+										</code></pre>
+												
+								
+							  </textarea>
+							</section>
+
+							<section data-markdown>
+								<textarea data-template>
+									There is a list of standard applications for JWT payload — here are some of them:
+
+									- iss (issuer) — defines the application from which the token is sent.
+									- sub (subject) — defines the topic of the token.
+									-	exp (expiration time) — token lifetime.
+								</textarea>
+							</section>
+
+						</section>
+					
+						<section>
+							<section data-markdown>
+								<textarea data-template>
+									## Signature
+									The base64url algorithm encodes the header and payload
+									The algorithm concatenates encoded strings through a dot
+
+									<pre><code data-trim data-noescape>
+										const SECRET_KEY = 'cAtwa1kkEy'
+										const unsignedToken = base64urlEncode(header) + '.' + base64urlEncode(payload)
+										const signature = HMAC-SHA256(unsignedToken, SECRET_KEY)
+									</code></pre>			
+							  </textarea>
+							</section>
+						</section>
+
+						<section data-markdown>
+							<textarea data-template>
+								Combine all three JWT components together
+								
+								<pre><code data-trim data-noescape>
+									const token = encodeBase64Url(header) + ‘.’ 
+									+ encodeBase64Url(payload) + ‘.’ 
+									+ encodeBase64Url(signature)
+
+									// JWT Token 
+									//eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+								</code></pre>
+							</textarea>
+						</section>
+
+						<section data-markdown>
+							<textarea data-template>
+								## Thanks for watching
+								
+							</textarea>
+						</section>
+					</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
