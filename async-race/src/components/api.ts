@@ -65,7 +65,6 @@ const getSortOrder = (sort:string, order:string): string => {
   return '';
 }
 
-//! Непонятно с промис олл
 export const getWinners = async ({page, limit = constants.defaultWinnersPage, sort, order}: {page: number;
   limit: number;
   sort: string;
@@ -82,10 +81,10 @@ export const getWinners = async ({page, limit = constants.defaultWinnersPage, so
   }
 }
 
-export const getWinner = async (id: number): Promise<IWinner> =>
+export const getWinner = async (id: number | undefined): Promise<IWinner> =>
 (await fetch(`${path.winners}/${id}`)).json();
 
-export const getWinnerStatus = async (id: number): Promise<number> =>
+export const getWinnerStatus = async (id: number | undefined): Promise<number> =>
 (await fetch(`${path.winners}/${id}`)).status;
 
 export const deleteWinner = async (id:number): Promise<void> => 
@@ -100,7 +99,7 @@ export const createWinner = async  (body: { id: number | undefined; wins: number
   },
 })).json();
 
-export const updateWinner = async (id:number, body: { id: number | undefined; wins: number; time: number }): Promise<void> =>
+export const updateWinner = async (id: number | undefined, body: { id: number | undefined; wins: number; time: number }): Promise<void> =>
 (await fetch (`${path.winners}/${id}`, {
   method: 'PUT',
   body: JSON.stringify(body),

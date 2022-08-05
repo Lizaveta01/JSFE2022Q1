@@ -1,7 +1,7 @@
-// @import './styles/nullstyle.scss';
-
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 body {
-  background-color: rgb(166, 231, 218);
+  background: linear-gradient(to right, #25c481, #25b7c4);
+  font-family: 'Roboto', sans-serif;
 }
 
 .btn {
@@ -118,35 +118,28 @@ li {
 .table {
   font-size: 24px;
   margin-bottom: 20px;
-  // padding: 20px;
 }
 
 .table svg {
-  width: 40px;
+  width: 80px;
 }
 
 .table th,
 .table td {
-  background-color: rgb(171, 199, 231);
-  text-align: left;
-  padding: 4px 20px;
+  padding: 20px 20px;
+  text-align: center;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 20px;
+  color: #fff;
+  width: 200px;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
 }
-
-.winner-message {
-  display: none;
-  position: absolute;
-  left: 50%;
-  top: 5%;
-  font-size: 40px;
-  transform: translateX(-50%);
-  font-weight: bold;
-  background-color: rgba(229, 246, 251, 0.5);
-  border: 1px solid darkblue;
-  padding: 30px;
-  border-radius: 10px;
-  pointer-events: none;
+.table th{
+  font-size: 24px;
+  font-weight: 500;
+  
 }
-
 .winner-message.visible {
   display: block;
 }
@@ -161,7 +154,7 @@ li {
 }
 
 .table-btn:hover {
-  background-color: lighten(#abc7e7, 5);
+  background-color: lighten(#25b7c4, 5);
 }
 
 @keyframes animation-car {

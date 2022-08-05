@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { createCar, deleteCar, deleteWinner, getCar, getCars, getWinner, getWinners, saveWinner, updateCar } from "./api";
-import { constants } from "./constants";
-import { ICar, ICarCreate } from "./interfaces";
-import { storage } from "./storage";
-import { generateCars } from "./generate-car";
-import { race, startDrive, stopDrive } from "./drive";
+import { createCar, deleteCar, deleteWinner, getCar, getCars, getWinner, getWinners, saveWinner, updateCar } from './api';
+import { constants } from './constants';
+import { ICar} from './interfaces';
+import { storage } from './storage';
+import { generateCars } from './generate-car';
+import { race , startDrive, stopDrive } from './drive';
 
 export async function garageUpdate(): Promise<void> {
   const carInfo = await getCars(storage.garagePage);
@@ -17,7 +17,7 @@ export async function winnersUpdate(): Promise<void> {
     page: storage.winnersPage,
     limit: constants.defaultWinnersPageLimit,
     sort: storage.sort,
-    order: storage.sort,
+    order: storage.sortOrder,
   });
   storage.winnersCount = winnersInfo.count;
   storage.winners = winnersInfo.items;
@@ -208,11 +208,11 @@ export const render = async (): Promise<void> => {
 };
 
 export function PageButtonsUpdate(): void {
-  const prevButton = document.getElementById("prev") as HTMLButtonElement;
-  const nextButton = document.getElementById("next") as HTMLButtonElement;
-  const garageViewBtn = document.querySelector(".garage-menu-btn") as HTMLButtonElement;
-  const winnersViewBtn = document.querySelector(".winners-menu-btn") as HTMLButtonElement;
-  if (storage.view === "garage") {
+  const prevButton = document.getElementById('prev') as HTMLButtonElement;
+  const nextButton = document.getElementById('next') as HTMLButtonElement;
+  const garageViewBtn = document.getElementById('garage-menu') as HTMLButtonElement;
+  const winnersViewBtn = document.getElementById('winners-menu') as HTMLButtonElement;
+  if (storage.view === 'garage') {
     garageViewBtn.disabled = true;
     winnersViewBtn.disabled = false;
     if (storage.garagePage * constants.defaultGaragePageLimit < storage.carsCount) {
@@ -225,7 +225,7 @@ export function PageButtonsUpdate(): void {
     } else {
       prevButton.disabled = true;
     }
-  } else if (storage.view === "winners") {
+  } else if (storage.view === 'winners') {
     garageViewBtn.disabled = false;
     winnersViewBtn.disabled = true;
     if (storage.winnersPage * constants.defaultWinnersPageLimit < storage.winnersCount) {
@@ -241,30 +241,44 @@ export function PageButtonsUpdate(): void {
   }
 }
 
+async function setSortOrder(sort: string) {
+  if (storage.sortOrder === 'asc') {
+    storage.sortOrder = 'desc';
+  } else {
+    storage.sortOrder = 'asc';
+  }
+  storage.sort = sort;
+  await winnersUpdate();
+  const winnersView = document.getElementById('winners-view') as HTMLElement;
+  winnersView.innerHTML = renderWinners();
+}
 
 export const addListeners = function (): void {
-  const garageCars = document.getElementById("garage-cars") as HTMLElement;
-  const createNameInput = document.getElementById("create-name") as HTMLInputElement;
-  const createColorInput = document.getElementById("create-color") as HTMLInputElement;
-  const createForm = document.getElementById("create") as HTMLFormElement;
-  const updateNameInput = document.getElementById("update-name") as HTMLInputElement;
-  const updateColorInput = document.getElementById("update-color") as HTMLInputElement;
-  const updateBtn = document.getElementById("update-submit") as HTMLButtonElement;
-  const updateForm = document.getElementById("update") as HTMLFormElement;
-  const winnersBtn = document.getElementById("winners-menu") as HTMLButtonElement;
-  const garageBtn = document.getElementById("garage-menu") as HTMLButtonElement;
-  const winnersView = document.getElementById("winners-view") as HTMLElement;
-  const garageView = document.getElementById("garage-view") as HTMLElement;
-  const btnPrev = document.getElementById("prev") as HTMLButtonElement;
-  const btnNext = document.getElementById("next") as HTMLButtonElement;
-  const btnGenerateCar = document.getElementById("generator") as HTMLButtonElement;
-  const raceBtn = document.getElementById("race") as HTMLButtonElement;
-  const raceResetBtn = document.getElementById("reset") as HTMLButtonElement;
+  const garageCars = document.getElementById('garage-cars') as HTMLElement;
+  const createNameInput = document.getElementById('create-name') as HTMLInputElement;
+  const createColorInput = document.getElementById('create-color') as HTMLInputElement;
+  const createForm = document.getElementById('create') as HTMLFormElement;
+  const updateNameInput = document.getElementById('update-name') as HTMLInputElement;
+  const updateColorInput = document.getElementById('update-color') as HTMLInputElement;
+  const updateBtn = document.getElementById('update-submit') as HTMLButtonElement;
+  const updateForm = document.getElementById('update') as HTMLFormElement;
+  const winnersBtn = document.getElementById('winners-menu') as HTMLButtonElement;
+  const garageBtn = document.getElementById('garage-menu') as HTMLButtonElement;
+  const winnersView = document.getElementById('winners-view') as HTMLElement;
+  const garageView = document.getElementById('garage-view') as HTMLElement;
+  const btnPrev = document.getElementById('prev') as HTMLButtonElement;
+  const btnNext = document.getElementById('next') as HTMLButtonElement;
+  const btnGenerateCar = document.getElementById('generator') as HTMLButtonElement;
+  const raceBtn = document.getElementById('race') as HTMLButtonElement;
+  const raceResetBtn = document.getElementById('reset') as HTMLButtonElement;
+  const sortCountWins = document.getElementById('sort-by-wins') as HTMLTableElement;
+  const sortTime = document.getElementById('sort-by-time') as HTMLTableElement; 
 
   let selectedCar: ICar | null = null;
   
+
    btnPrev.addEventListener('click', async () => {
-    if (storage.view === "garage") {
+    if (storage.view === 'garage') {
       storage.garagePage -= 1;
       await garageUpdate();
       PageButtonsUpdate();
@@ -278,7 +292,7 @@ export const addListeners = function (): void {
    })
 
    btnNext.addEventListener('click', async () => {
-    if (storage.view === "garage") {
+    if (storage.view === 'garage') {
       storage.garagePage += 1;
       await garageUpdate();
       PageButtonsUpdate();
@@ -309,6 +323,9 @@ export const addListeners = function (): void {
       await winnersUpdate();
       winnersView.innerHTML = renderWinners();
       PageButtonsUpdate();
+      raceResetBtn.disabled = true;
+      storage.cars.map(({ id }) => stopDrive(id));
+      raceBtn.disabled = false;
     })
 
     garageBtn.addEventListener('click', () => {
@@ -321,8 +338,9 @@ export const addListeners = function (): void {
 
     raceBtn.addEventListener('click', async () => {
       raceBtn.disabled = true;
-      const winner = await race(startDrive);
-      // await saveWinner(winner);
+      const winner = await race();
+      await saveWinner(winner);
+      winnersUpdate();
       raceResetBtn.disabled = false;
     });
     
@@ -351,12 +369,13 @@ export const addListeners = function (): void {
       }
     })
 
+    
 
-    document.body.addEventListener("click", async (event) => {
+    document.body.addEventListener('click', async (event) => {
       const eventTarget = event.target as HTMLButtonElement;
 
       if(eventTarget.classList.contains('remove-btn')){
-        const id = +eventTarget.id.split("remove-car-")[1];
+        const id = +eventTarget.id.split('remove-car-')[1];
         await deleteCar(id);
         await deleteWinner(id);
         await garageUpdate();
@@ -365,7 +384,7 @@ export const addListeners = function (): void {
       }
 
       if (eventTarget.classList.contains('select-btn')){
-        selectedCar = await getCar(+eventTarget.id.split("select-car-")[1]);
+        selectedCar = await getCar(+eventTarget.id.split('select-car-')[1]);
         updateNameInput.value = selectedCar.name;
         updateColorInput.value = selectedCar.color;
         updateNameInput.disabled = false;
@@ -374,12 +393,12 @@ export const addListeners = function (): void {
       }
 
       if (eventTarget.classList.contains('start-engine-btn')){
-        const id = +eventTarget.id.split("start-engine-car-")[1];
+        const id = +eventTarget.id.split('start-engine-car-')[1];
 
         await startDrive(id);
       } 
       if (eventTarget.classList.contains('stop-engine-btn')){
-        const id = +eventTarget.id.split("stop-engine-car-")[1];
+        const id = +eventTarget.id.split('stop-engine-car-')[1];
         await stopDrive(id);
       }
 
@@ -389,7 +408,7 @@ export const addListeners = function (): void {
           name: updateNameInput.value,
           color: updateColorInput.value
         }
-        await updateCar(+eventTarget.id.split("select-car-")[1], bodyCar);
+        await updateCar(+eventTarget.id.split('select-car-')[1], bodyCar);
         await garageUpdate();
         updateNameInput.disabled = true;
         updateNameInput.value = '';
@@ -399,6 +418,15 @@ export const addListeners = function (): void {
         selectedCar = null;
       })
 
+      if (eventTarget.classList.contains('table-wins')){
+        await setSortOrder('wins');
+        console.log('eee');
+      }
+      if (eventTarget.classList.contains('table-time')){
+       await setSortOrder('time');
+        console.log('fefe');
+      }
+      
     })
       
 }  

@@ -39,8 +39,6 @@ export interface IWinner {
 }
 
 export interface IRace {
-  name?: string;
-  color?: string;
   id: number;
   time: number;
 }

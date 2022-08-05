@@ -31,7 +31,10 @@ export async function stopDrive(id:number): Promise<void> {
   car.style.animationPlayState = "initial";
 }
 
-export async function race(drive: (id:number) => Promise<IStartDrive>) {
-  const promise = storage.cars.map(({id}) => drive(id));
-  console.log(promise)
+export async function race(): Promise<IRace>  {
+  const promise = storage.cars.map(({id}) => startDrive(id));
+  const cars = await Promise.all(promise);
+  const carsSuccess = cars.filter(el => el.success).sort((a,b) => a.time - b.time);
+  const [id , time] = [carsSuccess[0].id, carsSuccess[0].time]; 
+  return {id , time: +(time / 1000).toFixed(2)}
 }

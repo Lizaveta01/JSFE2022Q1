@@ -12,6 +12,5 @@ function generateName(): string {
 }
 
 export function generateCars(count: number): ICarCreate[] {
-  console.log("generate");
   return new Array(count).fill(0).map(() => ({ name: generateName(), color: generateColor() }));
 }
