@@ -105,15 +105,15 @@ fill=${color} stroke="none">
 const renderGarageRow = ({ id, name, color }: ICar) => `
   <div class="car-header">
     <div class="select-btns">
-      <button class="btn select-btn" id="select-car-${id}">Select</button>
-      <button class="btn remove-btn" id="remove-car-${id}">Remove</button>
+      <button class="btn-1 select-btn" id="select-car-${id}">Select</button>
+      <button class="btn-1 remove-btn" id="remove-car-${id}">Remove</button>
     </div>
     <div class="car-name">${name}</div>
   </div>
   <div class = "car-row">
     <div class="car-controls">
-    <button class="btn start-engine-btn" id="start-engine-car-${id}">Start</button>
-    <button class="btn stop-engine-btn" id="stop-engine-car-${id}" disabled>Stop</button>
+    <button class="btn-1 start-engine-btn" id="start-engine-car-${id}">Start</button>
+    <button class="btn-1 stop-engine-btn" id="stop-engine-car-${id}" disabled>Stop</button>
     </div>
     <div class="road">
         <div class="car" id="car-${id}">
@@ -177,12 +177,12 @@ export const render = async (): Promise<void> => {
         <form class="form" id="create">
           <input class="input" id="create-name" name="name" type="text">
           <input class="color" id="create-color" name="color" type="color" value="#000000">
-          <button class="btn" id="create-submit" type="submit">Create</button>
+          <button class="btn create-submit" id="create-submit" type="submit">Create</button>
         </form>
         <form class="form" id="update">
           <input class="input" id="update-name" name="name" type="text" disabled>
           <input class="color" id="update-color" name="color" type="color" value="#000000" disabled>
-          <button class="btn" id="update-submit" type="submit" disabled>Update</button>
+          <button class="btn update-btn" id="update-submit" type="submit" disabled>Update</button>
         </form>
       </div>
       <div class="race-controls">
@@ -198,8 +198,8 @@ export const render = async (): Promise<void> => {
       ${renderWinners()}
     </main>
     <nav class="pagination">
-      <button class="btn prev-btn primary" disabled id="prev">Previous page</button>
-      <button class="btn next-btn primary" disabled id="next">Next page</button>
+      <button class="btn-1 prev-btn primary" disabled id="prev">previous</button>
+      <button class="btn-1 next-btn primary" disabled id="next">next</button>
     </nav>
   `;
   const root = document.createElement("div");
