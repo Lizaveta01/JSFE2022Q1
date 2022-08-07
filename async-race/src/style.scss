@@ -273,3 +273,25 @@ li {
   }
   
 }
+main{
+  position: relative;
+}
+.winner-message {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 40px;
+  transform: translateX(-50%);
+  font-weight: bold;
+  background: linear-gradient(0deg, rgba(96,9,240,1) 0%, rgba(129,5,240,1) 100%);
+  border: none;
+  z-index: 20;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+
+.winner-message.visible {
+  display: block;
+}

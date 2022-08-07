@@ -22,7 +22,10 @@ export async function winnersUpdate(): Promise<void> {
   storage.winnersCount = winnersInfo.count;
   storage.winners = winnersInfo.items;
 }
-
+// const showMessage = (time:number, name:string) => `
+// <div class = "message" >
+//   <p>Winner is ${name} with time ${time}</p>
+// </div>`
 const renderCar = (color: string) => `<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
 width="100.000000pt" height="40.000000pt" viewBox="0 0 1280.000000 640.000000"
 preserveAspectRatio="xMidYMid meet">
@@ -201,6 +204,7 @@ export const render = async (): Promise<void> => {
       <button class="btn-1 prev-btn primary" disabled id="prev">previous</button>
       <button class="btn-1 next-btn primary" disabled id="next">next</button>
     </nav>
+    
   `;
   const root = document.createElement("div");
   root.innerHTML = template;
@@ -271,8 +275,8 @@ export const addListeners = function (): void {
   const btnGenerateCar = document.getElementById('generator') as HTMLButtonElement;
   const raceBtn = document.getElementById('race') as HTMLButtonElement;
   const raceResetBtn = document.getElementById('reset') as HTMLButtonElement;
-  const sortCountWins = document.getElementById('sort-by-wins') as HTMLTableElement;
-  const sortTime = document.getElementById('sort-by-time') as HTMLTableElement; 
+  const message = document.querySelector('.winner-message') as HTMLElement;
+
 
   let selectedCar: ICar | null = null;
   
@@ -337,17 +341,23 @@ export const addListeners = function (): void {
     })
 
     raceBtn.addEventListener('click', async () => {
+      console.log('start');
       raceBtn.disabled = true;
       const winner = await race();
+      const name = (await getCar(winner.id)).name;
+      message.innerHTML = `The winner is ${name} with (${winner.time}s)!`;
+      message.classList.toggle("visible", true);
       await saveWinner(winner);
       winnersUpdate();
       raceResetBtn.disabled = false;
+      
     });
     
     raceResetBtn.addEventListener('click', async () => {
       raceResetBtn.disabled = true;
       storage.cars.map(({ id }) => stopDrive(id));
       raceBtn.disabled = false;
+      message.classList.toggle("visible", false);
     });
    
 
