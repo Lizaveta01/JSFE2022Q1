@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { createCar, deleteCar, deleteWinner, getCar, getCars, getWinner, getWinners, saveWinner, updateCar } from './api';
+import { createCar, deleteCar, deleteWinner, getCar, getCars, getWinners, saveWinner, updateCar } from './api';
 import { constants } from './constants';
 import { ICar} from './interfaces';
 import { storage } from './storage';
@@ -22,10 +21,7 @@ export async function winnersUpdate(): Promise<void> {
   storage.winnersCount = winnersInfo.count;
   storage.winners = winnersInfo.items;
 }
-// const showMessage = (time:number, name:string) => `
-// <div class = "message" >
-//   <p>Winner is ${name} with time ${time}</p>
-// </div>`
+
 const renderCar = (color: string) => `<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
 width="100.000000pt" height="40.000000pt" viewBox="0 0 1280.000000 640.000000"
 preserveAspectRatio="xMidYMid meet">
@@ -282,6 +278,7 @@ export const addListeners = function (): void {
   
 
    btnPrev.addEventListener('click', async () => {
+    message.classList.toggle("visible", false);
     if (storage.view === 'garage') {
       storage.garagePage -= 1;
       await garageUpdate();
@@ -296,6 +293,7 @@ export const addListeners = function (): void {
    })
 
    btnNext.addEventListener('click', async () => {
+    message.classList.toggle("visible", false);
     if (storage.view === 'garage') {
       storage.garagePage += 1;
       await garageUpdate();
@@ -320,7 +318,7 @@ export const addListeners = function (): void {
     })
 
     winnersBtn.addEventListener('click', async () => {
-      console.log('click');
+      message.classList.toggle("visible", false);
       storage.view = 'winners';
       garageView.style.display = 'none';
       winnersView.style.display = 'block';
@@ -333,6 +331,7 @@ export const addListeners = function (): void {
     })
 
     garageBtn.addEventListener('click', () => {
+      
       console.log('click');
       storage.view = 'garage';
       garageView.style.display = 'block';
@@ -358,8 +357,7 @@ export const addListeners = function (): void {
       storage.cars.map(({ id }) => stopDrive(id));
       raceBtn.disabled = false;
       message.classList.toggle("visible", false);
-    });
-   
+    });   
 
     createForm.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -378,8 +376,6 @@ export const addListeners = function (): void {
         alert('paste name car!')
       }
     })
-
-    
 
     document.body.addEventListener('click', async (event) => {
       const eventTarget = event.target as HTMLButtonElement;
