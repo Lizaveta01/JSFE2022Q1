@@ -4,6 +4,7 @@ import { ICar} from './interfaces';
 import { storage } from './storage';
 import { generateCars } from './generate-car';
 import { race , startDrive, stopDrive } from './drive';
+import { selectors } from './selectors';
 
 export async function garageUpdate(): Promise<void> {
   const carInfo = await getCars(storage.garagePage);
@@ -208,10 +209,10 @@ export const render = async (): Promise<void> => {
 };
 
 export function PageButtonsUpdate(): void {
-  const prevButton = document.getElementById('prev') as HTMLButtonElement;
-  const nextButton = document.getElementById('next') as HTMLButtonElement;
-  const garageViewBtn = document.getElementById('garage-menu') as HTMLButtonElement;
-  const winnersViewBtn = document.getElementById('winners-menu') as HTMLButtonElement;
+  const prevButton = document.getElementById(selectors.btnPrev) as HTMLButtonElement;
+  const nextButton = document.getElementById(selectors.btnNext) as HTMLButtonElement;
+  const garageViewBtn = document.getElementById(selectors.btnGarageView) as HTMLButtonElement;
+  const winnersViewBtn = document.getElementById(selectors.btnWinnersView) as HTMLButtonElement;
   if (storage.view === 'garage') {
     garageViewBtn.disabled = true;
     winnersViewBtn.disabled = false;
@@ -249,29 +250,29 @@ async function setSortOrder(sort: string) {
   }
   storage.sort = sort;
   await winnersUpdate();
-  const winnersView = document.getElementById('winners-view') as HTMLElement;
+  const winnersView = document.getElementById(selectors.winnersView) as HTMLElement;
   winnersView.innerHTML = renderWinners();
 }
 
 export const addListeners = function (): void {
-  const garageCars = document.getElementById('garage-cars') as HTMLElement;
-  const createNameInput = document.getElementById('create-name') as HTMLInputElement;
-  const createColorInput = document.getElementById('create-color') as HTMLInputElement;
-  const createForm = document.getElementById('create') as HTMLFormElement;
-  const updateNameInput = document.getElementById('update-name') as HTMLInputElement;
-  const updateColorInput = document.getElementById('update-color') as HTMLInputElement;
-  const updateBtn = document.getElementById('update-submit') as HTMLButtonElement;
-  const updateForm = document.getElementById('update') as HTMLFormElement;
-  const winnersBtn = document.getElementById('winners-menu') as HTMLButtonElement;
-  const garageBtn = document.getElementById('garage-menu') as HTMLButtonElement;
-  const winnersView = document.getElementById('winners-view') as HTMLElement;
-  const garageView = document.getElementById('garage-view') as HTMLElement;
-  const btnPrev = document.getElementById('prev') as HTMLButtonElement;
-  const btnNext = document.getElementById('next') as HTMLButtonElement;
-  const btnGenerateCar = document.getElementById('generator') as HTMLButtonElement;
-  const raceBtn = document.getElementById('race') as HTMLButtonElement;
-  const raceResetBtn = document.getElementById('reset') as HTMLButtonElement;
-  const message = document.querySelector('.winner-message') as HTMLElement;
+  const garageCars = document.getElementById(selectors.garageCars) as HTMLElement;
+  const createNameInput = document.getElementById(selectors.createNameInput) as HTMLInputElement;
+  const createColorInput = document.getElementById(selectors.createColorInput) as HTMLInputElement;
+  const createForm = document.getElementById(selectors.createForm) as HTMLFormElement;
+  const updateNameInput = document.getElementById(selectors.updateNameInput) as HTMLInputElement;
+  const updateColorInput = document.getElementById(selectors.updateColorInput) as HTMLInputElement;
+  const updateBtn = document.getElementById(selectors.btnUpdate) as HTMLButtonElement;
+  const updateForm = document.getElementById(selectors.updateForm) as HTMLFormElement;
+  const winnersBtn = document.getElementById(selectors.btnWinners) as HTMLButtonElement;
+  const garageBtn = document.getElementById(selectors.btnGarage) as HTMLButtonElement;
+  const winnersView = document.getElementById(selectors.winnersView) as HTMLElement;
+  const garageView = document.getElementById(selectors.garageView) as HTMLElement;
+  const btnPrev = document.getElementById(selectors.btnPrev) as HTMLButtonElement;
+  const btnNext = document.getElementById(selectors.btnNext) as HTMLButtonElement;
+  const btnGenerateCar = document.getElementById(selectors.btnGenerateCar) as HTMLButtonElement;
+  const raceBtn = document.getElementById(selectors.btnRace) as HTMLButtonElement;
+  const raceResetBtn = document.getElementById(selectors.btnRaceReset) as HTMLButtonElement;
+  const message = document.getElementById(selectors.message) as HTMLElement;
 
 
   let selectedCar: ICar | null = null;

@@ -1,6 +1,22 @@
 export const selectors = {
-  prevButton: 'prev',
-  nextButton: 'next',
-  garageViewBtn: 'garage-menu-btn',
-  winnersViewBtn: 'winners-menu-btn'
+  btnPrev: 'prev',
+  btnNext: 'next',
+  btnGarageView: 'garage-menu',
+  btnWinnersView: 'winners-menu',
+  garageCars:'garage-cars',
+  createNameInput: 'create-name',
+  createColorInput:'create-color',
+  createForm: 'create',
+  updateNameInput: 'update-name',
+  updateColorInput: 'update-color',
+  btnUpdate: 'update-submit',
+  updateForm: 'update',
+  btnWinners: 'winners-menu',
+  btnGarage: 'garage-menu',
+  winnersView: 'winners-view',
+  garageView: 'garage-view',
+  btnGenerateCar: 'generator',
+  btnRace: 'race',
+  btnRaceReset: 'reset',
+  message: 'message'
 }
